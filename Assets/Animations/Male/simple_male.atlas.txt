@@ -1,0 +1,83 @@
+
+simple_male.png
+size: 329,115
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+simple_male/armL
+  rotate: false
+  xy: 301, 18
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+simple_male/armR
+  rotate: true
+  xy: 297, 43
+  size: 23, 29
+  orig: 23, 29
+  offset: 0, 0
+  index: -1
+simple_male/back
+  rotate: false
+  xy: 2, 8
+  size: 116, 105
+  orig: 116, 105
+  offset: 0, 0
+  index: -1
+simple_male/body
+  rotate: false
+  xy: 264, 68
+  size: 48, 45
+  orig: 48, 45
+  offset: 0, 0
+  index: -1
+simple_male/head
+  rotate: false
+  xy: 120, 36
+  size: 69, 77
+  orig: 69, 77
+  offset: 0, 0
+  index: -1
+simple_male/legL
+  rotate: true
+  xy: 264, 39
+  size: 27, 31
+  orig: 27, 31
+  offset: 0, 0
+  index: -1
+simple_male/legR
+  rotate: false
+  xy: 206, 2
+  size: 32, 35
+  orig: 32, 35
+  offset: 0, 0
+  index: -1
+simple_male/pauldronL
+  rotate: false
+  xy: 270, 7
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+simple_male/pauldronR
+  rotate: true
+  xy: 240, 5
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+simple_male/shadow
+  rotate: false
+  xy: 120, 7
+  size: 84, 27
+  orig: 84, 27
+  offset: 0, 0
+  index: -1
+simple_male/sword
+  rotate: false
+  xy: 191, 39
+  size: 71, 74
+  orig: 71, 74
+  offset: 0, 0
+  index: -1

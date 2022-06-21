@@ -1,0 +1,82 @@
+{
+"skeleton": {
+	"hash": "abE+dFM4IMR4sb1Sszs3Z10S8aU",
+	"spine": "3.8.99",
+	"x": -19.53,
+	"y": -8.19,
+	"width": 41,
+	"height": 17,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "explow", "parent": "root", "scaleX": 1.7789, "scaleY": 1.7789 }
+],
+"slots": [
+	{ "name": "banana/bullet", "bone": "bullet", "attachment": "banana/bullet" },
+	{ "name": "banana/explow/explow_0000", "bone": "explow" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"banana/bullet": {
+				"banana/bullet": { "x": 0.97, "y": 0.31, "width": 41, "height": 17 }
+			},
+			"banana/explow/explow_0000": {
+				"banana/explow/explow_0000": { "width": 33, "height": 32 },
+				"banana/explow/explow_0001": { "width": 33, "height": 32 },
+				"banana/explow/explow_0002": { "width": 33, "height": 32 },
+				"banana/explow/explow_0003": { "width": 33, "height": 32 },
+				"banana/explow/explow_0004": { "width": 33, "height": 32 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"banana/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"banana/explow/explow_0000": {
+				"attachment": [
+					{ "name": "banana/explow/explow_0000" },
+					{ "time": 0.0333, "name": "banana/explow/explow_0001" },
+					{ "time": 0.0667, "name": "banana/explow/explow_0002" },
+					{ "time": 0.1, "name": "banana/explow/explow_0003" },
+					{ "time": 0.1333, "name": "banana/explow/explow_0004" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"banana/bullet": {
+				"attachment": [
+					{ "name": "banana/bullet" }
+				]
+			},
+			"banana/explow/explow_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bullet": {
+				"scale": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1, "x": 1.263, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2 }
+				]
+			}
+		}
+	}
+}
+}

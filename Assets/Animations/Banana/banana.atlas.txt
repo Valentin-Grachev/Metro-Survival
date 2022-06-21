@@ -1,0 +1,244 @@
+
+banana.png
+size: 803,108
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+banana/bandana_back
+  rotate: true
+  xy: 763, 12
+  size: 39, 38
+  orig: 39, 38
+  offset: 0, 0
+  index: -1
+banana/body
+  rotate: true
+  xy: 107, 31
+  size: 75, 124
+  orig: 75, 124
+  offset: 0, 0
+  index: -1
+banana/bullet
+  rotate: false
+  xy: 488, 18
+  size: 41, 17
+  orig: 41, 17
+  offset: 0, 0
+  index: -1
+banana/explow/explow_0000
+  rotate: true
+  xy: 352, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+banana/explow/explow_0001
+  rotate: true
+  xy: 386, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+banana/explow/explow_0002
+  rotate: true
+  xy: 420, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+banana/explow/explow_0003
+  rotate: true
+  xy: 454, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+banana/explow/explow_0004
+  rotate: true
+  xy: 318, 2
+  size: 33, 32
+  orig: 33, 32
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0000
+  rotate: false
+  xy: 288, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0001
+  rotate: false
+  xy: 343, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0002
+  rotate: false
+  xy: 398, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0003
+  rotate: false
+  xy: 453, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0004
+  rotate: false
+  xy: 508, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0005
+  rotate: false
+  xy: 563, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0006
+  rotate: false
+  xy: 618, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0007
+  rotate: false
+  xy: 673, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0008
+  rotate: false
+  xy: 728, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/explow2/explow2_0009
+  rotate: false
+  xy: 233, 53
+  size: 53, 53
+  orig: 53, 53
+  offset: 0, 0
+  index: -1
+banana/gun_1
+  rotate: false
+  xy: 531, 13
+  size: 58, 38
+  orig: 58, 38
+  offset: 0, 0
+  index: -1
+banana/gun_2
+  rotate: false
+  xy: 591, 13
+  size: 58, 38
+  orig: 58, 38
+  offset: 0, 0
+  index: -1
+banana/gun_3
+  rotate: false
+  xy: 651, 13
+  size: 54, 38
+  orig: 54, 38
+  offset: 0, 0
+  index: -1
+banana/gun_4
+  rotate: false
+  xy: 707, 13
+  size: 54, 38
+  orig: 54, 38
+  offset: 0, 0
+  index: -1
+banana/l_hand
+  rotate: false
+  xy: 226, 4
+  size: 42, 9
+  orig: 42, 9
+  offset: 0, 0
+  index: -1
+banana/l_leg
+  rotate: true
+  xy: 488, 2
+  size: 14, 31
+  orig: 14, 31
+  offset: 0, 0
+  index: -1
+banana/r_hand
+  rotate: true
+  xy: 280, 5
+  size: 30, 36
+  orig: 30, 36
+  offset: 0, 0
+  index: -1
+banana/r_leg
+  rotate: true
+  xy: 193, 4
+  size: 25, 31
+  orig: 25, 31
+  offset: 0, 0
+  index: -1
+banana/shadow
+  rotate: false
+  xy: 107, 2
+  size: 84, 27
+  orig: 84, 27
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0000
+  rotate: false
+  xy: 226, 15
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0001
+  rotate: false
+  xy: 233, 37
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0002
+  rotate: false
+  xy: 287, 37
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0003
+  rotate: false
+  xy: 341, 37
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0004
+  rotate: false
+  xy: 395, 37
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/shot/shot_0005
+  rotate: false
+  xy: 449, 37
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+banana/spean
+  rotate: false
+  xy: 2, 3
+  size: 103, 103
+  orig: 103, 103
+  offset: 0, 0
+  index: -1
