@@ -12,6 +12,12 @@ public abstract class Bullet : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    protected virtual void Update()
+    {
+        // ѕул€ всегда смотрит в направлении своей скорости
+        transform.right = rb.velocity;
+    }
+
 
     protected abstract void OnTriggerEnter2D(Collider2D collider);
 

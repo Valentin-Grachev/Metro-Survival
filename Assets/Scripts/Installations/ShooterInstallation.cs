@@ -4,11 +4,11 @@ using UnityEngine;
 public abstract class ShooterInstallation : Installation
 {
     [SerializeField] protected Team _team;
-    [SerializeField] protected Transform _directionBone;
-    [SerializeField] protected Transform _shotPoint;
+    public DirectionBone directionBone { get; protected set; }
+    [SerializeField] protected Transform _shotPoint; public Transform shotPoint { get => _shotPoint;}
     [SerializeField] protected GameObject _bullet;
-    [SerializeField] protected float _detectionRadius;
-    [SerializeField] protected LayerMask _enemyLayer;
+    [SerializeField] protected float _detectionRadius; public float detectionRadius { get => _detectionRadius; }
+    [SerializeField] protected LayerMask _enemyLayer; public LayerMask enemyLayer { get => _enemyLayer; }
     [SerializeField] protected float _attackSpeed;
     public float attackSpeed
     {
@@ -16,14 +16,15 @@ public abstract class ShooterInstallation : Installation
         set
         {
             _attackSpeed = value;
-            _animator.SetFloat("AttackSpeed", value);
+            animator.SetFloat("AttackSpeed", value);
         }
     }
 
     protected Transform _target;
 
+
     protected const float scanInterval = 0.3f;
-    
+    protected const float turningSpeed = 10f;
 
 
     public abstract void Shoot();
@@ -34,23 +35,24 @@ public abstract class ShooterInstallation : Installation
         base.Start();
         attackSpeed = attackSpeed;
         StartCoroutine(SearchTarget());
+        directionBone = GetComponent<DirectionBone>();
     }
 
     protected override void Update()
-   {
+    {
         base.Update();
         if (_target != null)
         {
-            Library.LookAtTarget2D(_directionBone, _target.position);
-            _animator.SetBool("Attack", true);
+            directionBone.direction = ((Vector2)_target.position - directionBone.bonePosition).normalized;
+            animator.SetBool("Attack", true);
         }
         else
         {
-            _animator.SetBool("Attack", false);
+            animator.SetBool("Attack", false);
         }
         
 
-   }
+    }
 
 
 

@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class LinearOneTargetBullet : Bullet
+public class OneTarget_Bullet : Bullet
 {
     [HideInInspector] public int damage;
 
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         // Попали во вражеского миньона
-        if (collider.transform.parent.TryGetComponent(out Minion minion))
+        if (collider.transform.parent.TryGetComponent(out Minion minion) && minion.team != team)
         {
-            if (minion.team != team) minion.health -= damage;
+            minion.health -= damage;
         }
         // Взрыв при любом попадании в коллайдер для пуль
         _animator.SetTrigger("Collision");

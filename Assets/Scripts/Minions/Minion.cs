@@ -27,10 +27,10 @@ public abstract class Minion : DestroyableObject
         }
     }
 
-
-
     public int damage;
     public Transform destination;
+
+
 
 
 
@@ -38,6 +38,7 @@ public abstract class Minion : DestroyableObject
     public Rigidbody2D rigidbody { get; protected set; }
     public DestroyableObject target { get; protected set; }
     public SkeletonMecanim mecanim { get; protected set; }
+
 
 
 

@@ -11,9 +11,9 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
     public override void Shoot()
     {
         if (_target == null) return;
-        LinearOneTargetBullet bullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<LinearOneTargetBullet>();
+        OneTarget_Bullet bullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<OneTarget_Bullet>();
 
-        Library.LookAtTarget2D(bullet.transform, _target.position);
+
         bullet.rb = bullet.gameObject.GetComponent<Rigidbody2D>();
         bullet.rb.velocity = (_target.position - transform.position).normalized * _linearSpeed;
         bullet.team = _team;

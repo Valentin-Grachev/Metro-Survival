@@ -29,11 +29,18 @@ public static class Library
     }
 
 
-    public static void LookAtTarget2D(Transform transform, Vector2 target)
+    // Расчет стартовой скорости, чтобы пуля попала в цель при заданном угле
+    public static float GetStartSpeedForBallisticBullet(Vector2 startPosition, Vector2 destination, float launchAngleInDegrees, float gravityScale)
     {
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y,
-            Mathf.Atan2(target.y - transform.position.y, target.x - transform.position.x) * Mathf.Rad2Deg);
+        float g = Physics2D.gravity.y * gravityScale;
+        float x = destination.x - startPosition.x;
+        float y = destination.y - startPosition.y;
+        float radAngle = launchAngleInDegrees * Mathf.PI / 180f;
+        return Mathf.Sqrt(Mathf.Abs((g * x * x) / (2f * (y - Mathf.Tan(radAngle) * x) * Mathf.Pow(Mathf.Cos(radAngle), 2))));
     }
+
+
+
 
 
 

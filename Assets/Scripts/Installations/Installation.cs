@@ -2,12 +2,12 @@ using UnityEngine;
 
 public abstract class Installation : MonoBehaviour
 {
-    protected Animator _animator;
+    public Animator animator { get; protected set; }
 
 
     protected virtual void Start() 
     { 
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Update() { }
