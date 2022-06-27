@@ -16,21 +16,22 @@ public abstract class ControlledAbility : ShooterInstallationAbility
         set
         {
             Vector2 newDestination = new Vector2(value.x, value.y);
-            if (destination.x < transform.position.x + _minDistance) newDestination.x = transform.position.x + _minDistance;
-            else if (destination.x > transform.position.x + _maxDistance) newDestination.x = transform.position.x + _maxDistance;
+            if (newDestination.x < transform.position.x + _minDistance) newDestination.x = transform.position.x + _minDistance;
+            else if (newDestination.x > transform.position.x + _maxDistance) newDestination.x = transform.position.x + _maxDistance;
             _destination = newDestination;
         }
     }
 
 
     // Подписка на событие (функция вызывается через нажатие кнопки)
-    public void Subscribe()
+    public void EnableControl()
     {
         AbilityDestination.instance.onDestination += OnDestination_AbilityDestination;
         AbilityDestination.instance.maxDistance = _maxDistance;
         AbilityDestination.instance.minDistance = _minDistance;
         AbilityDestination.instance.startPosition = transform.position;
         AbilityDestination.instance.aim = _aim;
+        AbilityDestination.instance.enabled = true;
     }
 
     private void OnDestination_AbilityDestination(Vector2 destination)

@@ -35,6 +35,8 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     public override void Enable()
     {
         base.Enable();
+        timeUntilRecharge = _rechargeTime;
+
         Vector2 newDirection = Quaternion.Euler(0f, 0f, _startAngleInDegrees) *Vector3.right;
         _installation.directionBone.direction = newDirection;
     }

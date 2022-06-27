@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wall_Ability : ControlledAbility
@@ -11,9 +9,11 @@ public class Wall_Ability : ControlledAbility
 
     public override void Active()
     {
+        timeUntilRecharge = _rechargeTime;
         TempDestroybleObject wall = Instantiate(_wall, destination + (Vector2)_wall.transform.position, Quaternion.identity).GetComponent<TempDestroybleObject>();
         wall.timeUntilDestroy = _duration;
         wall.maxTimeUntilDestroy = _duration;
+        NavMeshRebaker.instance.Rebake();
     }
 
     public override void Enable() => Active();

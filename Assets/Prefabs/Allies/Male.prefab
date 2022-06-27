@@ -1345,8 +1345,9 @@ GameObject:
   - component: {fileID: 626354154483988627}
   - component: {fileID: 626354154483988626}
   - component: {fileID: 626354154483988625}
-  - component: {fileID: 626354154483988628}
   - component: {fileID: 1689052056443211547}
+  - component: {fileID: 4968298569072740997}
+  - component: {fileID: 475401950}
   m_Layer: 6
   m_Name: Male
   m_TagString: Untagged
@@ -1431,7 +1432,7 @@ Animator:
   m_GameObject: {fileID: 7397646884163445234}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa006779aa2a8bf40adf58e2a659b511, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4f0c6e4159e64144db3aaf32539bb606, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1560,25 +1561,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &626354154483988628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7397646884163445234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d719586c7703cc249af037247bda194b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team: 0
-  _maxHealth: 20
-  _health: 20
-  _moveSpeed: 2
-  _attackSpeed: 1.5
-  damage: 7
-  destination: {fileID: 0}
 --- !u!114 &1689052056443211547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,6 +1574,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 15
+--- !u!195 &4968298569072740997
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397646884163445234}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.31
+  m_Speed: 3.5
+  m_Acceleration: 1000
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.36
+  m_BaseOffset: 0.2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &475401950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397646884163445234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc37d4c9d0bf7b248850e8d9789ce416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+  _maxHealth: 20
+  _health: 20
+  _moveSpeed: 2
+  _attackSpeed: 1.5
+  damage: 7
+  _destination: {fileID: 0}
 --- !u!1 &8583780374532658670
 GameObject:
   m_ObjectHideFlags: 0

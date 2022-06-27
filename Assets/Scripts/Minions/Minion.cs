@@ -7,7 +7,7 @@ public abstract class Minion : DestroyableObject
     //====== Изменяемые характеристики ======
 
     [SerializeField] protected float _moveSpeed;
-    public float moveSpeed 
+    public virtual float moveSpeed 
     {
         get => _moveSpeed;
         set
@@ -28,7 +28,10 @@ public abstract class Minion : DestroyableObject
     }
 
     public int damage;
-    public Transform destination;
+    [SerializeField] protected bool _backDistract;
+
+    [SerializeField] protected Transform _destination;
+    public virtual Transform destination { get => _destination; set => _destination = value; }
 
 
 
@@ -64,6 +67,8 @@ public abstract class Minion : DestroyableObject
     {
         base.Update();
 
+        // TODO: Сделать через события
+
         if (target == null) animator.SetBool("Attacking", false);
         else animator.SetBool("Attacking", true);
 
@@ -75,17 +80,19 @@ public abstract class Minion : DestroyableObject
 
 
     // Враг вошел в зону ближнего боя, при этом миньон до этого не бил по другому врагу
-    private void OnTriggerStay2D(Collider2D collision)
+    // TODO: переделать на OverlapBox
+    protected virtual void OnTriggerStay2D(Collider2D collider)
     {
-        if (collision.transform.TryGetComponent(out DestroyableObject enemyObject) && enemyObject.team != team && target == null)
+        if (collider.transform.TryGetComponent(out DestroyableObject enemyObject) && enemyObject.team != team && target == null)
         {
+            if (!_backDistract && transform.position.x < collider.transform.position.x) return;
             target = enemyObject;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.transform.TryGetComponent(out Minion minion) && minion == target)
+        if (collider.transform.TryGetComponent(out Minion minion) && minion == target)
             target = null;
     }
 

@@ -5,8 +5,7 @@ public class SearchEnemies : MonoBehaviour
     [SerializeField] private float _radius;
 
     private Minion _minion;
-    private float _timeUntilNewScan = scanInterval;
-    private const float scanInterval = 0.5f;
+    private float _timeUntilNewScan = Constants.scanInterval;
 
     private void Start()
     {
@@ -19,7 +18,7 @@ public class SearchEnemies : MonoBehaviour
         _timeUntilNewScan -= Time.deltaTime;
         if (_timeUntilNewScan <= 0)
         {
-            _timeUntilNewScan = scanInterval;
+            _timeUntilNewScan = Constants.scanInterval;
 
             // Поиск новой ближайшей цели
             if (_minion.destination == null)

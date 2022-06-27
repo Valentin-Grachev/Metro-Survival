@@ -19,12 +19,22 @@ public abstract class ShooterInstallation : Installation
             animator.SetFloat("AttackSpeed", value);
         }
     }
+    [Min(0f)][SerializeField] protected float _shootingDeviation;
 
     protected Transform _target;
+    protected Vector2 arrivalPoint
+    { 
+        get
+        {
+            Rigidbody2D rb = _target.GetComponent<Rigidbody2D>();
+            Vector2 predictionPosition = Library.GetTargetPositionWithPrediction(_target.position, rb.velocity, Vector2.Distance(transform.position, _target.position));
+            predictionPosition.x += Random.Range(-_shootingDeviation, _shootingDeviation);
+            predictionPosition.y += Random.Range(-_shootingDeviation, _shootingDeviation);
+            return predictionPosition;
+        }
 
+    }
 
-    protected const float scanInterval = 0.3f;
-    protected const float turningSpeed = 10f;
 
 
     public abstract void Shoot();
@@ -62,7 +72,7 @@ public abstract class ShooterInstallation : Installation
         while (true)
         {
             if (_target == null) _target = Library.SearchNearest(transform.position, _detectionRadius, _enemyLayer);
-            yield return new WaitForSeconds(scanInterval);
+            yield return new WaitForSeconds(Constants.scanInterval);
         }
     }
 
@@ -74,6 +84,8 @@ public abstract class ShooterInstallation : Installation
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, _detectionRadius);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position + new Vector3(3f, 1f, 0f),  new Vector3(2*_shootingDeviation, 2*_shootingDeviation, 0f));
     }
 
 

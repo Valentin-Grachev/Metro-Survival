@@ -8,6 +8,7 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
     [SerializeField] protected float _linearSpeed;
     [SerializeField] protected int _damage;
 
+
     public override void Shoot()
     {
         if (_target == null) return;
@@ -15,7 +16,8 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
 
 
         bullet.rb = bullet.gameObject.GetComponent<Rigidbody2D>();
-        bullet.rb.velocity = (_target.position - transform.position).normalized * _linearSpeed;
+
+        bullet.rb.velocity = (arrivalPoint - (Vector2)transform.position).normalized * _linearSpeed;
         bullet.team = _team;
         bullet.damage = _damage;
 

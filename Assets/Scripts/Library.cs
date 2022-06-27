@@ -40,7 +40,11 @@ public static class Library
     }
 
 
-
+    public static Vector2 GetTargetPositionWithPrediction(Vector2 targetPosition, Vector2 targetVelocity, float distance)
+    {
+        float gainPrediction = distance / Constants.distancePrediction;
+        return targetPosition + targetVelocity * gainPrediction;
+    }
 
 
 

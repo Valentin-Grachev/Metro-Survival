@@ -2,24 +2,28 @@ using UnityEngine;
 
 public abstract class ShooterInstallationAbility : MonoBehaviour
 {
+    public delegate void OnUpdateRechargeTime(float time, float maxTime);
+    public event OnUpdateRechargeTime onUpdateRechargeTime;
+
     [SerializeField] protected float _rechargeTime;
+    
 
 
 
     protected ShooterInstallation _installation;
-    protected float _timeUntilRecharge;
-
+    private float _timeUntilRecharge;
+    protected float timeUntilRecharge { get => _timeUntilRecharge; set { _timeUntilRecharge = value; onUpdateRechargeTime?.Invoke(value, _rechargeTime); } }
 
 
     protected virtual void Start()
     {
         _installation = GetComponent<ShooterInstallation>();
-        _timeUntilRecharge = _rechargeTime;
+        timeUntilRecharge = _rechargeTime;
     }
 
     protected virtual void Update()
     {
-        _timeUntilRecharge -= Time.deltaTime;
+        timeUntilRecharge -= Time.deltaTime;
     }
 
 
