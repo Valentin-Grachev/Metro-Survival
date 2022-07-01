@@ -1,0 +1,73 @@
+{
+"skeleton": {
+	"hash": "5KzxlJ9PuDtfUzWOXxZM8Kn7OB8",
+	"spine": "3.8.99",
+	"x": -5.35,
+	"y": -3.12,
+	"width": 13,
+	"height": 6.5,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root" }
+],
+"slots": [
+	{ "name": "simple_male/sparks/sparks_0000", "bone": "sparks" },
+	{ "name": "simple_male/bullet", "bone": "bullet", "attachment": "simple_male/bullet" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"simple_male/bullet": {
+				"simple_male/bullet": { "x": 1.15, "y": 0.13, "scaleX": 0.5, "scaleY": 0.5, "width": 26, "height": 13 }
+			},
+			"simple_male/sparks/sparks_0000": {
+				"simple_male/sparks/sparks_0000": { "x": 0.51, "y": -2.02, "width": 73, "height": 66 },
+				"simple_male/sparks/sparks_0001": { "x": 0.51, "y": -2.02, "width": 73, "height": 66 },
+				"simple_male/sparks/sparks_0002": { "x": 0.51, "y": -2.02, "width": 73, "height": 66 },
+				"simple_male/sparks/sparks_0003": { "x": 0.51, "y": -2.02, "width": 73, "height": 66 },
+				"simple_male/sparks/sparks_0004": { "x": 0.51, "y": -2.02, "width": 73, "height": 66 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"simple_male/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"simple_male/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": "simple_male/sparks/sparks_0000" },
+					{ "time": 0.0333, "name": "simple_male/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "simple_male/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "simple_male/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": "simple_male/sparks/sparks_0004" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"simple_male/bullet": {
+				"attachment": [
+					{ "name": "simple_male/bullet" }
+				]
+			},
+			"simple_male/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}

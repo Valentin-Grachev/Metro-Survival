@@ -4,10 +4,14 @@ public static class Constants
 {
     // ¬рем€ между сканировани€ми стрелками и милишниками пространства в поисках врага
     // ¬ражеские милишники, движущиес€ только по пр€мой, не сканируют пространство.
-    public const float scanInterval = 0.3f;
+    public const float scanInterval = 0.15f;
 
     // ƒистанци€, на которой стрельба производитс€ по позиции: позици€ врага + его скорость.
-    public const float distancePrediction = 12f; 
+    public const float distancePrediction = 12f;
+
+    // »з-за того, что происходит проверка у миньонов на дос€гаемость по позиции, а не по коллайдеру
+    // необходимо ввести некоторый бонус дос€гаемости по позиции.
+    public const float bonusReachByPosition = 0.3f;
 
 
 }

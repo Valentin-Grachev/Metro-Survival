@@ -1,11 +1,12 @@
-
-
 using UnityEngine;
+
+
+public enum Overlap { Circle, Box}
 
 public static class Library
 {
 
-    public static Transform SearchNearest(Vector3 center, float radius, LayerMask layerMask)
+    public static Transform SearchNearestCircle(Vector2 center, float radius, LayerMask layerMask)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(center, radius, layerMask.value);
 
@@ -22,6 +23,34 @@ public static class Library
         return result;
     }
 
+    public static Transform SearchNearestBox(Vector2 center, Vector2 size, LayerMask layerMask)
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, 0f, layerMask.value);
+
+        Transform result = null;
+        float minDistance = 10000f;
+        foreach (var item in colliders)
+        {
+            MonoBehaviour.print(item);
+            if (Vector2.Distance(center, item.transform.position) < minDistance)
+            {
+                minDistance = Vector2.Distance(center, item.transform.position);
+                result = item.transform;
+            }
+        }
+        return result;
+    }
+
+    public static bool SearchTransformInScanningBox(Transform search, Vector2 center, Vector2 size, LayerMask layerMask)
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, 0f, layerMask.value);
+        foreach (var item in colliders)
+            if (search == item.transform) return true;
+
+        return false;
+    }
+
+
 
     public static bool CompareLayer(int layerNumber, LayerMask layerMask)
     {
@@ -29,7 +58,6 @@ public static class Library
     }
 
 
-    // Расчет стартовой скорости, чтобы пуля попала в цель при заданном угле
     public static float GetStartSpeedForBallisticBullet(Vector2 startPosition, Vector2 destination, float launchAngleInDegrees, float gravityScale)
     {
         float g = Physics2D.gravity.y * gravityScale;

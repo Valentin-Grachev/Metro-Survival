@@ -1,0 +1,84 @@
+{
+"skeleton": {
+	"hash": "9Q724DghvwprMLr3SnPLeIF9qj4",
+	"spine": "3.8.99",
+	"x": -30.39,
+	"y": -7.7,
+	"width": 69,
+	"height": 15,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root" }
+],
+"slots": [
+	{ "name": "builder/nail", "bone": "bullet", "attachment": "builder/nail" },
+	{ "name": "builder/sparks/sparks_0000", "bone": "sparks" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"builder/nail": {
+				"builder/nail": { "x": 4.11, "y": -0.2, "width": 69, "height": 15 }
+			},
+			"builder/sparks/sparks_0000": {
+				"builder/sparks/sparks_0000": { "width": 67, "height": 58 },
+				"builder/sparks/sparks_0001": { "width": 67, "height": 58 },
+				"builder/sparks/sparks_0002": { "width": 67, "height": 58 },
+				"builder/sparks/sparks_0003": { "width": 67, "height": 58 },
+				"builder/sparks/sparks_0004": { "width": 67, "height": 58 },
+				"builder/sparks/sparks_0005": { "width": 67, "height": 58 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"builder/nail": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"builder/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": "builder/sparks/sparks_0000" },
+					{ "time": 0.0333, "name": "builder/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "builder/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "builder/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": "builder/sparks/sparks_0004" },
+					{ "time": 0.1667, "name": "builder/sparks/sparks_0005" },
+					{ "time": 0.2, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"builder/nail": {
+				"attachment": [
+					{ "name": "builder/nail" }
+				]
+			},
+			"builder/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bullet": {
+				"scale": [
+					{},
+					{ "time": 0.0667, "x": 1.093 },
+					{ "time": 0.1333 }
+				]
+			}
+		}
+	}
+}
+}

@@ -788,15 +788,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 4241535850972909349}
-  _bullet: {fileID: 8779109405660954443, guid: 3a4fd8a00c951a2489ed7457d0d94ec1, type: 3}
+  bullet: {fileID: 8779109405660954443, guid: 3a4fd8a00c951a2489ed7457d0d94ec1, type: 3}
   _detectionRadius: 15
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _attackSpeed: 1.5
   _shootingDeviation: 0
+  damage: 0
   _linearSpeed: 10
-  _damage: 1
 --- !u!114 &1822835231712336180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,8 +823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44c04fcaa7abdb4eac2e35b6eb9743d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rechargeTime: 7
-  _minDistance: 5
+  _rechargeTime: 2
+  _minDistance: 3
   _maxDistance: 17
   _aim: {fileID: 1651478000503849817, guid: 64bf34c740109d548bbb2784ac3606c3, type: 3}
   _wall: {fileID: 1660320013441022679, guid: f4b2305bca8a0ba4980464a47f9740e2, type: 3}

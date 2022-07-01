@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Simple_male_BulletAbility
+  m_Controller: {fileID: 9100000, guid: 7b79bc0ef2711364fa2ac718ad7a647d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -387270811222792465, guid: 7b79bc0ef2711364fa2ac718ad7a647d, type: 2}
+    m_OverrideClip: {fileID: 8273510782177360696, guid: 1daa55875c7677a448f34eeedb0b5337, type: 2}
+  - m_OriginalClip: {fileID: -4186730114087948191, guid: 7b79bc0ef2711364fa2ac718ad7a647d, type: 2}
+    m_OverrideClip: {fileID: -375108998793971810, guid: 1daa55875c7677a448f34eeedb0b5337, type: 2}

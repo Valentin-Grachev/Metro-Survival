@@ -6,7 +6,7 @@ public abstract class ShooterInstallation : Installation
     [SerializeField] protected Team _team;
     public DirectionBone directionBone { get; protected set; }
     [SerializeField] protected Transform _shotPoint; public Transform shotPoint { get => _shotPoint;}
-    [SerializeField] protected GameObject _bullet;
+    public GameObject bullet;
     [SerializeField] protected float _detectionRadius; public float detectionRadius { get => _detectionRadius; }
     [SerializeField] protected LayerMask _enemyLayer; public LayerMask enemyLayer { get => _enemyLayer; }
     [SerializeField] protected float _attackSpeed;
@@ -34,7 +34,7 @@ public abstract class ShooterInstallation : Installation
         }
 
     }
-
+    public int damage;
 
 
     public abstract void Shoot();
@@ -71,7 +71,7 @@ public abstract class ShooterInstallation : Installation
     {
         while (true)
         {
-            if (_target == null) _target = Library.SearchNearest(transform.position, _detectionRadius, _enemyLayer);
+            if (_target == null) _target = Library.SearchNearestCircle(transform.position, _detectionRadius, _enemyLayer);
             yield return new WaitForSeconds(Constants.scanInterval);
         }
     }

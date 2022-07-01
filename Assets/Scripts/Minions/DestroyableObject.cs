@@ -21,8 +21,8 @@ public class DestroyableObject : MonoBehaviour
     //====== Настраиваемые характеристики ======
 
     [SerializeField] protected Team _team; public Team team { get => _team; }
-    [SerializeField] protected int _maxHealth; public int maxHealth { get => _maxHealth; }
-    [SerializeField] protected int _health;
+    [SerializeField] protected int _maxHealth; public int maxHealth { get => _maxHealth; set => _maxHealth = value; }
+    protected int _health;
     public int health
     {
         get => _health;
@@ -44,6 +44,8 @@ public class DestroyableObject : MonoBehaviour
 
     protected virtual void Start() 
     {
+        animator = GetComponent<Animator>();
+        health = maxHealth;
         isDeath = false;
     }
 

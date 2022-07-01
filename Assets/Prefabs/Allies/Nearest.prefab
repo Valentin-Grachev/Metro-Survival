@@ -1272,15 +1272,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 7005201404440856655}
-  _bullet: {fileID: 8779109405660954443, guid: 3a4fd8a00c951a2489ed7457d0d94ec1, type: 3}
+  bullet: {fileID: 8779109405660954443, guid: 3a4fd8a00c951a2489ed7457d0d94ec1, type: 3}
   _detectionRadius: 18
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _attackSpeed: 1.5
   _shootingDeviation: 0.5
+  damage: 0
   _linearSpeed: 10
-  _damage: 1
 --- !u!114 &4802962635774959198
 MonoBehaviour:
   m_ObjectHideFlags: 0

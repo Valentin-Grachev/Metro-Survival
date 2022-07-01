@@ -1342,7 +1342,6 @@ GameObject:
   - component: {fileID: 8586831210470399893}
   - component: {fileID: 6139627260779878904}
   - component: {fileID: 7298021782729412323}
-  - component: {fileID: 626354154483988627}
   - component: {fileID: 626354154483988626}
   - component: {fileID: 626354154483988625}
   - component: {fileID: 1689052056443211547}
@@ -1508,22 +1507,6 @@ MonoBehaviour:
   flipBy180DegreeRotation: 0
   skeletonRenderer: {fileID: 8586831210470399893}
   skeletonGraphic: {fileID: 0}
---- !u!70 &626354154483988627
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7397646884163445234}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.7, y: 0.5}
-  m_Direction: 1
 --- !u!70 &626354154483988626
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1610,10 +1593,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _maxHealth: 20
-  _health: 20
   _moveSpeed: 2
   _attackSpeed: 1.5
   damage: 7
+  _backDistract: 0
+  _areaAttack: {x: 1.7, y: 0.8}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   _destination: {fileID: 0}
 --- !u!1 &8583780374532658670
 GameObject:
