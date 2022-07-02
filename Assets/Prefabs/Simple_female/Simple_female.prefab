@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 1470726401038687430}
   - component: {fileID: 4033507007682455512}
   - component: {fileID: 1470726401038687482}
+  - component: {fileID: 3533075545046631225}
   m_Layer: 0
   m_Name: Simple_female
   m_TagString: Untagged
@@ -405,7 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 6839191590823848761}
-  bullet: {fileID: 7342493901853865275, guid: 7a077bf4b3fe7ea4a8687e66213f6a57, type: 3}
   _detectionRadius: 18
   _enemyLayer:
     serializedVersion: 2
@@ -449,6 +449,20 @@ MonoBehaviour:
   _shotPoint: {fileID: 6839191590823848761}
   _damage: 30
   _damageRadius: 2
+--- !u!114 &3533075545046631225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470726401038687438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62be08ae20ab984ea77f81eca041a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3341268982619562907, guid: 7a077bf4b3fe7ea4a8687e66213f6a57, type: 3}
+  _startCapacity: 7
 --- !u!1 &1470726401053849591
 GameObject:
   m_ObjectHideFlags: 0

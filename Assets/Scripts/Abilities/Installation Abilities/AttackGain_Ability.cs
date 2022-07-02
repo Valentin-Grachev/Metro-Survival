@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class AttackGain_Ability : ShooterInstallationAbility
 {
-    [SerializeField] protected GameObject _bullet;
+    [SerializeField] protected PoolObject _bullet;
     [SerializeField] protected float _duration;
     [SerializeField] protected float _damageGainPercentage;
     [SerializeField] protected float _speedAttackGainPercentage;
 
     protected float _speedBonus;
     protected int _damageBonus;
-    protected GameObject _usualBullet;
+    protected PoolObject _usualBullet;
 
     public override void Enable()
     {

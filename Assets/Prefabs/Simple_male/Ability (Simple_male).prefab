@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 879484751813072489}
   - component: {fileID: 6708006194012558765}
   m_Layer: 8
-  m_Name: BulletAbility (Simple_male)
+  m_Name: Ability (Simple_male)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

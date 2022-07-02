@@ -3,8 +3,7 @@
 public static class Constants
 {
     // Время между сканированиями стрелками и милишниками пространства в поисках врага
-    // Вражеские милишники, движущиеся только по прямой, не сканируют пространство.
-    public const float scanInterval = 0.15f;
+    public const float scanInterval = 0.6f;
 
     // Дистанция, на которой стрельба производится по позиции: позиция врага + его скорость.
     public const float distancePrediction = 12f;

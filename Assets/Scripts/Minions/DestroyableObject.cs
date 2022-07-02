@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -28,7 +26,14 @@ public class DestroyableObject : MonoBehaviour
         get => _health;
         set
         {
-            if (value <= 0) { _health = 0; isDeath = true; onDeath?.Invoke(); Destroy(gameObject); }
+            if (value <= 0) 
+            { 
+                // Смерть
+                _health = 0;
+                isDeath = true;
+                onDeath?.Invoke();
+                _poolObject.ReturnToPool();
+            }
             else if (value > _maxHealth) _health = _maxHealth;
             else _health = value;
             onHealthChanged?.Invoke(_health, _maxHealth);
@@ -42,11 +47,21 @@ public class DestroyableObject : MonoBehaviour
 
 
 
-    protected virtual void Start() 
+    private PoolObject _poolObject;
+
+
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+
+    protected virtual void Start() 
+    {
+        
         health = maxHealth;
         isDeath = false;
+        _poolObject = GetComponent<PoolObject>();
     }
 
     protected virtual void Update() { }

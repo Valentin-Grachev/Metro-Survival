@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1423258768395237299}
   - component: {fileID: 3481452736307612845}
   - component: {fileID: 3481452736307612842}
+  - component: {fileID: 4146541294075148339}
   m_Layer: 0
   m_Name: Builder
   m_TagString: Untagged
@@ -192,7 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 2962409974383194904}
-  bullet: {fileID: 6123630237376247942, guid: 5c9735841a9348c4c80929c42b271468, type: 3}
   _detectionRadius: 18
   _enemyLayer:
     serializedVersion: 2
@@ -233,6 +233,20 @@ MonoBehaviour:
   _aim: {fileID: 1651478000503849817, guid: 64bf34c740109d548bbb2784ac3606c3, type: 3}
   _wall: {fileID: 1587127583918956034, guid: b650363ab98ca0741a8923d8d474fe6f, type: 3}
   _duration: 10
+--- !u!114 &4146541294075148339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423258768395237307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62be08ae20ab984ea77f81eca041a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8476655566741150517, guid: 5c9735841a9348c4c80929c42b271468, type: 3}
+  _startCapacity: 2
 --- !u!1 &2962409974178152099
 GameObject:
   m_ObjectHideFlags: 0

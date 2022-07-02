@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6759056988824889428}
   - component: {fileID: 5689863029596956684}
   - component: {fileID: 4130661153896754142}
+  - component: {fileID: 3341268982619562907}
   m_Layer: 8
   m_Name: Bullet (Simple_female)
   m_TagString: Untagged
@@ -333,3 +334,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &3341268982619562907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342493901853865275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688c3a966739f664297d38e3a843bc42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

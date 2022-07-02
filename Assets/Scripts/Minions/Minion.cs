@@ -14,7 +14,7 @@ public abstract class Minion : DestroyableObject
         set
         {
             _moveSpeed = value;
-            animator.SetFloat("MoveSpeed", value* moveAnimationCoeff);
+            animator.SetFloat("MoveSpeed", value * moveAnimationCoeff);
         }
     }
     [SerializeField] protected float _attackSpeed;
@@ -33,16 +33,35 @@ public abstract class Minion : DestroyableObject
     [SerializeField] protected Vector2 _areaAttack;
     [SerializeField] protected LayerMask _enemyLayer;
 
-    [SerializeField] protected Transform _destination;
-    public virtual Transform destination { get => _destination; set => _destination = value; }
-
-
-
+    protected Transform _destination;
+    
 
 
     //====== Свойства ======
     public Rigidbody2D rigidbody { get; protected set; }
-    public DestroyableObject _attackedTarget { get; protected set; }
+    protected DestroyableObject _attackedTarget;
+    public DestroyableObject attackedTarget
+    {
+        get => _attackedTarget;
+        protected set
+        {
+            _attackedTarget = value;
+            if (_attackedTarget == null) animator.SetBool("Attacking", false);
+            else animator.SetBool("Attacking", true);
+        }
+    }
+
+    public virtual Transform destination 
+    { 
+        get => _destination;
+        set
+        {
+            _destination = value;
+            if (_destination == null) animator.SetBool("Move", false);
+            else animator.SetBool("Move", true);
+        }
+        
+    }
     public SkeletonMecanim mecanim { get; protected set; }
 
 
@@ -52,6 +71,16 @@ public abstract class Minion : DestroyableObject
     public const float moveAnimationCoeff = 0.5f; // Скорость анимации ходьбы при скорости, равной 1
 
 
+    // Активация из пула - восстановление исходных данных
+    
+    private void OnEnable()
+    {
+        // Стартовая обработка свойств
+        moveSpeed = moveSpeed;
+        attackSpeed = attackSpeed;
+        attackedTarget = null;
+        _destination = null;
+    }
 
 
     protected override void Start()
@@ -68,19 +97,7 @@ public abstract class Minion : DestroyableObject
         StartCoroutine(ScanningForAttack());
     }
 
-    protected override void Update()
-    {
-        base.Update();
 
-        // TODO: Сделать через события
-
-        if (_attackedTarget == null) animator.SetBool("Attacking", false);
-        else animator.SetBool("Attacking", true);
-
-        if (destination == null) animator.SetBool("Move", false);
-        else animator.SetBool("Move", true);
-
-    }
 
 
     IEnumerator ScanningForAttack()
@@ -88,18 +105,17 @@ public abstract class Minion : DestroyableObject
         while(true)
         {
             // Если цели нет - ищем ее
-            if (_attackedTarget == null)
+            if (attackedTarget == null)
             {
                 Transform nearestEnemy = Library.SearchNearestBox(transform.position, _areaAttack, _enemyLayer);
                 if (nearestEnemy != null && (_backDistract || (!_backDistract && (transform.position.x > nearestEnemy.position.x))))
-                    _attackedTarget = nearestEnemy.GetComponent<DestroyableObject>();
+                    attackedTarget = nearestEnemy.GetComponent<DestroyableObject>();
                 
             }
                 
-            
             // Если она есть - проверяем, не вышла ли она за область досягаемости атаки
-            else if (!Library.SearchTransformInScanningBox(_attackedTarget.transform, transform.position, _areaAttack, _enemyLayer))
-                _attackedTarget = null;
+            else if (!Library.SearchTransformInScanningBox(attackedTarget.transform, transform.position, _areaAttack, _enemyLayer))
+                attackedTarget = null;
 
             yield return new WaitForSeconds(Constants.scanInterval);
         }

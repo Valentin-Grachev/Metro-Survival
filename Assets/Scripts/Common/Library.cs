@@ -31,7 +31,6 @@ public static class Library
         float minDistance = 10000f;
         foreach (var item in colliders)
         {
-            MonoBehaviour.print(item);
             if (Vector2.Distance(center, item.transform.position) < minDistance)
             {
                 minDistance = Vector2.Distance(center, item.transform.position);
