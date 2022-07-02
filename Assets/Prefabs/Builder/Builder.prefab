@@ -193,7 +193,7 @@ MonoBehaviour:
   _team: 0
   _shotPoint: {fileID: 2962409974383194904}
   bullet: {fileID: 6123630237376247942, guid: 5c9735841a9348c4c80929c42b271468, type: 3}
-  _detectionRadius: 15
+  _detectionRadius: 18
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
