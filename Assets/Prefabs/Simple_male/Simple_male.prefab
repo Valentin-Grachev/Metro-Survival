@@ -1998,7 +1998,7 @@ RectTransform:
   m_GameObject: {fileID: 6192352940102660706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001144199, y: 0.001144199, z: 0.001144199}
+  m_LocalScale: {x: 0.001381794, y: 0.001381794, z: 0.001381794}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6192352939330334547}
@@ -2321,12 +2321,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 3188267981270909217}
-  _detectionRadius: 18
+  _detectionRadius: 16
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _attackSpeed: 1
-  _shootingDeviation: 0.5
+  _shootingDeviation: 5
   damage: 8
   _linearSpeed: 50
 --- !u!114 &6192352939544634234
@@ -2342,8 +2342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rechargeTime: 5
-  _minDistance: 3
-  _maxDistance: 15
+  _minDistance: 1
+  _maxDistance: 17
   _aim: {fileID: 2371047861281345583, guid: 57bc2aa5b03d9134fa40cbb3f4528414, type: 3}
   _bullet: {fileID: 7725796729597299059, guid: ce1387ac76f870f46b3963782f70b187, type: 3}
   _elevationAngle: 45

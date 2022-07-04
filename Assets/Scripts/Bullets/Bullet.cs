@@ -19,7 +19,15 @@ public abstract class Bullet : MonoBehaviour
     }
 
 
-    protected abstract void OnTriggerEnter2D(Collider2D collider);
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    {
+        // ѕри попадании в преп€тствие пул€ взрываетс€
+        if (collider.CompareTag("Obstacle"))
+        {
+            _animator.SetTrigger("Collision");
+            rb.velocity = Vector3.zero;
+        }
+    }
 
 
 

@@ -15,4 +15,9 @@ public class AnimatorFunctions : MonoBehaviour
 
     public void Destroy() => Destroy(gameObject);
 
+    public void RebakeNavMesh() => NavMeshRebaker.instance.Rebake();
+
+    public void DeactiveCollider() => GetComponent<Collider2D>().enabled = false;
+
+
 }

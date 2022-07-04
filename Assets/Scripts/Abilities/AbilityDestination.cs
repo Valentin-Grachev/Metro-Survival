@@ -16,6 +16,7 @@ public class AbilityDestination : MonoBehaviour
     [HideInInspector] public GameObject aim;
 
     private GameObject _instAim;
+    private Camera _mainCamera;
 
     private const float timeScaleDuringEnable = 0.3f;
 
@@ -24,7 +25,10 @@ public class AbilityDestination : MonoBehaviour
         if (instance == null) instance = this;
     }
 
-
+    private void Start()
+    {
+        _mainCamera = Camera.main;
+    }
 
 
     public void OnEnable()
@@ -50,7 +54,7 @@ public class AbilityDestination : MonoBehaviour
         
         if (Input.GetMouseButton(0))
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             if (startPosition.x + minDistance > mousePosition.x) mousePosition.x = startPosition.x + minDistance;
             else if (startPosition.x + maxDistance < mousePosition.x) mousePosition.x = startPosition.x + maxDistance;
 

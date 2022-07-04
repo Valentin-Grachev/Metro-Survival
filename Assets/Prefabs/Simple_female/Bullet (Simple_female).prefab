@@ -268,10 +268,10 @@ TrailRenderer:
   m_SortingLayerID: -447000969
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Time: 0.08
+  m_Time: 0.05
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.12
     widthCurve:
       serializedVersion: 2
       m_Curve:

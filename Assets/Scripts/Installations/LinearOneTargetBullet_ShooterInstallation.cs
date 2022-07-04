@@ -11,16 +11,17 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
 
     public override void Shoot()
     {
-        
+
         OneTarget_Bullet instBullet = _bulletPool.GetElement
-            (_shotPoint.position, Quaternion.identity).gameObject.GetComponent<OneTarget_Bullet>();
+           (_shotPoint.position, Quaternion.identity).gameObject.GetComponent<OneTarget_Bullet>();
 
         // »нициализаци€ пули
         instBullet.rb = instBullet.gameObject.GetComponent<Rigidbody2D>();
-        // ≈сли цель есть - стрел€ем в нее
-        if (_target != null) instBullet.rb.velocity = (arrivalPoint - (Vector2)transform.position).normalized * _linearSpeed;
-        // ≈сли ее нет - стрел€ем в последнее место где была цель
-        else instBullet.rb.velocity = (_lastTargetPosition - (Vector2)transform.position).normalized * _linearSpeed;
+
+        // «адаем направление пули с учетом возможных отклонение от пр€мой траектории
+        Vector2 bulletDirection = (arrivalPoint - (Vector2)transform.position).normalized;
+        bulletDirection = Quaternion.Euler(0f, 0f, Random.Range(-_shootingDeviation * 0.5f, _shootingDeviation * 0.5f)) * bulletDirection;
+        instBullet.rb.velocity = bulletDirection * _linearSpeed;
 
         instBullet.team = _team;
         instBullet.damage = damage;

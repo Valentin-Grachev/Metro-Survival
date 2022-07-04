@@ -1,0 +1,223 @@
+
+raider.png
+size: 346,140
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+raider/armL
+  rotate: false
+  xy: 223, 26
+  size: 37, 33
+  orig: 37, 33
+  offset: 0, 0
+  index: -1
+raider/armR
+  rotate: true
+  xy: 165, 5
+  size: 30, 47
+  orig: 30, 47
+  offset: 0, 0
+  index: -1
+raider/ass
+  rotate: false
+  xy: 69, 2
+  size: 22, 18
+  orig: 22, 18
+  offset: 0, 0
+  index: -1
+raider/bite
+  rotate: false
+  xy: 144, 76
+  size: 77, 28
+  orig: 77, 28
+  offset: 0, 0
+  index: -1
+raider/body
+  rotate: true
+  xy: 277, 45
+  size: 45, 51
+  orig: 45, 51
+  offset: 0, 0
+  index: -1
+raider/bullet
+  rotate: true
+  xy: 208, 48
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0000
+  rotate: false
+  xy: 214, 10
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0001
+  rotate: false
+  xy: 237, 10
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0006
+  rotate: false
+  xy: 237, 10
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0002
+  rotate: true
+  xy: 330, 69
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0003
+  rotate: true
+  xy: 330, 46
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0008
+  rotate: true
+  xy: 330, 46
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0004
+  rotate: true
+  xy: 326, 22
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0009
+  rotate: true
+  xy: 326, 22
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0005
+  rotate: false
+  xy: 310, 6
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0007
+  rotate: true
+  xy: 260, 3
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/fire/fire_0010
+  rotate: true
+  xy: 310, 22
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+raider/gun
+  rotate: false
+  xy: 69, 22
+  size: 52, 48
+  orig: 52, 48
+  offset: 0, 0
+  index: -1
+raider/hair
+  rotate: false
+  xy: 224, 103
+  size: 54, 35
+  orig: 54, 35
+  offset: 0, 0
+  index: -1
+raider/handL
+  rotate: false
+  xy: 262, 42
+  size: 13, 17
+  orig: 13, 17
+  offset: 0, 0
+  index: -1
+raider/head
+  rotate: false
+  xy: 2, 6
+  size: 65, 64
+  orig: 65, 64
+  offset: 0, 0
+  index: -1
+raider/legL
+  rotate: false
+  xy: 123, 22
+  size: 40, 48
+  orig: 40, 48
+  offset: 0, 0
+  index: -1
+raider/legR
+  rotate: true
+  xy: 223, 61
+  size: 40, 52
+  orig: 40, 52
+  offset: 0, 0
+  index: -1
+raider/patch
+  rotate: true
+  xy: 277, 14
+  size: 29, 31
+  orig: 29, 31
+  offset: 0, 0
+  index: -1
+raider/shadow
+  rotate: false
+  xy: 144, 106
+  size: 78, 32
+  orig: 78, 32
+  offset: 0, 0
+  index: -1
+raider/smoke
+  rotate: false
+  xy: 165, 37
+  size: 41, 37
+  orig: 41, 37
+  offset: 0, 0
+  index: -1
+raider/sparks/sparks_0000
+  rotate: true
+  xy: 93, 3
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+raider/sparks/sparks_0001
+  rotate: true
+  xy: 114, 3
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+raider/sparks/sparks_0002
+  rotate: true
+  xy: 135, 3
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+raider/tail
+  rotate: true
+  xy: 2, 72
+  size: 66, 140
+  orig: 66, 140
+  offset: 0, 0
+  index: -1
+raider/vest
+  rotate: false
+  xy: 280, 92
+  size: 53, 46
+  orig: 53, 46
+  offset: 0, 0
+  index: -1

@@ -3,6 +3,7 @@ using UnityEngine;
 public class SearchEnemies : MonoBehaviour
 {
     [SerializeField] private float _radius;
+    [SerializeField] private LayerMask _detectionLayer;
 
     private Minion _minion;
     private float _timeUntilNewScan = Constants.scanInterval;
@@ -15,6 +16,7 @@ public class SearchEnemies : MonoBehaviour
     // Функция обновления, основной код которой выполняется через определенный константой интервал
     private void Update()
     {
+
         _timeUntilNewScan -= Time.deltaTime;
         if (_timeUntilNewScan <= 0)
         {
@@ -23,20 +25,10 @@ public class SearchEnemies : MonoBehaviour
             // Поиск новой ближайшей цели
             if (_minion.destination == null)
             {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, _radius, 1 << LayerMask.NameToLayer("Enemies"));
-
-                float minDistance = 10000f;
-                foreach (var item in enemies)
-                {
-                    if (Vector2.Distance(transform.position, item.transform.position) < minDistance)
-                    {
-                        minDistance = Vector2.Distance(transform.position, item.transform.position);
-                        _minion.destination = item.transform;
-                        
-                    }
-                }
-                    
+                Transform newDestination = Library.SearchNearestCircle(transform.position, _radius, _detectionLayer);
+                if (newDestination != null) _minion.destination = newDestination;
             }
+                    
 
         }
 

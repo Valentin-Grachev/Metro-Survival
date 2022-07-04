@@ -1,0 +1,293 @@
+
+lumber.png
+size: 1540,94
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lumber/agr
+  rotate: false
+  xy: 1344, 7
+  size: 38, 46
+  orig: 38, 46
+  offset: 0, 0
+  index: -1
+lumber/arc_0009
+  rotate: false
+  xy: 682, 35
+  size: 106, 57
+  orig: 106, 57
+  offset: 0, 0
+  index: -1
+lumber/armL
+  rotate: true
+  xy: 1432, 5
+  size: 31, 40
+  orig: 31, 40
+  offset: 0, 0
+  index: -1
+lumber/armL2
+  rotate: true
+  xy: 1488, 59
+  size: 33, 50
+  orig: 33, 50
+  offset: 0, 0
+  index: -1
+lumber/armR
+  rotate: false
+  xy: 931, 2
+  size: 43, 59
+  orig: 43, 59
+  offset: 0, 0
+  index: -1
+lumber/armR2
+  rotate: false
+  xy: 1456, 38
+  size: 30, 54
+  orig: 30, 54
+  offset: 0, 0
+  index: -1
+lumber/ass
+  rotate: true
+  xy: 1519, 6
+  size: 26, 17
+  orig: 26, 17
+  offset: 0, 0
+  index: -1
+lumber/ass2
+  rotate: false
+  xy: 760, 16
+  size: 26, 17
+  orig: 26, 17
+  offset: 0, 0
+  index: -1
+lumber/axe
+  rotate: true
+  xy: 1046, 2
+  size: 60, 41
+  orig: 60, 41
+  offset: 0, 0
+  index: -1
+lumber/body
+  rotate: true
+  xy: 976, 4
+  size: 57, 68
+  orig: 57, 68
+  offset: 0, 0
+  index: -1
+lumber/body2
+  rotate: true
+  xy: 1390, 38
+  size: 54, 64
+  orig: 54, 64
+  offset: 0, 0
+  index: -1
+lumber/bullet
+  rotate: false
+  xy: 788, 5
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0000
+  rotate: false
+  xy: 2, 48
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0001
+  rotate: false
+  xy: 2, 2
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0002
+  rotate: false
+  xy: 138, 48
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0003
+  rotate: false
+  xy: 138, 2
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0004
+  rotate: false
+  xy: 274, 48
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0005
+  rotate: false
+  xy: 274, 2
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0006
+  rotate: false
+  xy: 410, 48
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0007
+  rotate: false
+  xy: 410, 2
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0008
+  rotate: false
+  xy: 546, 48
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/fire/fire_0009
+  rotate: false
+  xy: 546, 2
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+lumber/gun
+  rotate: false
+  xy: 931, 63
+  size: 98, 29
+  orig: 98, 29
+  offset: 0, 0
+  index: -1
+lumber/handL
+  rotate: false
+  xy: 760, 2
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+lumber/head
+  rotate: true
+  xy: 790, 20
+  size: 72, 73
+  orig: 72, 73
+  offset: 0, 0
+  index: -1
+lumber/head2
+  rotate: false
+  xy: 865, 28
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+lumber/legL
+  rotate: true
+  xy: 1474, 5
+  size: 27, 43
+  orig: 27, 43
+  offset: 0, 0
+  index: -1
+lumber/legL2
+  rotate: true
+  xy: 1488, 34
+  size: 23, 45
+  orig: 23, 45
+  offset: 0, 0
+  index: -1
+lumber/legR
+  rotate: true
+  xy: 1384, 5
+  size: 31, 46
+  orig: 31, 46
+  offset: 0, 0
+  index: -1
+lumber/legR2
+  rotate: true
+  xy: 865, 2
+  size: 24, 46
+  orig: 24, 46
+  offset: 0, 0
+  index: -1
+lumber/shadow
+  rotate: false
+  xy: 682, 2
+  size: 76, 31
+  orig: 76, 31
+  offset: 0, 0
+  index: -1
+lumber/shadow2
+  rotate: false
+  xy: 1031, 64
+  size: 69, 28
+  orig: 69, 28
+  offset: 0, 0
+  index: -1
+lumber/sparks1/sparks1_0000
+  rotate: false
+  xy: 1102, 55
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+lumber/sparks1/sparks1_0001
+  rotate: false
+  xy: 1174, 55
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+lumber/sparks1/sparks1_0002
+  rotate: false
+  xy: 1246, 55
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+lumber/sparks1/sparks1_0003
+  rotate: false
+  xy: 1318, 55
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+lumber/sparks2/sparks2_0001
+  rotate: false
+  xy: 1140, 2
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1
+lumber/sparks2/sparks2_0002
+  rotate: false
+  xy: 1191, 2
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1
+lumber/sparks2/sparks2_0003
+  rotate: false
+  xy: 1242, 2
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1
+lumber/sparks2/sparks2_0004
+  rotate: false
+  xy: 1293, 2
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1
+lumber/sparks2/sparks2_0005
+  rotate: false
+  xy: 1089, 2
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1

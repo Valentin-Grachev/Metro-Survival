@@ -13,7 +13,9 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
             // Ѕерем с упреждением - переопредел€ем снова точку назначени€
             Vector2 velocity = _nearestTarget.GetComponent<Rigidbody2D>().velocity;
             Vector2 nearestPosition = new Vector2(_nearestTarget.position.x, AbilityDestination.instance.aimPosition.y);
-            destination = Library.GetTargetPositionWithPrediction(nearestPosition, velocity, Vector2.Distance(transform.position, nearestPosition));
+            // —трел€ем оптимально - за первого ближнего так, чтобы его задело и задних накрыло
+            destination = Library.GetTargetPositionWithPrediction(nearestPosition, velocity, Vector2.Distance(transform.position, nearestPosition))
+                + new Vector2(_damageRadius * 0.7f, 0f);
         }
         else
         {

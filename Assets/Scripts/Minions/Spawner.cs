@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -11,13 +12,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] protected SliderNotifier _intervalSliderNotifier;
     [SerializeField] protected Transform _destination;
 
-    protected Pool _pool;
+    protected Pool[] _pools;
 
     private void Start()
     {
         interval = _intervalSliderNotifier.slider.value;
         maxHealth = (int)_healthSliderNotifier.slider.value;
-        _pool = GetComponent<Pool>();
+        _pools = GetComponents<Pool>();
         StartCoroutine(Spawn());
         _healthSliderNotifier.onValueChanged += OnValueChanged_HealthSliderNotifier;
         _intervalSliderNotifier.onValueChanged += OnValueChanged_IntervalSliderNotifier;
@@ -41,8 +42,8 @@ public class Spawner : MonoBehaviour
             Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
                 transform.position.y + Random.Range(-_randomPosition.y, _randomPosition.y), 0f);
 
-            if (_pool == null) print("pool!");
-            Minion minion = _pool.GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
+            int randomNumber = Random.Range(0, _pools.Length);
+            Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
             minion.maxHealth = maxHealth;
             minion.health = maxHealth;
             minion.destination = _destination;

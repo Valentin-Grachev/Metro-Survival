@@ -38,10 +38,19 @@ public abstract class ShooterInstallation : Installation
     { 
         get
         {
-            Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
-            Vector2 predictionPosition = Library.GetTargetPositionWithPrediction(target.position, rb.velocity, Vector2.Distance(transform.position, target.position));
-            predictionPosition.x += Random.Range(-_shootingDeviation, _shootingDeviation);
-            predictionPosition.y += Random.Range(-_shootingDeviation, _shootingDeviation);
+            Vector2 predictionPosition;
+
+            // ≈сли цель известна - стрел€ем по ней с предсказанием
+            if (_target != null)
+            {
+                Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
+                predictionPosition = Library.GetTargetPositionWithPrediction(target.position, rb.velocity, Vector2.Distance(transform.position, target.position));
+            }
+
+            // ≈сли цели нет, а выстрел произошел - стрел€ем по последней позиции цели
+            else predictionPosition = _lastTargetPosition;
+             
+            predictionPosition.y += Constants.pivotUpForAiming;
             return predictionPosition;
         }
 
@@ -67,7 +76,7 @@ public abstract class ShooterInstallation : Installation
         base.Update();
         if (target != null && target.gameObject.activeInHierarchy)
         {
-            directionBone.direction = ((Vector2)target.position - directionBone.bonePosition).normalized;
+            directionBone.direction = ((Vector2)target.position + new Vector2(0f,Constants.pivotUpForAiming) - directionBone.bonePosition).normalized;
             animator.SetBool("Attack", true);
         }
         else
@@ -99,8 +108,14 @@ public abstract class ShooterInstallation : Installation
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, _detectionRadius);
+
+
+        // ќтрисовка отклонени€ пуль
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(transform.position + new Vector3(3f, 1f, 0f),  new Vector3(2*_shootingDeviation, 2*_shootingDeviation, 0f));
+        Vector2 deviationUp = Quaternion.Euler(0f, 0f, _shootingDeviation * 0.5f) * Vector2.right;
+        Vector2 deviationDown = Quaternion.Euler(0f, 0f, -_shootingDeviation * 0.5f) * Vector2.right;
+        Gizmos.DrawRay(new Ray(transform.position, deviationUp*5f));
+        Gizmos.DrawRay(new Ray(transform.position, deviationDown*5f));
     }
 
 

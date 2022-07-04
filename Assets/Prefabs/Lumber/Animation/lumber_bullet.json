@@ -1,0 +1,81 @@
+{
+"skeleton": {
+	"hash": "kuGsFjRZ8vSIhqcBJOrvALtAUrQ",
+	"spine": "3.8.99",
+	"x": -5.96,
+	"y": -3.03,
+	"width": 16.2,
+	"height": 8.1,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root" }
+],
+"slots": [
+	{ "name": "lumber/bullet", "bone": "bullet", "attachment": "lumber/bullet" },
+	{ "name": "lumber/sparks2/sparks2_0000", "bone": "sparks" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"lumber/bullet": {
+				"lumber/bullet": {
+					"color": "fda9a9ff",
+					"x": 2.14,
+					"y": 1.01,
+					"scaleX": 0.6229,
+					"scaleY": 0.6229,
+					"width": 26,
+					"height": 13
+				}
+			},
+			"lumber/sparks2/sparks2_0000": {
+				"lumber/sparks2/sparks2_0001": { "width": 49, "height": 51 },
+				"lumber/sparks2/sparks2_0002": { "width": 49, "height": 51 },
+				"lumber/sparks2/sparks2_0003": { "width": 49, "height": 51 },
+				"lumber/sparks2/sparks2_0004": { "width": 49, "height": 51 },
+				"lumber/sparks2/sparks2_0005": { "width": 49, "height": 51 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"lumber/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"lumber/sparks2/sparks2_0000": {
+				"attachment": [
+					{ "name": "lumber/sparks2/sparks2_0001" },
+					{ "time": 0.0333, "name": "lumber/sparks2/sparks2_0002" },
+					{ "time": 0.0667, "name": "lumber/sparks2/sparks2_0003" },
+					{ "time": 0.1, "name": "lumber/sparks2/sparks2_0004" },
+					{ "time": 0.1333, "name": "lumber/sparks2/sparks2_0005" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"lumber/bullet": {
+				"attachment": [
+					{ "name": "lumber/bullet" }
+				]
+			},
+			"lumber/sparks2/sparks2_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}

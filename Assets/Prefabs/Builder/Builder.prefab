@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 2962409974383194904}
-  _detectionRadius: 18
+  _detectionRadius: 16
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1820,7 +1820,7 @@ RectTransform:
   m_GameObject: {fileID: 4408721313870639219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00114, y: 0.00114, z: 0.00114}
+  m_LocalScale: {x: 0.001381794, y: 0.001381794, z: 0.001381794}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4408721314844028226}

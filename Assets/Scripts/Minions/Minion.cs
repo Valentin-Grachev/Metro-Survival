@@ -1,5 +1,5 @@
 using Spine.Unity;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,13 +8,14 @@ public abstract class Minion : DestroyableObject
     //====== Изменяемые характеристики ======
 
     [SerializeField] protected float _moveSpeed;
+    [SerializeField] protected float _normalizeMoveAnimationSpeed;
     public virtual float moveSpeed 
     {
         get => _moveSpeed;
         set
         {
             _moveSpeed = value;
-            animator.SetFloat("MoveSpeed", value * moveAnimationCoeff);
+            animator.SetFloat("MoveSpeed", value * _normalizeMoveAnimationSpeed);
         }
     }
     [SerializeField] protected float _attackSpeed;
@@ -30,17 +31,15 @@ public abstract class Minion : DestroyableObject
 
     public int damage;
     [SerializeField] protected bool _backDistract;
-    [SerializeField] protected Vector2 _areaAttack;
     [SerializeField] protected LayerMask _enemyLayer;
 
-    protected Transform _destination;
     
 
 
     //====== Свойства ======
     public Rigidbody2D rigidbody { get; protected set; }
     protected DestroyableObject _attackedTarget;
-    public DestroyableObject attackedTarget
+    public virtual DestroyableObject attackedTarget
     {
         get => _attackedTarget;
         protected set
@@ -66,26 +65,33 @@ public abstract class Minion : DestroyableObject
 
 
 
+    // ====== Другие параметры ======
 
-    //====== Константы ======
-    public const float moveAnimationCoeff = 0.5f; // Скорость анимации ходьбы при скорости, равной 1
+    [SerializeField] protected Transform _startDestination;
+    protected Transform _destination;
+    protected List<DestroyableObject> _enemiesInsideAttackArea;
 
 
-    // Активация из пула - восстановление исходных данных
-    
-    private void OnEnable()
+
+
+
+    // Активация из пула - инициализация заново
+    protected override void OnEnable()
     {
-        // Стартовая обработка свойств
+        base.OnEnable();
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
-        _destination = null;
+        if (_startDestination != null) destination = _startDestination;
+        else destination = null;
+        _enemiesInsideAttackArea?.Clear();
     }
 
 
     protected override void Start()
     {
         base.Start();
+        _enemiesInsideAttackArea = new List<DestroyableObject>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         mecanim = GetComponent<SkeletonMecanim>();
@@ -93,31 +99,72 @@ public abstract class Minion : DestroyableObject
         // Стартовая обработка свойств
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
-
-        StartCoroutine(ScanningForAttack());
     }
 
 
-
-
-    IEnumerator ScanningForAttack()
+    protected override void Update()
     {
-        while(true)
+        base.Update();
+
+        // Если миньон не отвлекается на задние цели и при этом цель оказалась сзади - забываем ее
+        if (!_backDistract && attackedTarget != null && transform.position.x < attackedTarget.transform.position.x)
+            attackedTarget = null;
+
+
+        // Если потеряли цель
+        if (attackedTarget == null || !attackedTarget.gameObject.activeInHierarchy)
         {
-            // Если цели нет - ищем ее
-            if (attackedTarget == null)
+            // В зоне атаки есть цель - выбираем новую
+            if (_enemiesInsideAttackArea.Count != 0) SelectNewTarget();
+
+            // Никого нет - прекращаем атаковать
+            else animator.SetBool("Attacking", false);
+
+        }
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Вражеский уничтожаемый объект вошел в зону - добавление в список
+        if (collision.gameObject.TryGetComponent(out DestroyableObject destrObject))
+        {
+            if (destrObject.team != team) _enemiesInsideAttackArea.Add(destrObject);
+            
+        }
+        
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Вражеский уничтожаемый объект вышел из зоны - извлечение из списка
+        if (collision.gameObject.TryGetComponent(out DestroyableObject destrObject))
+        {
+            // Если это был тот, кого атаковали - забываем его
+            if (destrObject == _attackedTarget) _attackedTarget = null;
+
+            if (destrObject.team != team) _enemiesInsideAttackArea.Remove(destrObject);
+        }
+    }
+
+
+    private void SelectNewTarget()
+    {
+        foreach (var item in _enemiesInsideAttackArea)
+        {
+            if (!_backDistract)
             {
-                Transform nearestEnemy = Library.SearchNearestBox(transform.position, _areaAttack, _enemyLayer);
-                if (nearestEnemy != null && (_backDistract || (!_backDistract && (transform.position.x > nearestEnemy.position.x))))
-                    attackedTarget = nearestEnemy.GetComponent<DestroyableObject>();
+                if (transform.position.x > item.transform.position.x)
+                {
+                    attackedTarget = item;
+                    return;
+                }
                 
             }
+            else attackedTarget = item;
                 
-            // Если она есть - проверяем, не вышла ли она за область досягаемости атаки
-            else if (!Library.SearchTransformInScanningBox(attackedTarget.transform, transform.position, _areaAttack, _enemyLayer))
-                attackedTarget = null;
-
-            yield return new WaitForSeconds(Constants.scanInterval);
         }
     }
 
@@ -126,11 +173,6 @@ public abstract class Minion : DestroyableObject
     public abstract void Attack();
 
 
-    protected virtual void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(_areaAttack.x, _areaAttack.y, 0f));
-    }
 
 
 }

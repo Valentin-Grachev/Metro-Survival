@@ -78,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470726400721378456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1818, y: 0.45779997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470726400987638575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1818, y: 0.45779997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -406,12 +406,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _shotPoint: {fileID: 6839191590823848761}
-  _detectionRadius: 18
+  _detectionRadius: 16
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _attackSpeed: 1
-  _shootingDeviation: 0.6
+  _shootingDeviation: 5
   damage: 5
   _linearSpeed: 50
 --- !u!114 &4033507007682455512
@@ -1341,7 +1341,7 @@ RectTransform:
   m_GameObject: {fileID: 4217501464192916230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00114, y: 0.00114, z: 0.00114}
+  m_LocalScale: {x: 0.001381794, y: 0.001381794, z: 0.001381794}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4217501465635440183}
