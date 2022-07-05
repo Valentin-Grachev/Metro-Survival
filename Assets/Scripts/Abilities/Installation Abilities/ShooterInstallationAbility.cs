@@ -18,7 +18,7 @@ public abstract class ShooterInstallationAbility : MonoBehaviour
     protected virtual void Start()
     {
         _installation = GetComponent<ShooterInstallation>();
-        timeUntilRecharge = _rechargeTime;
+        timeUntilRecharge = 0f;
     }
 
     protected virtual void Update()

@@ -35,6 +35,7 @@ public class DestroyableObject : MonoBehaviour
                 {
                     isDeath = true;
                     onDeath?.Invoke();
+                    //gameObject.layer = LayerMask.NameToLayer("Default");
                     animator.SetTrigger("Death");
                     if (_localCanvas != null) _localCanvas.SetActive(false);
                     if (_bulletCollider != null) _bulletCollider.enabled = false;

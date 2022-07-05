@@ -44,7 +44,9 @@ public abstract class Minion : DestroyableObject
         get => _attackedTarget;
         protected set
         {
+            //if (_attackedTarget != null) _attackedTarget.onDeath -= OnDeath_AttackedMinion;
             _attackedTarget = value;
+            //if (_attackedTarget != null) _attackedTarget.onDeath += OnDeath_AttackedMinion;
             if (_attackedTarget == null) animator.SetBool("Attacking", false);
             else animator.SetBool("Attacking", true);
         }
@@ -168,6 +170,8 @@ public abstract class Minion : DestroyableObject
         }
     }
 
+
+    private void OnDeath_AttackedMinion() => attackedTarget = null;
 
 
     public abstract void Attack();
