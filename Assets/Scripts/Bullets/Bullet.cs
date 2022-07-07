@@ -4,6 +4,7 @@ public abstract class Bullet : MonoBehaviour
 {
     [HideInInspector] public Team team;
     [HideInInspector] public Rigidbody2D rb;
+    [SerializeField] protected bool collideInRoadCenter = false;
 
     protected Animator _animator;
 
@@ -22,7 +23,8 @@ public abstract class Bullet : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         // ѕри попадании в преп€тствие пул€ взрываетс€
-        if (collider.CompareTag("Obstacle"))
+        if (collider.CompareTag("Obstacle") ||
+            (collider.CompareTag("RoadCenter") && collideInRoadCenter))
         {
             _animator.SetTrigger("Collision");
             rb.velocity = Vector3.zero;

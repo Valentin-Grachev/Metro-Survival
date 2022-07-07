@@ -9,6 +9,7 @@ public class Shotgun_ShooterInstallation : ShooterInstallation
 
     public override void Shoot()
     {
+
         // Создание нескольких пуль
         for (int i = 0; i < _bulletQuantity; i++)
         {

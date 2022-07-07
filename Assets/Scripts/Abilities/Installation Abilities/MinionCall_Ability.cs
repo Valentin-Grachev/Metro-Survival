@@ -9,7 +9,10 @@ public class MinionCall_Ability : ShooterInstallationAbility
     public override void Enable()
     {
         timeUntilRecharge = _rechargeTime;
-        base.Enable();
+        _installation.animator.SetTrigger("Ability");
+
+        _installation.directionBone.direction = Vector2.right; // Задаем направление
+        _installation.enabled = false; // Выключаем установку, чтобы она не портила заданное направление
     }
 
 
@@ -17,4 +20,9 @@ public class MinionCall_Ability : ShooterInstallationAbility
     {
         Instantiate(_minion, _spawnPosition.position, Quaternion.identity);
     }
+
+
+
+
+
 }

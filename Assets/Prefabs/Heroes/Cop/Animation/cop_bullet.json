@@ -1,0 +1,71 @@
+{
+"skeleton": {
+	"hash": "Jq2kxAJE4MCWmXM6AHOaMyQ9Wc0",
+	"spine": "3.8.99",
+	"x": -3.3,
+	"y": -1.76,
+	"width": 7.68,
+	"height": 3.84,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root" }
+],
+"slots": [
+	{ "name": "cop/sparks/sparks_0000", "bone": "sparks" },
+	{ "name": "cop/bullet", "bone": "bullet", "attachment": "cop/bullet" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"cop/bullet": {
+				"cop/bullet": { "x": 0.55, "y": 0.16, "scaleX": 0.2955, "scaleY": 0.2955, "width": 26, "height": 13 }
+			},
+			"cop/sparks/sparks_0000": {
+				"cop/sparks/sparks_0000": { "x": 1.24, "y": 3.41, "width": 45, "height": 39 },
+				"cop/sparks/sparks_0001": { "x": 1.24, "y": 3.41, "width": 45, "height": 39 },
+				"cop/sparks/sparks_0002": { "x": 1.24, "y": 3.41, "width": 45, "height": 39 },
+				"cop/sparks/sparks_0003": { "x": 1.24, "y": 3.41, "width": 45, "height": 39 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"cop/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"cop/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": "cop/sparks/sparks_0000" },
+					{ "time": 0.0333, "name": "cop/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "cop/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "cop/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"cop/bullet": {
+				"attachment": [
+					{ "name": "cop/bullet" }
+				]
+			},
+			"cop/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}
