@@ -108,9 +108,17 @@ public abstract class Minion : DestroyableObject
     {
         base.Update();
 
+        // При смерти цели обнуляем ее
+        if (attackedTarget != null && attackedTarget.isDeath)
+        {
+            attackedTarget = null;
+        }
+
         // Если миньон не отвлекается на задние цели и при этом цель оказалась сзади - забываем ее
         if (!_backDistract && attackedTarget != null && transform.position.x < attackedTarget.transform.position.x)
             attackedTarget = null;
+
+
 
 
         // Если потеряли цель
@@ -158,14 +166,18 @@ public abstract class Minion : DestroyableObject
         {
             if (!_backDistract)
             {
-                if (transform.position.x > item.transform.position.x)
+                if (transform.position.x > item.transform.position.x && !item.isDeath)
                 {
                     attackedTarget = item;
                     return;
                 }
-                
+
             }
-            else attackedTarget = item;
+            else if (!item.isDeath)
+            {
+                attackedTarget = item;
+                return;
+            }
                 
         }
     }

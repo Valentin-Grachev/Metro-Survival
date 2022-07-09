@@ -10,5 +10,10 @@ public static class Constants
     public const float distancePrediction = 20f;
 
     // —мещение центра тела  врагов на данную величину - стрелки будут целитьс€ не в ноги существам, а выше
-    public const float pivotUpForAiming = 0.4f;
+    public const float pivotUpForAiming = 0.2f;
+
+
+    // Ќаправление движени€ по оси ’ должно превысить это значение, чтобы анимаци€ развернулась по оси ’
+    public const float reversEpsilon = 0.2f;
+
 }

@@ -34,15 +34,7 @@ public class DestroyableObject : MonoBehaviour
             { 
                 // Смерть
                 _health = 0;
-                if (!isDeath)
-                {
-                    isDeath = true;
-                    onDeath?.Invoke();
-                    //gameObject.layer = LayerMask.NameToLayer("Default");
-                    animator.SetTrigger("Death");
-                    if (_localCanvas != null) _localCanvas.SetActive(false);
-                    if (_bulletCollider != null) _bulletCollider.enabled = false;
-                }
+                if (!isDeath) Death();
             }
             else if (value > _maxHealth) _health = _maxHealth;
             else _health = value;
@@ -56,8 +48,11 @@ public class DestroyableObject : MonoBehaviour
     public Animator animator { get; protected set; }
 
 
+    // ====== Стартовые значения для реинициализации ======
+    protected int _startLayer;
 
-    private PoolObject _poolObject;
+
+
 
 
     protected virtual void Awake()
@@ -69,6 +64,7 @@ public class DestroyableObject : MonoBehaviour
     protected virtual void OnEnable()
     {
         isDeath = false;
+        if (_startLayer != LayerMask.NameToLayer("Default")) gameObject.layer = _startLayer;
         if (_localCanvas != null) _localCanvas.SetActive(true);
         if (_bulletCollider != null) _bulletCollider.enabled = true;
 
@@ -76,11 +72,21 @@ public class DestroyableObject : MonoBehaviour
 
     protected virtual void Start() 
     {
-        
         health = maxHealth;
         isDeath = false;
-        _poolObject = GetComponent<PoolObject>();
+        _startLayer = gameObject.layer;
     }
+
+    protected virtual void Death()
+    {
+        isDeath = true;
+        onDeath?.Invoke();
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        animator.SetTrigger("Death");
+        if (_localCanvas != null) _localCanvas.SetActive(false);
+        if (_bulletCollider != null) _bulletCollider.enabled = false;
+    }
+
 
     protected virtual void Update() { }
 

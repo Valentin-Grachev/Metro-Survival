@@ -17,13 +17,13 @@ public class MoveNavMesh_MinionState : StateMachineBehaviour
         // Поворот в сторону атаки
         _moveDirection = _minion.agent.velocity;
 
-        if (_moveDirection.x < 0 && !_minion.mecanim.initialFlipX)
+        if (_moveDirection.x < -Constants.reversEpsilon && !_minion.mecanim.initialFlipX)
         {
             _minion.mecanim.initialFlipX = true;
             _minion.mecanim.Initialize(true);
         }
         
-        if (_moveDirection.x >= 0 && _minion.mecanim.initialFlipX)
+        if (_moveDirection.x >= Constants.reversEpsilon && _minion.mecanim.initialFlipX)
         {
             _minion.mecanim.initialFlipX = false;
             _minion.mecanim.Initialize(true);

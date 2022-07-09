@@ -2342,7 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rechargeTime: 6
-  _minion: {fileID: 7084316751586127516, guid: 38c337b6b3946044388dbd59ac156935, type: 3}
+  _minion: {fileID: 5093510281697390639, guid: af61bbe90ac88854284a3e28b9d55388, type: 3}
   _spawnPosition: {fileID: 0}
 --- !u!114 &2741052697281601497
 MonoBehaviour:
