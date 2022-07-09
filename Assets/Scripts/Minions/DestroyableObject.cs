@@ -17,8 +17,11 @@ public class DestroyableObject : MonoBehaviour
 
 
     //====== Настраиваемые характеристики ======
+    [Header("Attachement Components:")]
     [SerializeField] protected GameObject _localCanvas;
     [SerializeField] protected Collider2D _bulletCollider;
+
+    [Header("Characteristics:")]
     [SerializeField] protected Team _team; public Team team { get => _team; }
     [SerializeField] protected int _maxHealth; public int maxHealth { get => _maxHealth; set => _maxHealth = value; }
     protected int _health;
