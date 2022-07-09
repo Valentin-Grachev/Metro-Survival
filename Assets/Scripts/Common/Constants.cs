@@ -16,4 +16,11 @@ public static class Constants
     // Ќаправление движени€ по оси ’ должно превысить это значение, чтобы анимаци€ развернулась по оси ’
     public const float reversEpsilon = 0.2f;
 
+    // ѕлавность движени€ основной камеры („ем больше значение - тем реще двигаетс€ камера)
+    public const float smoothCamera = 5f;
+
+    // „увствительность слайда при движении камеры
+    public const float sensitivity = 1.5f;
+
+
 }

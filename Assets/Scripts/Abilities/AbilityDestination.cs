@@ -3,8 +3,12 @@ using UnityEngine;
 public class AbilityDestination : MonoBehaviour
 {
     public static AbilityDestination instance { get; private set; }
+
+    public delegate void OnEnableTargeting();
     public delegate void OnDestination(Vector2 destination);
     public event OnDestination onDestination;
+    public event OnEnableTargeting onEnableTargeting;
+    public event OnEnableTargeting onDisableTargeting;
 
 
     [SerializeField] private GameObject _fade;
@@ -33,6 +37,7 @@ public class AbilityDestination : MonoBehaviour
 
     public void OnEnable()
     {
+        onEnableTargeting.Invoke();
         _fade.SetActive(true);
         _instAim = Instantiate(aim, _aimPosition);
         Time.timeScale = timeScaleDuringEnable;
@@ -42,6 +47,7 @@ public class AbilityDestination : MonoBehaviour
 
     public void OnDisable()
     {
+        onDisableTargeting.Invoke();
         _fade.SetActive(false);
         Destroy(_instAim);
         Time.timeScale = 1f;

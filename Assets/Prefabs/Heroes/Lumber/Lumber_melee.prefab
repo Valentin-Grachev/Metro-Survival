@@ -341,7 +341,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _startDestination: {fileID: 0}
-  _damageFirstHit: 30
+  _damageFirstHit: 50
   _damageAreaSize: {x: 2, y: 1.5}
   _damageAreaOffset: {x: 0, y: 0}
 --- !u!1 &8351506513774130556
