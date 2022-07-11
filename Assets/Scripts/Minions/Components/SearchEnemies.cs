@@ -6,30 +6,19 @@ public class SearchEnemies : MonoBehaviour
     [SerializeField] private LayerMask _detectionLayer;
 
     private Minion _minion;
-    private float _timeUntilNewScan = Constants.scanInterval;
 
     private void Start()
     {
         _minion = GetComponent<Minion>();
     }
 
-    // Функция обновления, основной код которой выполняется через определенный константой интервал
     private void Update()
     {
-
-        _timeUntilNewScan -= Time.deltaTime;
-        if (_timeUntilNewScan <= 0)
+         // Поиск новой ближайшей цели
+        if (_minion.destination == null)
         {
-            _timeUntilNewScan = Constants.scanInterval;
-
-            // Поиск новой ближайшей цели
-            if (_minion.destination == null)
-            {
-                Transform newDestination = Library.SearchNearestCircle(transform.position, _radius, _detectionLayer);
-                if (newDestination != null) _minion.destination = newDestination;
-            }
-                    
-
+            Transform newDestination = Library.SearchNearestCircle(transform.position, _radius, _detectionLayer);
+            if (newDestination != null) _minion.destination = newDestination;
         }
 
     }

@@ -23,7 +23,7 @@ public class Mine : MonoBehaviour
             Collider2D collider = Physics2D.OverlapCircle(transform.position, activationRadius, damageLayer);
             if (collider != null) Active();
 
-            yield return new WaitForSeconds(Constants.scanInterval);
+            yield return new WaitForSeconds(0.5f);
         }
         
     }

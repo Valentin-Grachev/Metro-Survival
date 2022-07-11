@@ -1,3 +1,4 @@
+using NTC.Global.Cache;
 using UnityEngine;
 
 
@@ -5,7 +6,7 @@ public enum Team { Player, Enemy, Neutral }
 
 
 
-public class DestroyableObject : MonoBehaviour
+public class DestroyableObject : MonoCache
 {
     //====== События ======
 
@@ -60,14 +61,20 @@ public class DestroyableObject : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     // Возвращение из пула
-    protected virtual void OnEnable()
+    protected override void OnEnabled()
     {
+        base.OnEnabled();
         isDeath = false;
         if (_startLayer != LayerMask.NameToLayer("Default")) gameObject.layer = _startLayer;
         if (_localCanvas != null) _localCanvas.SetActive(true);
         if (_bulletCollider != null) _bulletCollider.enabled = true;
+    }
 
+    protected override void Run()
+    {
+        base.Run();
     }
 
     protected virtual void Start() 
@@ -88,7 +95,6 @@ public class DestroyableObject : MonoBehaviour
     }
 
 
-    protected virtual void Update() { }
 
     protected virtual void OnDrawGizmosSelected() { }
 

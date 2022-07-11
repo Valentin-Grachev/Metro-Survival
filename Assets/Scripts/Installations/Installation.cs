@@ -1,6 +1,7 @@
+using NTC.Global.Cache;
 using UnityEngine;
 
-public abstract class Installation : MonoBehaviour
+public abstract class Installation : MonoCache
 {
     public Animator animator { get; protected set; }
 
@@ -10,5 +11,7 @@ public abstract class Installation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    protected virtual void Update() { }
+    protected override void Run() { }
+
+
 }

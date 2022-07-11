@@ -8,9 +8,9 @@ public class TempDestroybleObject : DestroyableObject
     [HideInInspector] public float timeUntilDestroy;
     [HideInInspector] public float maxTimeUntilDestroy;
 
-    protected override void Update()
+    protected override void Run()
     {
-        base.Update();
+        base.Run();
         timeUntilDestroy -= Time.deltaTime;
         onUpdateTimeUntilDestroy.Invoke(timeUntilDestroy, maxTimeUntilDestroy);
         if (timeUntilDestroy < 0)

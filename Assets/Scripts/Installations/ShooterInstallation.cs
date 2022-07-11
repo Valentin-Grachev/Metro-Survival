@@ -66,14 +66,13 @@ public abstract class ShooterInstallation : Installation
     {
         base.Start();
         attackSpeed = attackSpeed;
-        StartCoroutine(SearchTarget());
         directionBone = GetComponent<DirectionBone>();
         _bulletPool = GetComponent<Pool>();
     }
 
-    protected override void Update()
+    protected override void Run()
     {
-        base.Update();
+        base.Run();
         if (target != null && !target.isDeath)
         {
             directionBone.direction = ((Vector2)target.transform.position + new Vector2(0f,Constants.pivotUpForAiming) - directionBone.bonePosition).normalized;
@@ -86,19 +85,14 @@ public abstract class ShooterInstallation : Installation
         }
         
 
-    }
-
-
-
-
-    protected IEnumerator SearchTarget()
-    {
-        while (true)
-        {
+        if (target == null) 
             target = Library.SearchNearestCircle(transform.position, _detectionRadius, _enemyLayer)?.GetComponent<DestroyableObject>();
-            yield return new WaitForSeconds(Constants.scanInterval);
-        }
+
+
+
     }
+
+
 
 
 

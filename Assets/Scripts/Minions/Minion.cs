@@ -78,9 +78,9 @@ public abstract class Minion : DestroyableObject
 
 
     // Активация из пула - инициализация заново
-    protected override void OnEnable()
+    protected override void OnEnabled()
     {
-        base.OnEnable();
+        base.OnEnabled();
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
@@ -104,9 +104,9 @@ public abstract class Minion : DestroyableObject
     }
 
 
-    protected override void Update()
+    protected override void Run()
     {
-        base.Update();
+        base.Run();
 
         // При смерти цели обнуляем ее
         if (attackedTarget != null && attackedTarget.isDeath)

@@ -1,8 +1,21 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class NavMeshMinion : Minion
 {
     protected NavMeshAgent _agent; public NavMeshAgent agent { get => _agent; }
+    protected DestroyableObject _destinationObject;
+
+
+    public override Transform destination
+    { 
+        get => base.destination;
+        set
+        {
+            base.destination = value;
+            if (value != null) _destinationObject = value.GetComponent<DestroyableObject>();
+        }
+    }
 
     public override float moveSpeed
     { 
@@ -14,19 +27,19 @@ public abstract class NavMeshMinion : Minion
         }
     }
 
-    protected override void OnEnable()
+    protected override void OnEnabled()
     {
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
 
-        base.OnEnable();
+        base.OnEnabled();
     }
 
-    protected override void Update()
+    protected override void Run()
     {
-        base.Update();
+        base.Run();
 
         // ≈сли точка назначени€ уничтожена - обнул€ем ее
-        if (destination != null && !destination.gameObject.activeInHierarchy) destination = null;
+        if (destination != null && _destinationObject.isDeath) destination = null;
     }
 
 
