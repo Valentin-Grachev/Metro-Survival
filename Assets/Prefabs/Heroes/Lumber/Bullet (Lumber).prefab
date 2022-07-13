@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 2410143224955428853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   rb: {fileID: 0}
+  collideInRoadCenter: 0
   damage: 1
 --- !u!50 &1334263845759258299
 Rigidbody2D:
@@ -223,8 +224,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013144515, y: 0.011476365}
-  m_Size: {x: 0.21616662, y: 0.1537403}
+  m_Offset: {x: 0.019911282, y: 0.01034857}
+  m_Size: {x: 0.24323405, y: 0.16953003}
   m_Direction: 1
 --- !u!96 &9062444612718002448
 TrailRenderer:

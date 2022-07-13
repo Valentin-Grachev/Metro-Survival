@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Heroes
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 50
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: a20684d3d11409249a70bdeddd137311, type: 3}
+    - {fileID: 2800000, guid: 2171aa4a7484f5144adb59a4b4507b0a, type: 3}
+    - {fileID: 2800000, guid: 9eec9f48469680849a69c2ebc7780794, type: 3}
+    - {fileID: 2800000, guid: dd60a6968d5cedb4eae843cc07b3ae88, type: 3}
+    - {fileID: 2800000, guid: bae2c18d644f97144a4175c9efa3c8a8, type: 3}
+    - {fileID: 2800000, guid: 80c6ee59ae3dc964f8d6d01ccffb1fef, type: 3}
+    - {fileID: 2800000, guid: e31ee1ab65440ee4bb1be77c4cb3c1bb, type: 3}
+    - {fileID: 2800000, guid: 66f935f87ec1e3d43b80144d2e49bc35, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a20684d3d11409249a70bdeddd137311, type: 3}
+  - {fileID: 21300000, guid: dd60a6968d5cedb4eae843cc07b3ae88, type: 3}
+  - {fileID: 21300000, guid: 9eec9f48469680849a69c2ebc7780794, type: 3}
+  - {fileID: 21300000, guid: 66f935f87ec1e3d43b80144d2e49bc35, type: 3}
+  - {fileID: 21300000, guid: 80c6ee59ae3dc964f8d6d01ccffb1fef, type: 3}
+  - {fileID: 21300000, guid: 2171aa4a7484f5144adb59a4b4507b0a, type: 3}
+  - {fileID: 21300000, guid: e31ee1ab65440ee4bb1be77c4cb3c1bb, type: 3}
+  - {fileID: 21300000, guid: bae2c18d644f97144a4175c9efa3c8a8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - builder
+  - lumber
+  - cop_melee
+  - simple_male
+  - raider
+  - cop
+  - simple_female
+  - lumber_melee
+  m_RenderDataMap: {}
+  m_Tag: Heroes
+  m_IsVariant: 0

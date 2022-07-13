@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
         interval = _intervalSliderNotifier.slider.value;
         maxHealth = (int)_healthSliderNotifier.slider.value;
         _pools = GetComponents<Pool>();
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawning());
         _healthSliderNotifier.onValueChanged += OnValueChanged_HealthSliderNotifier;
         _intervalSliderNotifier.onValueChanged += OnValueChanged_IntervalSliderNotifier;
         
@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         maxHealth = (int)value;
     }
 
-    IEnumerator Spawn()
+    IEnumerator Spawning()
     {
         while (true)
         {
@@ -46,6 +46,8 @@ public class Spawner : MonoBehaviour
             minion.maxHealth = maxHealth;
             minion.health = maxHealth;
             minion.destination = _destination;
+            EnemyCounter.instance.OnCreate_Minion();
+
             yield return new WaitForSeconds(interval);
         }
     }

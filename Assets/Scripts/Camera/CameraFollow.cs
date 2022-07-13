@@ -1,94 +1,115 @@
-using Cinemachine;
-using System.Collections;
+using NTC.Global.Cache;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : MonoCache
 {
-    private enum ScaleMode { Scaling, Unscaling, Idle}
     public static CameraFollow instance { get; private set; }
 
-    [Header("Components:")]
-    [SerializeField] private CinemachineVirtualCamera _camera;
-    [SerializeField] private CinemachineConfiner2D _confiner;
-    [SerializeField] private Collider2D _confinerCollider;
-
     [Header("Parameters:")]
-    [SerializeField] private float _scaledCameraSize;
+    [SerializeField] private float _scaleBattle;
+    [SerializeField] private float _scaleMenu;
+    [SerializeField] private float _scaleTrolley;
+    [SerializeField] private float _scaleCamp;
 
     [Header("Positions:")]
-    [SerializeField] private Transform _battlePosition;
+    [SerializeField] private Transform _leftCameraBorderPositionInBattle;
     [SerializeField] private Transform _menuPosition;
     [SerializeField] private Transform _trolleyPosition;
     [SerializeField] private Transform _campPosition;
 
+    private bool _lerping;
+    private Vector2 _lerpPosition;
+    
+    private bool _scaling;
+    private float _cameraScale;
 
-    private ScaleMode _scaleMode;
+    private Camera _camera;
     private float _normalCameraSize;
+    private float _distanceBetweenLeftBorderAndCameraPivot;
 
-    // —ледующие махинации нужны, чтобы включить конфайнер, при этом резко не дернуть камеру в бою ограничителем
+    
+    
 
-    // —мещение камеры вправо на данную величину («атем спуст€ врем€ она вернетс€ на указанную позицию)
-    private const float _startRightCameraOffset = 12f;
-    //  амера сначала идет с запасом вправо, затем через данный интервал времени идет на позицию камеры
-    private const float waitTime = 2f;
 
     private const float scalingSpeed = 4f;
+    private const float lerpingSpeed = 3f;
+
+    
+    
+
 
     private void Awake() => instance = this;
 
     private void Start()
     {
-        _scaleMode = ScaleMode.Idle;
-        _normalCameraSize = _camera.m_Lens.OrthographicSize;
+        _lerping = false;
+        _scaling = false;
+        _camera = Camera.main;
+        _normalCameraSize = _camera.orthographicSize;
+        _distanceBetweenLeftBorderAndCameraPivot = 
+            Mathf.Abs
+            (
+            _camera.ScreenToWorldPoint(new Vector3(0f, 0f, _camera.farClipPlane)).x -
+            _camera.transform.position.x
+            );
     }
 
 
 
-    public void ToMenu()
-    {
-        transform.position = _menuPosition.position;
-        _scaleMode = ScaleMode.Unscaling;
-    }
+    public void ToMenu() => SmoothMove(_menuPosition.position, _scaleMenu);
 
-    public void ToTrolley()
-    {
-        transform.position = _trolleyPosition.position;
-        _scaleMode = ScaleMode.Scaling;
-    }
+    public void ToTrolley() => SmoothMove(_trolleyPosition.position, _scaleTrolley);
 
-    public void ToCamp() => transform.position = _campPosition.position;
+    public void ToCamp() => SmoothMove(_campPosition.position, _scaleCamp);
 
     public void ToBattle()
     {
-        transform.position = new Vector3(_battlePosition.position.x + _startRightCameraOffset,
-            _battlePosition.position.y, transform.position.z);
-        StartCoroutine(MoveCameraToPosition());
+        Vector2 resultPosition = _leftCameraBorderPositionInBattle.position;
+        resultPosition.x += _distanceBetweenLeftBorderAndCameraPivot;
+        SmoothMove(resultPosition, _scaleBattle);
+
     }
 
-    IEnumerator MoveCameraToPosition()
+
+
+
+    private void SmoothMove(Vector2 newPosition, float newScale)
     {
-        yield return new WaitForSeconds(waitTime);
+        _cameraScale = newScale;
+        _scaling = true;
 
-        // ¬ключение ограничител€ камеры и возврат в камеры в нужное место
-        transform.position = new Vector3(_battlePosition.position.x, _battlePosition.position.y, transform.position.z);
-        _confiner.m_BoundingShape2D = _confinerCollider;
+        _lerpPosition = newPosition;
+        _lerping = true;
     }
 
-    private void Update()
+
+
+    protected override void Run()
     {
-        if (_scaleMode == ScaleMode.Scaling)
+        base.Run();
+
+        if (_scaling)
         {
-            _camera.m_Lens.OrthographicSize = Mathf.Lerp(_camera.m_Lens.OrthographicSize, _scaledCameraSize, scalingSpeed * Time.deltaTime);
-            if (_camera.m_Lens.OrthographicSize == _scaledCameraSize) _scaleMode = ScaleMode.Idle;
+            _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, _cameraScale, scalingSpeed * Time.deltaTime);
+            if (_camera.orthographicSize == _cameraScale) _scaling = false;
         }
-        else if (_scaleMode == ScaleMode.Unscaling)
+
+
+        if (_lerping)
         {
-            _camera.m_Lens.OrthographicSize = Mathf.Lerp(_camera.m_Lens.OrthographicSize, _normalCameraSize, scalingSpeed * Time.deltaTime);
-            if (_camera.m_Lens.OrthographicSize == _normalCameraSize) _scaleMode = ScaleMode.Idle;
+            Vector3 resultVector = _camera.transform.position;
+            resultVector.x = Mathf.Lerp(resultVector.x, _lerpPosition.x, lerpingSpeed * Time.deltaTime);
+            resultVector.y = Mathf.Lerp(resultVector.y, _lerpPosition.y, lerpingSpeed * Time.deltaTime);
+            resultVector.z = _camera.transform.position.z;
+            _camera.transform.position = resultVector;
         }
+
 
 
     }
+
+
+    
 
 
 

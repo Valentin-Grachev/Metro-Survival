@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rechargeTime: 5
   _minDistance: 1
-  _maxDistance: 17
+  _maxDistance: 19
   _aim: {fileID: 2371047861281345583, guid: 57bc2aa5b03d9134fa40cbb3f4528414, type: 3}
   _bullet: {fileID: 7725796729597299059, guid: ce1387ac76f870f46b3963782f70b187, type: 3}
   _elevationAngle: 45
