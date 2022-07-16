@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd435d81436d98d4389cd52de397e094, type: 3}
+  m_Name: TrolleyLevels
+  m_EditorClassIdentifier: 
+  _levels:
+  - price: 0
+    health: 0
+    heroSlots: 0
+    moduleSlots: 0
+    trolleyPrefab: {fileID: 0}
+  - price: 0
+    health: 100
+    heroSlots: 2
+    moduleSlots: 0
+    trolleyPrefab: {fileID: 4475844729830188597, guid: dacbd18fd03616a4897dcf68389e0f8e, type: 3}
+  - price: 100
+    health: 120
+    heroSlots: 3
+    moduleSlots: 0
+    trolleyPrefab: {fileID: 7649153819881593416, guid: 7dd2fd0841c108b43b0f556a85039c04, type: 3}
+  - price: 200
+    health: 150
+    heroSlots: 4
+    moduleSlots: 0
+    trolleyPrefab: {fileID: 3839905625017885502, guid: b3e16127f125acc49813bd54e1f0ec1c, type: 3}
+  - price: 350
+    health: 200
+    heroSlots: 4
+    moduleSlots: 1
+    trolleyPrefab: {fileID: 7050574809498906822, guid: a73f084c150872a4382fbe42ddb9fead, type: 3}
+  - price: 9999
+    health: 9999
+    heroSlots: 9999
+    moduleSlots: 9999
+    trolleyPrefab: {fileID: 7050574809498906822, guid: a73f084c150872a4382fbe42ddb9fead, type: 3}

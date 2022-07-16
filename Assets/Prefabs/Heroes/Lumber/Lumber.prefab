@@ -226,10 +226,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _attackSpeed: 1
-  _shootingDeviation: 8
+  _shootingDeviation: 5
   damage: 10
   _linearSpeed: 45
-  _bulletQuantity: 5
+  _bulletQuantity: 4
 --- !u!114 &7917067795469179834
 MonoBehaviour:
   m_ObjectHideFlags: 0

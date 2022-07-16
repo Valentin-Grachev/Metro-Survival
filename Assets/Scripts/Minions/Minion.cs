@@ -44,9 +44,7 @@ public abstract class Minion : DestroyableObject
         get => _attackedTarget;
         protected set
         {
-            //if (_attackedTarget != null) _attackedTarget.onDeath -= OnDeath_AttackedMinion;
             _attackedTarget = value;
-            //if (_attackedTarget != null) _attackedTarget.onDeath += OnDeath_AttackedMinion;
             if (_attackedTarget == null) animator.SetBool("Attacking", false);
             else animator.SetBool("Attacking", true);
         }
@@ -69,8 +67,7 @@ public abstract class Minion : DestroyableObject
 
     // ====== Другие параметры ======
 
-    [SerializeField] protected Transform _startDestination;
-    protected Transform _destination;
+    [SerializeField] protected Transform _destination;
     protected List<DestroyableObject> _enemiesInsideAttackArea;
 
 
@@ -84,9 +81,15 @@ public abstract class Minion : DestroyableObject
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
-        if (_startDestination != null) destination = _startDestination;
+        if (team == Team.Enemy)
+        {
+            destination = Trolley.instance.transform;
+            
+        }
         else destination = null;
         _enemiesInsideAttackArea?.Clear();
+        print(destination);
+        
     }
 
 
@@ -97,6 +100,10 @@ public abstract class Minion : DestroyableObject
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         mecanim = GetComponent<SkeletonMecanim>();
+
+
+        //if (team == Team.Enemy) destination = Trolley.instance.transform;
+        //else destination = null;
 
         // Стартовая обработка свойств
         moveSpeed = moveSpeed;

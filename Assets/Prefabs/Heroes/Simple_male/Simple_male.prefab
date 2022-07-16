@@ -2002,7 +2002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863412626662733226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.21, y: 1.98, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2188,6 +2188,7 @@ MonoBehaviour:
   _bullet: {fileID: 7725796729597299059, guid: ce1387ac76f870f46b3963782f70b187, type: 3}
   _elevationAngle: 45
   _shotPoint: {fileID: 3188267980711738370}
+  _rotateDirection: 0
   _damage: 30
   _damageRadius: 2
 --- !u!114 &6382126567202787004

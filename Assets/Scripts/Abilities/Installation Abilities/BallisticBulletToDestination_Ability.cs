@@ -6,6 +6,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     [SerializeField] protected GameObject _bullet;
     [SerializeField] protected float _elevationAngle;
     [SerializeField] protected Transform _shotPoint;
+    [SerializeField] protected bool _rotateDirection;
     
 
     [Header("Bullet Parameters:")]
@@ -13,6 +14,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     [SerializeField] protected int _damageRadius;
 
     protected float _launchAngleInDegrees;
+    protected Vector2 _launchDirection;
 
 
 
@@ -28,7 +30,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
 
         float startSpeed = Library.GetStartSpeedForBallisticBullet(_shotPoint.position, destination, _launchAngleInDegrees, bullet.rb.gravityScale);
         
-        bullet.rb.velocity = _installation.directionBone.direction * startSpeed;
+        bullet.rb.velocity = _launchDirection * startSpeed;
         
     }
 
@@ -45,8 +47,9 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
         else _launchAngleInDegrees = -Vector2.Angle(direction, Vector2.right);
 
 
-        Vector2 newDirection = Quaternion.Euler(0f, 0f, _launchAngleInDegrees) * Vector2.right;
-        _installation.directionBone.direction = newDirection;
+        _launchDirection = Quaternion.Euler(0f, 0f, _launchAngleInDegrees) * Vector2.right;
+        _launchDirection.Normalize();
+        if (_rotateDirection) _installation.directionBone.direction = _launchDirection;
     }
 
     

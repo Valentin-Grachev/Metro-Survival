@@ -73,6 +73,9 @@ public abstract class ShooterInstallation : Installation
     protected override void Run()
     {
         base.Run();
+
+        // TODO: Если цель дальше дальности стрельбы - забываем ее
+
         if (target != null && !target.isDeath)
         {
             directionBone.direction = ((Vector2)target.transform.position + new Vector2(0f,Constants.pivotUpForAiming) - directionBone.bonePosition).normalized;

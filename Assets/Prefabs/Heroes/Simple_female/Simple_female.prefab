@@ -447,6 +447,7 @@ MonoBehaviour:
   _bullet: {fileID: 7550379105189534362, guid: d6baf1c40e1412c4f916af302399fff4, type: 3}
   _elevationAngle: 20
   _shotPoint: {fileID: 6839191590823848761}
+  _rotateDirection: 1
   _damage: 30
   _damageRadius: 2
 --- !u!114 &3533075545046631225

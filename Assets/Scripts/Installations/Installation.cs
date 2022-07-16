@@ -5,11 +5,14 @@ public abstract class Installation : MonoCache
 {
     public Animator animator { get; protected set; }
 
-
-    protected virtual void Start() 
-    { 
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
         animator = GetComponent<Animator>();
     }
+
+
+    protected virtual void Start() { }
 
     protected override void Run() { }
 
