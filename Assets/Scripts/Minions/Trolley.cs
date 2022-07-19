@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class Trolley : DestroyableObject
 {
+    // ====== Статический сектор ======
     public static Trolley instance { get; private set; }
     protected override void Awake()
     {
         instance = this;
         base.Awake();
     }
+    private static bool enanleUI = false;
+
+
 
 
     [Header("Trolley:")]
+    [SerializeField] protected GameObject _trolleyCanvas;
     [SerializeField] protected Transform _spawnPosition; public Transform spawnPosition { get => _spawnPosition; }
-    [SerializeField] protected Transform _colliderPositionWithoutBottomModule;
-    [SerializeField] protected Transform _colliderPositionWithBottomModule;
     [SerializeField] protected Transform _bottomModulePosition; public Transform bottomModulePosition { get => _bottomModulePosition; }
     [SerializeField] protected Transform _middleModulePosition; public Transform middleModulePosition { get => _middleModulePosition; }
     [SerializeField] protected Transform _topModulePosition; public Transform topModulePosition { get => _topModulePosition; }
@@ -29,14 +32,9 @@ public class Trolley : DestroyableObject
     {
         base.Start();
         _collider = GetComponent<Collider2D>();
-        UpdateInstallations();
+        _trolleyCanvas.SetActive(enanleUI);
     }
 
-    public void ShiftModule(bool hasBottomModule)
-    {
-        if (hasBottomModule) _collider.offset = _colliderPositionWithoutBottomModule.position;
-        else _collider.offset = _colliderPositionWithBottomModule.position;
-    }
 
 
     // Обновление позиций модулей и стрелков при их перемещении в разделе расстановки юнитов
@@ -56,6 +54,15 @@ public class Trolley : DestroyableObject
 
 
     }
+
+
+    public void SetActiveUI(bool active)
+    {
+        _trolleyCanvas.SetActive(active);
+        enanleUI = active;
+    }
+    
+
 
 
 }

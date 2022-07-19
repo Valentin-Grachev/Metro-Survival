@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff06d93992872458ed82517e6cf599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localCanvas: {fileID: 4408721314844028237}
   _team: 0
   _shotPoint: {fileID: 2962409974383194904}
   _detectionRadius: 16
@@ -1808,7 +1809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4408721314844028226
 RectTransform:
   m_ObjectHideFlags: 0

@@ -12,34 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd435d81436d98d4389cd52de397e094, type: 3}
   m_Name: TrolleyLevels
   m_EditorClassIdentifier: 
-  _levels:
-  - price: 0
-    health: 0
-    heroSlots: 0
-    moduleSlots: 0
-    trolleyPrefab: {fileID: 0}
-  - price: 0
-    health: 100
-    heroSlots: 2
-    moduleSlots: 0
-    trolleyPrefab: {fileID: 4475844729830188597, guid: dacbd18fd03616a4897dcf68389e0f8e, type: 3}
-  - price: 100
-    health: 120
-    heroSlots: 3
-    moduleSlots: 0
-    trolleyPrefab: {fileID: 7649153819881593416, guid: 7dd2fd0841c108b43b0f556a85039c04, type: 3}
-  - price: 200
-    health: 150
-    heroSlots: 4
-    moduleSlots: 0
-    trolleyPrefab: {fileID: 3839905625017885502, guid: b3e16127f125acc49813bd54e1f0ec1c, type: 3}
-  - price: 350
-    health: 200
-    heroSlots: 4
-    moduleSlots: 1
-    trolleyPrefab: {fileID: 7050574809498906822, guid: a73f084c150872a4382fbe42ddb9fead, type: 3}
-  - price: 9999
-    health: 9999
-    heroSlots: 9999
-    moduleSlots: 9999
-    trolleyPrefab: {fileID: 7050574809498906822, guid: a73f084c150872a4382fbe42ddb9fead, type: 3}
+  _viewChanges:
+  - level: 1
+    prefab: {fileID: 4475844729830188597, guid: dacbd18fd03616a4897dcf68389e0f8e, type: 3}
+  - level: 2
+    prefab: {fileID: 7649153819881593416, guid: 7dd2fd0841c108b43b0f556a85039c04, type: 3}
+  - level: 4
+    prefab: {fileID: 3839905625017885502, guid: b3e16127f125acc49813bd54e1f0ec1c, type: 3}
+  - level: 6
+    prefab: {fileID: 7050574809498906822, guid: a73f084c150872a4382fbe42ddb9fead, type: 3}
+  - level: 8
+    prefab: {fileID: 368961169907152143, guid: 0c543956f00bfb94bb29614046cfa909, type: 3}
+  - level: 10
+    prefab: {fileID: 2852349883500621691, guid: 9766081bed85d1c4e90acb943be159e3, type: 3}
+  - level: 12
+    prefab: {fileID: 225175090054643685, guid: 3e6d95a0c6451ac43b909ce7626fb1f6, type: 3}
+  - level: 14
+    prefab: {fileID: 3234418882661216992, guid: 495742033b4c1cd4ebb164ddc42dfbe3, type: 3}
+  - level: 17
+    prefab: {fileID: 4069325943387393633, guid: 3b61ebd91e61b89479d33bbc1e36ebbd, type: 3}
+  - level: 20
+    prefab: {fileID: 4721456206804960071, guid: 0c54af52c1fdfd744b5685cc37386528, type: 3}

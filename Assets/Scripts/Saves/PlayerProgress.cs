@@ -1,6 +1,7 @@
 using CI.QuickSave;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerProgress : MonoBehaviour
 {
@@ -10,13 +11,17 @@ public class PlayerProgress : MonoBehaviour
 
     public static PlayerProgress instance { get; private set; }
     private QuickSaveSettings _settings;
+
+
     private void Awake()
     {
         if (instance == null) instance = this;
+
+        // Установка настроек сохранения
         _settings = new QuickSaveSettings
         {
             SecurityMode = SecurityMode.Aes,
-            Password = Constants.savePassword,
+            Password = Constants.savePassword, // TODO - заменить на локальную константу
             CompressionMode = CompressionMode.Gzip
         };
 
@@ -36,38 +41,8 @@ public class PlayerProgress : MonoBehaviour
 
     private int _money; public int money { get => _money; set { _money = value; onUpdateMoney?.Invoke(); } }
     private int _premiumMoney; public int premiumMoney { get => _premiumMoney; set { _premiumMoney = value; onUpdateMoney?.Invoke(); } }
-
     private int _trolleyLevel;
-    public int trolleyLevel
-    {
-        get => _trolleyLevel;
-        private set // Установка нового уровня тележки
-        {
-            // Удаляем старый префаб
-            Vector3 trolleyPosition = Trolley.instance.transform.position;
-            Destroy(Trolley.instance.gameObject);
-
-            // Создаем новый префаб если уровень достаточен для изменения внешнего вида тележки
-            if (Trolley.instance.gameObject != _trolleyLevelsSO.levels[value].trolleyPrefab)
-                Instantiate(_trolleyLevelsSO.levels[value].trolleyPrefab, trolleyPosition, Quaternion.identity);
-            Trolley.instance.maxHealth = _trolleyLevelsSO.levels[value].health;
-            Trolley.instance.health = _trolleyLevelsSO.levels[value].health;
-
-
-            /* TODO
-
-            // Расставляем модули и стрелков
-            for (int i = 0; i < heroPositions.Length; i++)
-            {
-
-            }
-
-            */
-
-            _trolleyLevel = value;
-            onUpdateValue?.Invoke();
-        }
-    }
+    
 
 
     public List<string> heroesId; // id героя на i-той позиции
@@ -78,6 +53,45 @@ public class PlayerProgress : MonoBehaviour
     {
         trolleyLevel = DefaultValue.trolleyLevel;
         money = DefaultValue.money;
+        heroesId = DefaultValue.heroesId;
+        Trolley.instance.UpdateInstallations();
+
+    }
+
+
+
+    // Установка нового уровня тележки
+    public int trolleyLevel
+    {
+        get => _trolleyLevel;
+        private set 
+        {
+            // Если внешний вид тележек не остается прежним - удаляем старую и создаем новую с расстановкой стрелков
+            int currentView = _trolleyLevelsSO.GetViewNumber(_trolleyLevel);
+            int newView = _trolleyLevelsSO.GetViewNumber(value);
+            if (currentView != newView)
+            {
+                Vector3 trolleyPosition = Trolley.instance.transform.position;
+
+                // Удаляем старый префаб
+                Destroy(Trolley.instance.gameObject);
+
+                // Создаем новый префаб тележки и обновляем стрелков
+                Instantiate(_trolleyLevelsSO.GetPrefab(value), trolleyPosition, Quaternion.identity);
+                Trolley.instance.UpdateInstallations();
+
+            }
+
+            
+            // Выставляем параметры тележки
+            Trolley.instance.maxHealth = _trolleyLevelsSO.GetHealth(value);
+            Trolley.instance.health = _trolleyLevelsSO.GetHealth(value);
+
+
+
+            _trolleyLevel = value;
+            onUpdateValue?.Invoke();
+        }
     }
 
 
@@ -88,9 +102,10 @@ public class PlayerProgress : MonoBehaviour
 
     public void UpLevel(string id)
     {
-        if (id == "trolley" && money >= _trolleyLevelsSO.levels[trolleyLevel+1].price)
+        // Если достаточно денег - вычитаем цену из кошелька и повышаем уровень
+        if (id == "trolley" && money >= _trolleyLevelsSO.GetPrice(trolleyLevel+1))
         {
-            money -= _trolleyLevelsSO.levels[trolleyLevel+1].price;
+            money -= _trolleyLevelsSO.GetPrice(trolleyLevel + 1);
             trolleyLevel++;
         }
     }

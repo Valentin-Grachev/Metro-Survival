@@ -9,7 +9,6 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] protected SliderNotifier _healthSliderNotifier;
     [SerializeField] protected SliderNotifier _intervalSliderNotifier;
-    [SerializeField] protected Transform _destination;
 
     protected Pool[] _pools;
 
@@ -45,7 +44,6 @@ public class Spawner : MonoBehaviour
             Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
             minion.maxHealth = maxHealth;
             minion.health = maxHealth;
-            minion.destination = _destination;
             EnemyCounter.instance.OnCreate_Minion();
 
             yield return new WaitForSeconds(interval);

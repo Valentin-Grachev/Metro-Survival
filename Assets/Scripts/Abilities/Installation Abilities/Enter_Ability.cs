@@ -3,7 +3,6 @@ using UnityEngine;
 public class Enter_Ability : ShooterInstallationAbility
 {
     [SerializeField] protected GameObject _spawnMinion;
-    [SerializeField] protected Transform _spawnPosition; // TODO - Сменить на рандомную область
     [SerializeField] protected GameObject _localCanvas;
 
     public override void Disable()
@@ -17,7 +16,7 @@ public class Enter_Ability : ShooterInstallationAbility
 
     public override void Active()
     {
-        Instantiate(_spawnMinion, _spawnPosition.position, Quaternion.identity).
+        Instantiate(_spawnMinion, Trolley.instance.transform.position, Quaternion.identity).
             GetComponent<ReturnableMelee_NavMeshMinion>().ability = this;
     }
 

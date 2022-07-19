@@ -2343,7 +2343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rechargeTime: 6
   _minion: {fileID: 5093510281697390639, guid: af61bbe90ac88854284a3e28b9d55388, type: 3}
-  _spawnPosition: {fileID: 0}
 --- !u!114 &2741052697281601497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,6 +2355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff06d93992872458ed82517e6cf599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localCanvas: {fileID: 7591405812445866919}
   _team: 0
   _shotPoint: {fileID: 4612153814271633969}
   _detectionRadius: 18
@@ -2384,7 +2384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7591405812445866920
 RectTransform:
   m_ObjectHideFlags: 0

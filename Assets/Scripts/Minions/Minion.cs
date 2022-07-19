@@ -81,14 +81,9 @@ public abstract class Minion : DestroyableObject
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
-        if (team == Team.Enemy)
-        {
-            destination = Trolley.instance.transform;
-            
-        }
+        if (team == Team.Enemy) destination = Trolley.instance.transform;
         else destination = null;
         _enemiesInsideAttackArea?.Clear();
-        print(destination);
         
     }
 
@@ -100,10 +95,6 @@ public abstract class Minion : DestroyableObject
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         mecanim = GetComponent<SkeletonMecanim>();
-
-
-        //if (team == Team.Enemy) destination = Trolley.instance.transform;
-        //else destination = null;
 
         // Стартовая обработка свойств
         moveSpeed = moveSpeed;

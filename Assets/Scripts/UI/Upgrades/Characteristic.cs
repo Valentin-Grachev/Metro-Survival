@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -12,12 +14,24 @@ public class Characteristic : MonoBehaviour
 
     private TextMeshProUGUI _text;
 
-    private void Start()
+    private async void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        PlayerProgress.instance.onUpdateValue += OnChangeValue_PlayerProgress;
-        if (_id == "money") PlayerProgress.instance.onUpdateMoney += OnChangeMoney_PlayerProgress;
+
+        await Task.Run(() => { while (PlayerProgress.instance == null); });
+        if (_id == "money")
+        {
+            PlayerProgress.instance.onUpdateMoney += OnChangeMoney_PlayerProgress;
+            OnChangeMoney_PlayerProgress();
+        }
+        else
+        {
+            PlayerProgress.instance.onUpdateValue += OnChangeValue_PlayerProgress;
+            OnChangeValue_PlayerProgress();
+        }
+
     }
+
 
     private void OnChangeMoney_PlayerProgress()
     {
@@ -34,19 +48,19 @@ public class Characteristic : MonoBehaviour
             switch (_type)
             {
                 case CharacteristicType.Health:
-                    _text.text = PlayerProgress.instance.trolleyLevelsSO.levels[showLevel].health.ToString();
+                    _text.text = PlayerProgress.instance.trolleyLevelsSO.GetHealth(showLevel).ToString();
                     break;
                 case CharacteristicType.HeroSlots:
-                    _text.text = PlayerProgress.instance.trolleyLevelsSO.levels[showLevel].heroSlots.ToString();
+                    _text.text = PlayerProgress.instance.trolleyLevelsSO.GetHeroQuantity(showLevel).ToString();
                     break;
                 case CharacteristicType.ModuleSlot:
-                    _text.text = PlayerProgress.instance.trolleyLevelsSO.levels[showLevel].moduleSlots.ToString();
+                    _text.text = PlayerProgress.instance.trolleyLevelsSO.GetModuleQuantity(showLevel).ToString();
                     break;
                 case CharacteristicType.Level:
                     _text.text = PlayerProgress.instance.trolleyLevel.ToString();
                     break;
                 case CharacteristicType.Price:
-                    _text.text = PlayerProgress.instance.trolleyLevelsSO.levels[showLevel].price.ToString();
+                    _text.text = PlayerProgress.instance.trolleyLevelsSO.GetPrice(showLevel).ToString();
                     break;
             }
         }

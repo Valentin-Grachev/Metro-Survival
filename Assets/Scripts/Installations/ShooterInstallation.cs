@@ -74,9 +74,8 @@ public abstract class ShooterInstallation : Installation
     {
         base.Run();
 
-        // TODO: Если цель дальше дальности стрельбы - забываем ее
-
-        if (target != null && !target.isDeath)
+        // Если цель жива и находится на достаточном для стрельбы расстоянии - атакуем ее
+        if (target != null && !target.isDeath && Vector2.Distance(transform.position, target.transform.position) < detectionRadius)
         {
             directionBone.direction = ((Vector2)target.transform.position + new Vector2(0f,Constants.pivotUpForAiming) - directionBone.bonePosition).normalized;
             animator.SetBool("Attack", true);
