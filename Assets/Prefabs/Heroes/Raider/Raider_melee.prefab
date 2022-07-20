@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 3836646626150227900}
   m_Layer: 6
   m_Name: Raider_melee
-  m_TagString: Untagged
+  m_TagString: Allies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,11 +135,11 @@ MonoBehaviour:
   separatorSlotNames: []
   zSpacing: 0
   useClipping: 1
-  immutableTriangles: 0
+  immutableTriangles: 1
   pmaVertexColors: 1
-  clearStateOnDisable: 0
+  clearStateOnDisable: 1
   tintBlack: 0
-  singleSubmesh: 0
+  singleSubmesh: 1
   fixDrawOrder: 0
   addNormals: 0
   calculateTangents: 0
@@ -174,7 +174,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2378235995160728755}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bb1730be618eb824790b0b0167a24cf2, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  _startDestination: {fileID: 0}
+  _destination: {fileID: 0}
   ability: {fileID: 0}
 --- !u!1 &6139966536018512868
 GameObject:

@@ -5,10 +5,10 @@ public static class Constants
 
     // ƒистанци€, на которой стрельба производитс€ по позиции: позици€ врага + его скорость.
     // ѕредполагаетс€, что чем дальше цель - тем пул€ дольше будет лететь и нужно брать с бќльшим упреждением
-    public const float distancePrediction = 20f;
+    public const float distancePrediction = 40f;
 
     // —мещение центра тела врагов на данную величину - стрелки будут целитьс€ не в ноги существам, а выше
-    public const float pivotUpForAiming = 0.2f;
+    public const float pivotUpForAiming = 0.4f;
 
     // Ќаправление движени€ по оси ’ должно превысить это значение, чтобы анимаци€ развернулась по оси ’
     public const float reversEpsilon = 0.3f;

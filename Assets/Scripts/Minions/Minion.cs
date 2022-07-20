@@ -135,11 +135,14 @@ public abstract class Minion : DestroyableObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Триггеры не учитываем
+        if (collision.isTrigger) return;
+
         // Вражеский уничтожаемый объект вошел в зону - добавление в список
-        if (collision.gameObject.TryGetComponent(out DestroyableObject destrObject))
+        if (team == Team.Enemy && collision.CompareTag("Allies") 
+            || team == Team.Player && collision.CompareTag("Enemies"))
         {
-            if (destrObject.team != team) _enemiesInsideAttackArea.Add(destrObject);
-            
+            _enemiesInsideAttackArea.Add(collision.gameObject.GetComponent<DestroyableObject>());
         }
         
 
@@ -147,9 +150,14 @@ public abstract class Minion : DestroyableObject
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // Триггеры не учитываем
+        if (collision.isTrigger) return;
+
         // Вражеский уничтожаемый объект вышел из зоны - извлечение из списка
-        if (collision.gameObject.TryGetComponent(out DestroyableObject destrObject))
+        if (team == Team.Enemy && collision.CompareTag("Allies")
+            || team == Team.Player && collision.CompareTag("Enemies"))
         {
+            DestroyableObject destrObject = collision.gameObject.GetComponent<DestroyableObject>();
             // Если это был тот, кого атаковали - забываем его
             if (destrObject == _attackedTarget) _attackedTarget = null;
 
@@ -181,7 +189,6 @@ public abstract class Minion : DestroyableObject
     }
 
 
-    private void OnDeath_AttackedMinion() => attackedTarget = null;
 
 
     public abstract void Attack();

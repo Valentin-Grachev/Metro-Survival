@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8189826684724913506}
   m_Layer: 6
   m_Name: Ability (Builder)
-  m_TagString: Untagged
+  m_TagString: Allies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,11 +131,11 @@ MonoBehaviour:
   separatorSlotNames: []
   zSpacing: 0
   useClipping: 1
-  immutableTriangles: 0
+  immutableTriangles: 1
   pmaVertexColors: 1
-  clearStateOnDisable: 0
+  clearStateOnDisable: 1
   tintBlack: 0
-  singleSubmesh: 0
+  singleSubmesh: 1
   fixDrawOrder: 0
   addNormals: 0
   calculateTangents: 0
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbdc3b9641ae8d47a975e197a85fc12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localCanvas: {fileID: 0}
+  _bulletCollider: {fileID: 0}
   _team: 0
   _maxHealth: 1000
   timeUntilDestroy: 0

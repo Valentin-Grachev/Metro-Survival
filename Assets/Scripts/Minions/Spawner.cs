@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [Header("Test:")]
+    [SerializeField] EnemyCounter enemyCounter;
+    [SerializeField] EnemyCounterCommon enemyCounterCommon;
+
+
+    [Space(30)]
     [SerializeField] private Vector2 _randomPosition;
     [HideInInspector] public float interval;
     [HideInInspector] public int maxHealth;
@@ -37,14 +43,20 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
+            if (EnemyLimit.instance.Value > EnemyCounter.instance.quantity)
+            {
+                Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
                 transform.position.y + Random.Range(-_randomPosition.y, _randomPosition.y), 0f);
 
-            int randomNumber = Random.Range(0, _pools.Length);
-            Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
-            minion.maxHealth = maxHealth;
-            minion.health = maxHealth;
-            EnemyCounter.instance.OnCreate_Minion();
+                int randomNumber = Random.Range(0, _pools.Length);
+                Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
+                minion.maxHealth = maxHealth;
+                minion.health = maxHealth;
+                enemyCounter.OnCreate_Minion();
+                enemyCounterCommon.OnCreate_Minion();
+            }
+
+            
 
             yield return new WaitForSeconds(interval);
         }

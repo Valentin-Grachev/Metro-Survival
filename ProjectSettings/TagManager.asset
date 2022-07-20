@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - RoadCenter
+  - Allies
+  - Enemies
   layers:
   - Default
   - TransparentFX

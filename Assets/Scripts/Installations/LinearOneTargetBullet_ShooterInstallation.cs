@@ -18,8 +18,8 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
         // Инициализация пули
         instBullet.rb = instBullet.gameObject.GetComponent<Rigidbody2D>();
 
-        // Задаем направление пули с учетом возможных отклонение от прямой траектории
-        Vector2 bulletDirection = (arrivalPoint - (Vector2)transform.position).normalized;
+        // Задаем направление пули с учетом возможных отклонений от прямой траектории
+        Vector2 bulletDirection = (arrivalPoint - directionBone.bonePosition).normalized;
         bulletDirection = Quaternion.Euler(0f, 0f, Random.Range(-_shootingDeviation * 0.5f, _shootingDeviation * 0.5f)) * bulletDirection;
         instBullet.rb.velocity = bulletDirection * _linearSpeed;
 

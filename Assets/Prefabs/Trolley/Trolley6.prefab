@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 2852349883500621447}
   m_Layer: 6
   m_Name: Trolley6
-  m_TagString: Untagged
+  m_TagString: Allies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

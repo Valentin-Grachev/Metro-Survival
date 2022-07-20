@@ -11,7 +11,7 @@ public class EnemyCounter : MonoBehaviour
     }
 
     [SerializeField] private TextMeshProUGUI textCount;
-    private int quantity;
+    public int quantity;
 
 
     private void Start()

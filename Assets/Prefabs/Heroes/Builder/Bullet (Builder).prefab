@@ -132,11 +132,11 @@ MonoBehaviour:
   separatorSlotNames: []
   zSpacing: 0
   useClipping: 1
-  immutableTriangles: 0
+  immutableTriangles: 1
   pmaVertexColors: 1
-  clearStateOnDisable: 0
+  clearStateOnDisable: 1
   tintBlack: 0
-  singleSubmesh: 0
+  singleSubmesh: 1
   fixDrawOrder: 0
   addNormals: 0
   calculateTangents: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   rb: {fileID: 0}
+  collideInRoadCenter: 0
   damage: 1
 --- !u!50 &7425675859602581960
 Rigidbody2D:

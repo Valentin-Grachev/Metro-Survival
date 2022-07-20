@@ -8,12 +8,13 @@ public class OneTarget_Bullet : Bullet
     {
         base.OnTriggerEnter2D(collider);
 
-        // Попали во вражеского миньона
-        if (collider.transform.parent.TryGetComponent(out Minion minion) && minion.team != team)
+        // Попали во вражеского миньона и пуля активна
+        if (collider.transform.parent.TryGetComponent(out Minion minion) && minion.team != team && _isActive)
         {
             minion.health -= damage;
             _animator.SetTrigger("Collision");
             rb.velocity = Vector3.zero;
+            _isActive = false;
         }
     }
 }
