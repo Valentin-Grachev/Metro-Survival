@@ -1,0 +1,73 @@
+{
+"skeleton": {
+	"hash": "W4OtW0yRvFdd1VhlKb7VxbZ7Otk",
+	"spine": "3.8.99",
+	"x": -5.31,
+	"y": -2.79,
+	"width": 11.57,
+	"height": 5.79,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root" }
+],
+"slots": [
+	{ "name": "warrior/sparks/sparks_0000", "bone": "sparks", "color": "fdfc9aff" },
+	{ "name": "warrior/bullet", "bone": "bullet", "attachment": "warrior/bullet" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"warrior/bullet": {
+				"warrior/bullet": { "x": 0.47, "y": 0.1, "scaleX": 0.4452, "scaleY": 0.4452, "width": 26, "height": 13 }
+			},
+			"warrior/sparks/sparks_0000": {
+				"warrior/sparks/sparks_0000": { "width": 73, "height": 66 },
+				"warrior/sparks/sparks_0001": { "width": 73, "height": 66 },
+				"warrior/sparks/sparks_0002": { "width": 73, "height": 66 },
+				"warrior/sparks/sparks_0003": { "width": 73, "height": 66 },
+				"warrior/sparks/sparks_0004": { "width": 73, "height": 66 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"warrior/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"warrior/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": "warrior/sparks/sparks_0000" },
+					{ "time": 0.0333, "name": "warrior/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "warrior/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "warrior/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": "warrior/sparks/sparks_0004" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"warrior/bullet": {
+				"attachment": [
+					{ "name": "warrior/bullet" }
+				]
+			},
+			"warrior/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}
