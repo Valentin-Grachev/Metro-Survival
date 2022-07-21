@@ -13,10 +13,7 @@ public class TempDestroybleObject : DestroyableObject
         base.Run();
         timeUntilDestroy -= Time.deltaTime;
         onUpdateTimeUntilDestroy.Invoke(timeUntilDestroy, maxTimeUntilDestroy);
-        if (timeUntilDestroy < 0)
-        {
-            animator.SetTrigger("Destroy");
-        }
+        if (timeUntilDestroy < 0) Death();
     }
 
 

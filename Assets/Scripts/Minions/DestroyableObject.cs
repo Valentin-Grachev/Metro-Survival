@@ -6,7 +6,7 @@ public enum Team { Player, Enemy, Neutral }
 
 
 
-public class DestroyableObject : MonoCache
+public class DestroyableObject : PoolBehaviour
 {
     //====== События ======
 
@@ -42,11 +42,11 @@ public class DestroyableObject : MonoCache
             onHealthChanged?.Invoke(_health, _maxHealth);
         }
     }
-
+    [SerializeField] protected AnimationType _startAnimation;
 
     //====== Свойства ======
     public bool isDeath { get; protected set; }
-    public Animator animator { get; protected set; }
+    public SpineAnimation spineAnimation { get; protected set; }
 
 
     // ====== Стартовые значения для реинициализации ======
@@ -58,18 +58,18 @@ public class DestroyableObject : MonoCache
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        spineAnimation = GetComponent<SpineAnimation>();
     }
 
 
-    // Возвращение из пула
-    protected override void OnEnabled()
+    protected override void FromPool()
     {
-        base.OnEnabled();
+        base.FromPool();
         isDeath = false;
         if (_startLayer != LayerMask.NameToLayer("Default")) gameObject.layer = _startLayer;
         if (_localCanvas != null) _localCanvas.SetActive(true);
         if (_bulletCollider != null) _bulletCollider.enabled = true;
+        spineAnimation.SetAnimation(_startAnimation);
     }
 
     protected override void Run()
@@ -82,6 +82,8 @@ public class DestroyableObject : MonoCache
         health = maxHealth;
         isDeath = false;
         _startLayer = gameObject.layer;
+        spineAnimation.SetAnimation(_startAnimation);
+
     }
 
     protected virtual void Death()
@@ -89,7 +91,7 @@ public class DestroyableObject : MonoCache
         isDeath = true;
         onDeath?.Invoke();
         gameObject.layer = LayerMask.NameToLayer("Default");
-        animator.SetTrigger("Death");
+        spineAnimation.SetAnimation(AnimationType.Death);
         if (_localCanvas != null) _localCanvas.SetActive(false);
         if (_bulletCollider != null) _bulletCollider.enabled = false;
     }

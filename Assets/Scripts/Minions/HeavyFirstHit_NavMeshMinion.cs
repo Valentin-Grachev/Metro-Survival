@@ -17,8 +17,9 @@ public class HeavyFirstHit_NavMeshMinion : OneMeleeTarget_NavMeshMinion
         {
             if (value != null && _hasAbility)
             {
+                // Первый удар - особый
                 _hasAbility = false;
-                animator.SetTrigger("Ability");
+                spineAnimation.SetAnimation(AnimationType.Ability_active);
                 _attackedTarget = value;
             }
             else base.attackedTarget = value;

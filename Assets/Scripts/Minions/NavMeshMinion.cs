@@ -42,9 +42,6 @@ public abstract class NavMeshMinion : Minion
         if (destination != null && _destinationObject.isDeath) destination = null;
     }
 
-
-
-
     protected override void Start()
     {
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
@@ -52,6 +49,34 @@ public abstract class NavMeshMinion : Minion
         _agent.updateUpAxis = false;
         base.Start();
     }
+
+
+    // ====== Функции-состояния ======
+
+    public void MoveNavMesh_UpdateState()
+    {
+        // Поворот в сторону атаки
+        Vector2 moveDirection = agent.velocity;
+
+        if (moveDirection.x < -Constants.reversEpsilon && spineAnimation.skeletonAnimation.initialFlipX)
+        {
+            spineAnimation.skeletonAnimation.initialFlipX = true;
+            spineAnimation.skeletonAnimation.Initialize(true);
+        }
+
+        if (moveDirection.x >= Constants.reversEpsilon && spineAnimation.skeletonAnimation.initialFlipX)
+        {
+            spineAnimation.skeletonAnimation.initialFlipX = false;
+            spineAnimation.skeletonAnimation.Initialize(true);
+        }
+
+        // Обновление места назначения
+        if (destination != null) agent.SetDestination(destination.position);
+    }
+
+
+
+
 
 
 }

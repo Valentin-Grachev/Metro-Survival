@@ -15,7 +15,7 @@ public abstract class Minion : DestroyableObject
         set
         {
             _moveSpeed = value;
-            animator.SetFloat("MoveSpeed", value * _normalizeMoveAnimationSpeed);
+            spineAnimation.moveSpeed = value * _normalizeMoveAnimationSpeed;
         }
     }
     [SerializeField] protected float _attackSpeed;
@@ -25,7 +25,7 @@ public abstract class Minion : DestroyableObject
         set
         {
             _attackSpeed = value;
-            animator.SetFloat("AttackSpeed", value);
+            spineAnimation.attackSpeed = value;
         }
     }
 
@@ -45,8 +45,9 @@ public abstract class Minion : DestroyableObject
         protected set
         {
             _attackedTarget = value;
-            if (_attackedTarget == null) animator.SetBool("Attacking", false);
-            else animator.SetBool("Attacking", true);
+            print("Enter");
+            // Если атакуемая цель существует - запускаем анимацию атаки
+            if (_attackedTarget != null) spineAnimation.SetAnimation(AnimationType.Attack);
         }
     }
 
@@ -56,18 +57,18 @@ public abstract class Minion : DestroyableObject
         set
         {
             _destination = value;
-            if (_destination == null) animator.SetBool("Move", false);
-            else animator.SetBool("Move", true);
+
+            // Если место назначения существует и некого атаковать - переходим в режим движения
+            if (_destination != null && attackedTarget == null) spineAnimation.SetAnimation(AnimationType.Move);
         }
         
     }
-    public SkeletonMecanim mecanim { get; protected set; }
 
 
 
     // ====== Другие параметры ======
 
-    [SerializeField] protected Transform _destination;
+    protected Transform _destination;
     protected List<DestroyableObject> _enemiesInsideAttackArea;
 
 
@@ -75,15 +76,15 @@ public abstract class Minion : DestroyableObject
 
 
     // Активация из пула - инициализация заново
-    protected override void OnEnabled()
+    protected override void FromPool()
     {
-        base.OnEnabled();
+        base.FromPool();
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
         if (team == Team.Enemy) destination = Trolley.instance.transform;
         else destination = null;
-        _enemiesInsideAttackArea?.Clear();
+        _enemiesInsideAttackArea.Clear();
         
     }
 
@@ -92,13 +93,13 @@ public abstract class Minion : DestroyableObject
     {
         base.Start();
         _enemiesInsideAttackArea = new List<DestroyableObject>();
-        animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
-        mecanim = GetComponent<SkeletonMecanim>();
 
         // Стартовая обработка свойств
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
+        if (team == Team.Enemy) destination = Trolley.instance.transform;
+        else destination = null;
     }
 
 
@@ -107,10 +108,7 @@ public abstract class Minion : DestroyableObject
         base.Run();
 
         // При смерти цели обнуляем ее
-        if (attackedTarget != null && attackedTarget.isDeath)
-        {
-            attackedTarget = null;
-        }
+        if (attackedTarget != null && attackedTarget.isDeath) attackedTarget = null;
 
         // Если миньон не отвлекается на задние цели и при этом цель оказалась сзади - забываем ее
         if (!_backDistract && attackedTarget != null && transform.position.x < attackedTarget.transform.position.x)
@@ -119,15 +117,11 @@ public abstract class Minion : DestroyableObject
 
 
 
-        // Если потеряли цель
-        if (attackedTarget == null || !attackedTarget.gameObject.activeInHierarchy)
+        // Если потеряли цель и в зоне атаки есть цель - выбираем новую
+        if (attackedTarget == null && _enemiesInsideAttackArea.Count != 0)
         {
-            // В зоне атаки есть цель - выбираем новую
-            if (_enemiesInsideAttackArea.Count != 0) SelectNewTarget();
-
-            // Никого нет - прекращаем атаковать
-            else animator.SetBool("Attacking", false);
-
+            SelectNewTarget();
+            print("Search");
         }
 
     }
@@ -137,7 +131,6 @@ public abstract class Minion : DestroyableObject
     {
         // Триггеры не учитываем
         if (collision.isTrigger) return;
-
         // Вражеский уничтожаемый объект вошел в зону - добавление в список
         if (team == Team.Enemy && collision.CompareTag("Allies") 
             || team == Team.Player && collision.CompareTag("Enemies"))
@@ -159,7 +152,7 @@ public abstract class Minion : DestroyableObject
         {
             DestroyableObject destrObject = collision.gameObject.GetComponent<DestroyableObject>();
             // Если это был тот, кого атаковали - забываем его
-            if (destrObject == _attackedTarget) _attackedTarget = null;
+            if (destrObject == _attackedTarget) attackedTarget = null;
 
             if (destrObject.team != team) _enemiesInsideAttackArea.Remove(destrObject);
         }
@@ -192,6 +185,34 @@ public abstract class Minion : DestroyableObject
 
 
     public abstract void Attack();
+
+
+    // ====== Функции-состояния ======
+    public void MoveLeft_UpdateState() => rigidbody.velocity = Vector2.left * moveSpeed;
+
+    public void MoveLeft_ExitState() => rigidbody.velocity = Vector2.zero;
+
+    public void AttackWithBackDistract_UpdateState()
+    {
+        if (attackedTarget == null) return;
+
+        // Поворот миньона в сторону врага
+        Vector2 moveDirection = (attackedTarget.transform.position - transform.position).normalized;
+        if (moveDirection.x < 0 && !spineAnimation.skeletonAnimation.initialFlipX)
+        {
+            spineAnimation.skeletonAnimation.initialFlipX = true;
+            spineAnimation.skeletonAnimation.Initialize(true);
+        }
+
+        else if (moveDirection.x >= 0 && spineAnimation.skeletonAnimation.initialFlipX)
+        {
+            spineAnimation.skeletonAnimation.initialFlipX = false;
+            spineAnimation.skeletonAnimation.Initialize(true);
+        }
+
+        // При атаке стоит на месте
+        rigidbody.velocity = Vector3.zero;
+    }
 
 
 
