@@ -31,7 +31,7 @@ public abstract class ShooterInstallationAbility : MonoBehaviour
     // Переход в режим выполнения способности - отключение обычного режима атаки
     public virtual void Enable()
     {
-        _installation.animator.SetTrigger("Ability");
+        _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
         _installation.enabled = false;
     }
 

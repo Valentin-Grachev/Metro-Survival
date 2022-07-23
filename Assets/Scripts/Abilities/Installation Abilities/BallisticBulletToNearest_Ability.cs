@@ -13,9 +13,10 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
             // Ѕерем с упреждением - переопредел€ем снова точку назначени€
             Vector2 velocity = _nearestTarget.GetComponent<Rigidbody2D>().velocity;
             Vector2 nearestPosition = new Vector2(_nearestTarget.position.x, AbilityDestination.instance.aimPosition.y);
+
             // —трел€ем оптимально - за первого ближнего так, чтобы его задело и задних накрыло
             destination = Library.GetTargetPositionWithPrediction(nearestPosition, velocity, Vector2.Distance(transform.position, nearestPosition))
-                + new Vector2(_damageRadius * 0.7f, 0f);
+                + new Vector2(_damageArea.x * 0.7f, 0f);
         }
         else
         {
@@ -30,7 +31,7 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
 
     public override void Enable()
     {
-        _nearestTarget = Library.SearchNearestCircle(transform.position, _installation.detectionRadius, _installation.enemyLayer);
+        //_nearestTarget = Library.SearchNearestCircle(transform.position, _installation.detectionRadius, _installation.enemyLayer);
         if (_nearestTarget == null) return;
 
         _lastNearestPosition = _nearestTarget.position;

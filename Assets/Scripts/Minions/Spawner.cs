@@ -23,10 +23,10 @@ public class Spawner : MonoBehaviour
         interval = _intervalSliderNotifier.slider.value;
         maxHealth = (int)_healthSliderNotifier.slider.value;
         _pools = GetComponents<Pool>();
-        StartCoroutine(Spawning());
         _healthSliderNotifier.onValueChanged += OnValueChanged_HealthSliderNotifier;
         _intervalSliderNotifier.onValueChanged += OnValueChanged_IntervalSliderNotifier;
-        
+        StartCoroutine(Spawning());
+
     }
 
     private void OnValueChanged_IntervalSliderNotifier(float value)
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            if (EnemyLimit.instance.Value > EnemyCounter.instance.quantity)
+            if (EnemyLimit.instance.Value > enemyCounter.quantity)
             {
                 Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
                 transform.position.y + Random.Range(-_randomPosition.y, _randomPosition.y), 0f);
@@ -52,7 +52,6 @@ public class Spawner : MonoBehaviour
                 Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
                 minion.maxHealth = maxHealth;
                 minion.health = maxHealth;
-                enemyCounter.OnCreate_Minion();
                 enemyCounterCommon.OnCreate_Minion();
             }
 

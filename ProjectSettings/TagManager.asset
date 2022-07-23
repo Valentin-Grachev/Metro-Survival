@@ -8,6 +8,7 @@ TagManager:
   - RoadCenter
   - Allies
   - Enemies
+  - NoBackDistract
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class AttackGain_Ability : ShooterInstallationAbility
 
     public override void Enable()
     {
-        _installation.animator.SetTrigger("Ability");
+        _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
         timeUntilRecharge = _rechargeTime;
         Active();
         StartCoroutine(DisableWithDelay());
@@ -40,7 +40,7 @@ public class AttackGain_Ability : ShooterInstallationAbility
     {
         _installation.attackSpeed -= _speedBonus;
         _installation.damage -= _damageBonus;
-        _installation.animator.SetTrigger("DisableAbility");
+        //_installation.animator.SetTrigger("DisableAbility");
         _installation.bullet = _usualBullet;
 
     }

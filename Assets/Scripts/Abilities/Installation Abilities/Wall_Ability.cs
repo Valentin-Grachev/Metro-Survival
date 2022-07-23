@@ -16,7 +16,7 @@ public class Wall_Ability : ControlledAbility
         NavMeshRebaker.instance.Rebake();
     }
 
-    public override void Enable() => _installation.animator.SetTrigger("Ability");
+    public override void Enable() => _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
 
 
 }

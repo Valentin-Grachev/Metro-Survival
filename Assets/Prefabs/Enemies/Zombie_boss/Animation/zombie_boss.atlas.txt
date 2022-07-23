@@ -1,0 +1,216 @@
+
+zombie_boss.png
+size: 2000,1020
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+zombie_boss/armL1
+  rotate: true
+  xy: 1278, 149
+  size: 159, 127
+  orig: 159, 127
+  offset: 0, 0
+  index: -1
+zombie_boss/armL2
+  rotate: true
+  xy: 1315, 51
+  size: 96, 159
+  orig: 96, 159
+  offset: 0, 0
+  index: -1
+zombie_boss/armR1
+  rotate: false
+  xy: 1931, 896
+  size: 67, 122
+  orig: 67, 122
+  offset: 0, 0
+  index: -1
+zombie_boss/armR2
+  rotate: false
+  xy: 1407, 171
+  size: 93, 137
+  orig: 93, 137
+  offset: 0, 0
+  index: -1
+zombie_boss/body
+  rotate: false
+  xy: 1067, 86
+  size: 209, 222
+  orig: 209, 222
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_30
+  rotate: true
+  xy: 2, 2
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_31
+  rotate: true
+  xy: 357, 511
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_32
+  rotate: true
+  xy: 357, 2
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_33
+  rotate: true
+  xy: 712, 511
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_34
+  rotate: true
+  xy: 712, 2
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_35
+  rotate: false
+  xy: 1067, 665
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_36
+  rotate: true
+  xy: 1576, 511
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_37
+  rotate: false
+  xy: 1067, 310
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_38
+  rotate: true
+  xy: 1576, 2
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death/death_39
+  rotate: true
+  xy: 2, 511
+  size: 507, 353
+  orig: 507, 353
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0000
+  rotate: false
+  xy: 1931, 828
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0001
+  rotate: false
+  xy: 1931, 760
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0002
+  rotate: false
+  xy: 1931, 692
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0003
+  rotate: false
+  xy: 1931, 624
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0004
+  rotate: false
+  xy: 1931, 556
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0005
+  rotate: false
+  xy: 1931, 488
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0006
+  rotate: false
+  xy: 1931, 420
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0007
+  rotate: false
+  xy: 1931, 352
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0008
+  rotate: false
+  xy: 1931, 284
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/death_boss/death_boss_0009
+  rotate: false
+  xy: 1931, 216
+  size: 67, 66
+  orig: 67, 66
+  offset: 0, 0
+  index: -1
+zombie_boss/head
+  rotate: true
+  xy: 1476, 75
+  size: 94, 97
+  orig: 94, 97
+  offset: 0, 0
+  index: -1
+zombie_boss/legL
+  rotate: false
+  xy: 1271, 4
+  size: 42, 80
+  orig: 42, 80
+  offset: 0, 0
+  index: -1
+zombie_boss/legR
+  rotate: false
+  xy: 1931, 67
+  size: 49, 82
+  orig: 49, 82
+  offset: 0, 0
+  index: -1
+zombie_boss/shadow
+  rotate: false
+  xy: 1067, 3
+  size: 202, 81
+  orig: 202, 81
+  offset: 0, 0
+  index: -1
+zombie_boss/smoke_0007
+  rotate: true
+  xy: 1931, 151
+  size: 63, 64
+  orig: 63, 64
+  offset: 0, 0
+  index: -1

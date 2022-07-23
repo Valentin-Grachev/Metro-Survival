@@ -5,11 +5,11 @@ using UnityEngine;
 
 public abstract class Minion : DestroyableObject
 {
-    //====== Изменяемые характеристики ======
+    #region Fields and Properties 
 
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected float _normalizeMoveAnimationSpeed;
-    public virtual float moveSpeed 
+    public virtual float moveSpeed
     {
         get => _moveSpeed;
         set
@@ -30,52 +30,54 @@ public abstract class Minion : DestroyableObject
     }
 
     public int damage;
-    [SerializeField] protected bool _backDistract;
-    [SerializeField] protected LayerMask _enemyLayer;
-
-    
+    [SerializeField] protected Vector2 _attackArea;
 
 
-    //====== Свойства ======
-    public Rigidbody2D rigidbody { get; protected set; }
     protected DestroyableObject _attackedTarget;
+    public bool attackedTargetIsAlive { get => _attackedTarget != null && !_attackedTarget.isDeath; }
     public virtual DestroyableObject attackedTarget
     {
         get => _attackedTarget;
         protected set
         {
             _attackedTarget = value;
-            print("Enter");
-            // Если атакуемая цель существует - запускаем анимацию атаки
+
+            // Р•СЃР»Рё С†РµР»СЊ СЃСѓС‰РµСЃС‚РІСѓРµС‚ - СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р°РЅРёРјР°С†РёСЋ Р°С‚Р°РєРё
             if (_attackedTarget != null) spineAnimation.SetAnimation(AnimationType.Attack);
         }
     }
 
+    protected Transform _destination;
     public virtual Transform destination 
     { 
         get => _destination;
         set
         {
             _destination = value;
-
-            // Если место назначения существует и некого атаковать - переходим в режим движения
-            if (_destination != null && attackedTarget == null) spineAnimation.SetAnimation(AnimationType.Move);
+            // Р•СЃР»Рё СЃСѓС‰РµСЃС‚РІСѓРµС‚ С‚РѕС‡РєР° РЅР°Р·РЅР°С‡РµРЅРёСЏ Рё С†РµР»Рё РґР»СЏ Р°С‚Р°РєРё РЅРµС‚, С‚Рѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р°РЅРёРјР°С†РёСЋ РґРІРёР¶РµРЅРёСЏ
+            if (_destination != null && !attackedTargetIsAlive) spineAnimation.SetAnimation(AnimationType.Move);
         }
         
     }
 
+    private float _oldPositionX = 0f;
+    public float velocityX { get; private set; }
+
+    #endregion
 
 
-    // ====== Другие параметры ======
+    private float CalculateVelocityX(float oldPositionX, float newPositionX, float time)
+    {
+        if (oldPositionX == 0f) return 0f;
+        else return (newPositionX - oldPositionX) / time;
 
-    protected Transform _destination;
-    protected List<DestroyableObject> _enemiesInsideAttackArea;
+    }
+    
 
 
 
 
-
-    // Активация из пула - инициализация заново
+    // Р’ РјРµС‚РѕРґРµ Start() РѕС‚СЂР°Р±РѕС‚Р°РµС‚ FromPool() 
     protected override void FromPool()
     {
         base.FromPool();
@@ -84,101 +86,34 @@ public abstract class Minion : DestroyableObject
         attackedTarget = null;
         if (team == Team.Enemy) destination = Trolley.instance.transform;
         else destination = null;
-        _enemiesInsideAttackArea.Clear();
         
     }
 
-
-    protected override void Start()
-    {
-        base.Start();
-        _enemiesInsideAttackArea = new List<DestroyableObject>();
-        rigidbody = GetComponent<Rigidbody2D>();
-
-        // Стартовая обработка свойств
-        moveSpeed = moveSpeed;
-        attackSpeed = attackSpeed;
-        if (team == Team.Enemy) destination = Trolley.instance.transform;
-        else destination = null;
-    }
 
 
     protected override void Run()
     {
         base.Run();
 
-        // При смерти цели обнуляем ее
-        if (attackedTarget != null && attackedTarget.isDeath) attackedTarget = null;
+        // РћР±РЅРѕРІР»РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё
+        CalculateVelocityX(_oldPositionX, transform.position.x, Time.deltaTime);
+        _oldPositionX = transform.position.x;
 
-        // Если миньон не отвлекается на задние цели и при этом цель оказалась сзади - забываем ее
-        if (!_backDistract && attackedTarget != null && transform.position.x < attackedTarget.transform.position.x)
+
+        // Р•СЃР»Рё РЅРµС‚ С†РµР»Рё РґР»СЏ Р°С‚Р°РєРё - РѕР±РЅСѓР»СЏРµРј РµРµ Рё РёС‰РµРј РЅРѕРІСѓСЋ
+        if (!attackedTargetIsAlive)
+        {
+            attackedTarget = null;  // РќРµРѕР±С…РѕРґРёРјРѕ РґР»СЏ Р·Р°РїСѓСЃРєР° Р°РЅРёРјР°С†РёРё
+
+            if (Library.TryFindNearestInsideArea(transform.position, _attackArea, enemyTeam, out DestroyableObject found))
+                attackedTarget = found;
+
+        }
+
+        // Р•СЃР»Рё Р°С‚Р°РєСѓРµРјС‹Р№ РѕР±СЉРµРєС‚ - С†РµР»СЊ, РЅР° РєРѕС‚РѕСЂСѓСЋ РЅРµ РЅСѓР¶РЅРѕ РѕС‚РІР»РµРєР°С‚СЊСЃСЏ, РµСЃР»Рё РѕРЅР° РЅР°С…РѕРґРёС‚СЃСЏ СЃР·Р°РґРё - РѕР±РЅСѓР»СЏРµРј С†РµР»СЊ
+        else if (attackedTarget.CompareTag("NoBackDistract") && transform.position.x < attackedTarget.transform.position.x)
             attackedTarget = null;
 
-
-
-
-        // Если потеряли цель и в зоне атаки есть цель - выбираем новую
-        if (attackedTarget == null && _enemiesInsideAttackArea.Count != 0)
-        {
-            SelectNewTarget();
-            print("Search");
-        }
-
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Триггеры не учитываем
-        if (collision.isTrigger) return;
-        // Вражеский уничтожаемый объект вошел в зону - добавление в список
-        if (team == Team.Enemy && collision.CompareTag("Allies") 
-            || team == Team.Player && collision.CompareTag("Enemies"))
-        {
-            _enemiesInsideAttackArea.Add(collision.gameObject.GetComponent<DestroyableObject>());
-        }
-        
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        // Триггеры не учитываем
-        if (collision.isTrigger) return;
-
-        // Вражеский уничтожаемый объект вышел из зоны - извлечение из списка
-        if (team == Team.Enemy && collision.CompareTag("Allies")
-            || team == Team.Player && collision.CompareTag("Enemies"))
-        {
-            DestroyableObject destrObject = collision.gameObject.GetComponent<DestroyableObject>();
-            // Если это был тот, кого атаковали - забываем его
-            if (destrObject == _attackedTarget) attackedTarget = null;
-
-            if (destrObject.team != team) _enemiesInsideAttackArea.Remove(destrObject);
-        }
-    }
-
-
-    private void SelectNewTarget()
-    {
-        foreach (var item in _enemiesInsideAttackArea)
-        {
-            if (!_backDistract)
-            {
-                if (transform.position.x > item.transform.position.x && !item.isDeath)
-                {
-                    attackedTarget = item;
-                    return;
-                }
-
-            }
-            else if (!item.isDeath)
-            {
-                attackedTarget = item;
-                return;
-            }
-                
-        }
     }
 
 
@@ -187,16 +122,13 @@ public abstract class Minion : DestroyableObject
     public abstract void Attack();
 
 
-    // ====== Функции-состояния ======
-    public void MoveLeft_UpdateState() => rigidbody.velocity = Vector2.left * moveSpeed;
+    // ====== Р¤СѓРЅРєС†РёРё-СЃocС‚РѕСЏРЅРёСЏ ======
+    public void MoveLeft_UpdateState() => transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
-    public void MoveLeft_ExitState() => rigidbody.velocity = Vector2.zero;
-
-    public void AttackWithBackDistract_UpdateState()
+    public void LookAtAttackedTarget_UpdateState()
     {
-        if (attackedTarget == null) return;
+        if (!attackedTargetIsAlive) return;
 
-        // Поворот миньона в сторону врага
         Vector2 moveDirection = (attackedTarget.transform.position - transform.position).normalized;
         if (moveDirection.x < 0 && !spineAnimation.skeletonAnimation.initialFlipX)
         {
@@ -210,11 +142,15 @@ public abstract class Minion : DestroyableObject
             spineAnimation.skeletonAnimation.Initialize(true);
         }
 
-        // При атаке стоит на месте
-        rigidbody.velocity = Vector3.zero;
     }
 
+    protected override void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, _attackArea);
 
+    }
 
 
 }

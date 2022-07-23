@@ -8,7 +8,7 @@ public class MinionCall_Ability : ShooterInstallationAbility
     public override void Enable()
     {
         timeUntilRecharge = _rechargeTime;
-        _installation.animator.SetTrigger("Ability");
+        _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
 
         _installation.directionBone.direction = Vector2.right; // Задаем направление
         _installation.enabled = false; // Выключаем установку, чтобы она не портила заданное направление

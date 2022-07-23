@@ -6,9 +6,20 @@ public class PoolBehaviour : MonoCache
 {
     private bool _fromPool = false;
 
+
+
+    protected virtual void Start()
+    {
+        // Если это не пуловый объект, FromPool выполняем сразу в методе Start
+        if (!TryGetComponent(out PoolObject pool)) FromPool();
+    }
+
     protected override void OnEnabled()
     {
         base.OnEnabled();
+        
+
+        // FromPool выполняем не сразу, а после создания и деактивации
         if (_fromPool) FromPool();
     }
 

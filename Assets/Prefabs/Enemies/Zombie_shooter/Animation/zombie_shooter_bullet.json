@@ -1,0 +1,83 @@
+{
+"skeleton": { "hash": "MJZZK3iEwIfJ7tybJ3P6u4imU5w", "spine": "3.8.99", "images": "", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "splash", "parent": "root", "scaleX": 1.5405, "scaleY": 1.5405 }
+],
+"slots": [
+	{ "name": "zombie_shooter/bullet", "bone": "bullet" },
+	{ "name": "zombie_shooter/splash/splash_0000", "bone": "splash" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"zombie_shooter/bullet": {
+				"zombie_shooter/bullet": { "x": 16.44, "y": 0.41, "width": 55, "height": 20 }
+			},
+			"zombie_shooter/splash/splash_0000": {
+				"zombie_shooter/splash/splash_0000": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0001": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0002": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0003": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0004": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0005": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0006": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0007": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0008": { "width": 41, "height": 44 },
+				"zombie_shooter/splash/splash_0009": { "width": 41, "height": 44 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"zombie_shooter/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"zombie_shooter/splash/splash_0000": {
+				"attachment": [
+					{ "name": "zombie_shooter/splash/splash_0000" },
+					{ "time": 0.0333, "name": "zombie_shooter/splash/splash_0001" },
+					{ "time": 0.0667, "name": "zombie_shooter/splash/splash_0002" },
+					{ "time": 0.1, "name": "zombie_shooter/splash/splash_0003" },
+					{ "time": 0.1333, "name": "zombie_shooter/splash/splash_0004" },
+					{ "time": 0.1667, "name": "zombie_shooter/splash/splash_0005" },
+					{ "time": 0.2, "name": "zombie_shooter/splash/splash_0006" },
+					{ "time": 0.2333, "name": "zombie_shooter/splash/splash_0007" },
+					{ "time": 0.2667, "name": "zombie_shooter/splash/splash_0008" },
+					{ "time": 0.3, "name": "zombie_shooter/splash/splash_0009" },
+					{ "time": 0.3333, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"zombie_shooter/bullet": {
+				"attachment": [
+					{ "name": "zombie_shooter/bullet" }
+				]
+			},
+			"zombie_shooter/splash/splash_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bullet": {
+				"scale": [
+					{},
+					{ "time": 0.1, "x": 1.186, "y": 0.861 },
+					{ "time": 0.2 }
+				]
+			}
+		}
+	}
+}
+}

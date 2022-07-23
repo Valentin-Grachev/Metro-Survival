@@ -1,36 +1,33 @@
+using NTC.Global.Cache;
 using TMPro;
 using UnityEngine;
 
-public class EnemyCounter : MonoBehaviour
+public class EnemyCounter : MonoCache
 {
-    public static EnemyCounter instance { get; private set; }
-
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-    }
 
     [SerializeField] private TextMeshProUGUI textCount;
-    public int quantity;
 
-
-    private void Start()
+    private int _quatity;
+    public int quantity 
     { 
-        quantity = 0;
-        textCount.text = quantity.ToString();
+        get => _quatity;
+        private set
+        {
+            _quatity = value;
+            textCount.text = value.ToString();
+        }
     }
 
 
-    public void OnCreate_Minion()
+    private void Start() => quantity = 0;
+
+
+    protected override void Run()
     {
-        quantity++;
-        textCount.text = quantity.ToString();
+        base.Run();
+        quantity = AllMinions.instance.enemies.Count;
     }
 
-    public void OnDeath_Minion()
-    {
-        quantity--;
-        textCount.text = quantity.ToString();
-    }
+
 
 }

@@ -11,7 +11,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
 
     [Header("Bullet Parameters:")]
     [SerializeField] protected int _damage;
-    [SerializeField] protected int _damageRadius;
+    [SerializeField] protected Vector2 _damageArea;
 
     protected float _launchAngleInDegrees;
     protected Vector2 _launchDirection;
@@ -20,17 +20,17 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
 
     public override void Active()
     {
-        Explosive_Bullet bullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<Explosive_Bullet>();
-        bullet.rb = bullet.gameObject.GetComponent<Rigidbody2D>();
+        Explosive_PhysicalBullet bullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<Explosive_PhysicalBullet>();
+        bullet.rigidbody = bullet.gameObject.GetComponent<Rigidbody2D>();
         bullet.damage = _damage;
-        bullet.damageRadius = _damageRadius;
+        bullet.damageArea = _damageArea;
 
         
 
 
-        float startSpeed = Library.GetStartSpeedForBallisticBullet(_shotPoint.position, destination, _launchAngleInDegrees, bullet.rb.gravityScale);
+        float startSpeed = Library.GetStartSpeedForBallisticBullet(_shotPoint.position, destination, _launchAngleInDegrees, bullet.rigidbody.gravityScale);
         
-        bullet.rb.velocity = _launchDirection * startSpeed;
+        bullet.rigidbody.velocity = _launchDirection * startSpeed;
         
     }
 
@@ -58,7 +58,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     {
         base.OnDrawGizmosSelected();
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _damageRadius);
+        Gizmos.DrawWireCube(transform.position, _damageArea);
     }
 
 

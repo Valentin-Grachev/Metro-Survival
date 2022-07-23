@@ -1,0 +1,112 @@
+{
+"skeleton": {
+	"hash": "PoDk1W0SOIzNiqNEXctarsxRiUc",
+	"spine": "3.8.99",
+	"x": -15.36,
+	"y": -8.13,
+	"width": 36,
+	"height": 16,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "explosion", "parent": "root", "scaleX": 4.4942, "scaleY": 4.4942 }
+],
+"slots": [
+	{ "name": "tank_gun/bullet", "bone": "bullet", "attachment": "tank_gun/bullet" },
+	{ "name": "tank_gun/explosion/explosion_0000", "bone": "explosion" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"tank_gun/bullet": {
+				"tank_gun/bullet": { "x": 2.64, "y": -0.13, "width": 36, "height": 16 }
+			},
+			"tank_gun/explosion/explosion_0000": {
+				"tank_gun/explosion/explosion_0000": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0001": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0002": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0003": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0004": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0005": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0006": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0007": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0008": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0009": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0010": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0011": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0012": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0013": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0014": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0015": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0016": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0017": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0018": { "y": 13.16, "width": 89, "height": 47 },
+				"tank_gun/explosion/explosion_0019": { "y": 13.16, "width": 89, "height": 47 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"tank_gun/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"tank_gun/explosion/explosion_0000": {
+				"attachment": [
+					{ "name": "tank_gun/explosion/explosion_0000" },
+					{ "time": 0.0333, "name": "tank_gun/explosion/explosion_0001" },
+					{ "time": 0.0667, "name": "tank_gun/explosion/explosion_0002" },
+					{ "time": 0.1, "name": "tank_gun/explosion/explosion_0003" },
+					{ "time": 0.1333, "name": "tank_gun/explosion/explosion_0004" },
+					{ "time": 0.1667, "name": "tank_gun/explosion/explosion_0005" },
+					{ "time": 0.2, "name": "tank_gun/explosion/explosion_0006" },
+					{ "time": 0.2333, "name": "tank_gun/explosion/explosion_0007" },
+					{ "time": 0.2667, "name": "tank_gun/explosion/explosion_0008" },
+					{ "time": 0.3, "name": "tank_gun/explosion/explosion_0009" },
+					{ "time": 0.3333, "name": "tank_gun/explosion/explosion_0010" },
+					{ "time": 0.3667, "name": "tank_gun/explosion/explosion_0011" },
+					{ "time": 0.4, "name": "tank_gun/explosion/explosion_0012" },
+					{ "time": 0.4333, "name": "tank_gun/explosion/explosion_0013" },
+					{ "time": 0.4667, "name": "tank_gun/explosion/explosion_0014" },
+					{ "time": 0.5, "name": "tank_gun/explosion/explosion_0015" },
+					{ "time": 0.5333, "name": "tank_gun/explosion/explosion_0016" },
+					{ "time": 0.5667, "name": "tank_gun/explosion/explosion_0017" },
+					{ "time": 0.6, "name": "tank_gun/explosion/explosion_0018" },
+					{ "time": 0.6333, "name": "tank_gun/explosion/explosion_0019" },
+					{ "time": 0.6667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"tank_gun/bullet": {
+				"attachment": [
+					{ "name": "tank_gun/bullet" }
+				]
+			},
+			"tank_gun/explosion/explosion_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bullet": {
+				"scale": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1, "x": 1.119, "y": 1.119, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2 }
+				]
+			}
+		}
+	}
+}
+}

@@ -3,14 +3,18 @@ using UnityEngine;
 
 public abstract class Installation : MonoCache
 {
-    public Animator animator { get; protected set; }
-
     [SerializeField] protected GameObject _localCanvas;
 
-    protected override void OnEnabled()
+    public SpineAnimation spineAnimation { get; protected set; }
+
+
+    protected virtual void Awake()
     {
-        base.OnEnabled();
-        animator = GetComponent<Animator>();
+        spineAnimation = GetComponent<SpineAnimation>();
+    }
+
+    protected virtual void Start()
+    {
         MenuFunctions.instance.onStartBattle += OnStartBattle;
     }
 
@@ -22,7 +26,6 @@ public abstract class Installation : MonoCache
         MenuFunctions.instance.onStartBattle -= OnStartBattle;
     }
 
-    protected virtual void Start() { }
 
     protected override void Run() { }
 

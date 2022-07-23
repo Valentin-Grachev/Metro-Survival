@@ -2,8 +2,14 @@ using NTC.Global.Cache;
 using UnityEngine;
 
 
-public enum Team { Player, Enemy, Neutral }
+public enum Team { Ally, Enemy, Neutral }
 
+[System.Serializable]
+public struct BulletCollider
+{
+    public Vector2 size;
+    public Vector2 offset;
+}
 
 
 public class DestroyableObject : PoolBehaviour
@@ -15,15 +21,21 @@ public class DestroyableObject : PoolBehaviour
     public event OnHealthChanged onHealthChanged;
     public OnDeath onDeath;
 
-
-
-    //====== Настраиваемые характеристики ======
     [Header("Attachement Components:")]
-    [SerializeField] protected GameObject _localCanvas;
-    [SerializeField] protected Collider2D _bulletCollider;
+    [SerializeField] protected Transform _pivot; public Transform pivot { get => _pivot; }
+    [SerializeField] protected GameObject[] _deathDeactiveObjects;
 
     [Header("Characteristics:")]
     [SerializeField] protected Team _team; public Team team { get => _team; }
+    public Team enemyTeam
+    {
+        get
+        {
+            if (_team == Team.Ally) return Team.Enemy;
+            else return Team.Ally;
+        }
+    } 
+        
     [SerializeField] protected int _maxHealth; public int maxHealth { get => _maxHealth; set => _maxHealth = value; }
     protected int _health;
     public int health
@@ -42,15 +54,14 @@ public class DestroyableObject : PoolBehaviour
             onHealthChanged?.Invoke(_health, _maxHealth);
         }
     }
+    [SerializeField] protected BulletCollider _bulletCollider;
+    public BulletCollider bulletCollider { get => _bulletCollider; protected set => _bulletCollider = value; }
     [SerializeField] protected AnimationType _startAnimation;
 
     //====== Свойства ======
     public bool isDeath { get; protected set; }
     public SpineAnimation spineAnimation { get; protected set; }
 
-
-    // ====== Стартовые значения для реинициализации ======
-    protected int _startLayer;
 
 
 
@@ -66,38 +77,36 @@ public class DestroyableObject : PoolBehaviour
     {
         base.FromPool();
         isDeath = false;
-        if (_startLayer != LayerMask.NameToLayer("Default")) gameObject.layer = _startLayer;
-        if (_localCanvas != null) _localCanvas.SetActive(true);
-        if (_bulletCollider != null) _bulletCollider.enabled = true;
-        spineAnimation.SetAnimation(_startAnimation);
-    }
-
-    protected override void Run()
-    {
-        base.Run();
-    }
-
-    protected virtual void Start() 
-    {
         health = maxHealth;
-        isDeath = false;
-        _startLayer = gameObject.layer;
-        spineAnimation.SetAnimation(_startAnimation);
+        for (int i = 0; i < _deathDeactiveObjects.Length; i++) _deathDeactiveObjects[i].SetActive(true);
+        spineAnimation?.SetAnimation(_startAnimation, true);
 
+        if (team == Team.Enemy) AllMinions.instance.enemies.Add(this);
+        else if (team == Team.Ally) AllMinions.instance.allies.Add(this);
     }
+
 
     protected virtual void Death()
     {
         isDeath = true;
         onDeath?.Invoke();
-        gameObject.layer = LayerMask.NameToLayer("Default");
-        spineAnimation.SetAnimation(AnimationType.Death);
-        if (_localCanvas != null) _localCanvas.SetActive(false);
-        if (_bulletCollider != null) _bulletCollider.enabled = false;
+        spineAnimation.SetAnimation(AnimationType.Death, true);
+        if (team == Team.Enemy) AllMinions.instance.enemies.Remove(this);
+        else if (team == Team.Ally) AllMinions.instance.allies.Remove(this);
+        for (int i = 0; i < _deathDeactiveObjects.Length; i++) _deathDeactiveObjects[i].SetActive(false);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (team == Team.Enemy) AllMinions.instance.enemies.Remove(this);
+        else if (team == Team.Ally) AllMinions.instance.allies.Remove(this);
     }
 
 
-
-    protected virtual void OnDrawGizmosSelected() { }
+    protected virtual void OnDrawGizmosSelected() 
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube((Vector2)transform.position + _bulletCollider.offset, _bulletCollider.size);
+    }
 
 }

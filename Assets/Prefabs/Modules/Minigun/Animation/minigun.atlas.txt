@@ -1,0 +1,412 @@
+
+minigun.png
+size: 1028,77
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+minigun/armR
+  rotate: false
+  xy: 164, 7
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+minigun/ass
+  rotate: true
+  xy: 251, 12
+  size: 22, 18
+  orig: 22, 18
+  offset: 0, 0
+  index: -1
+minigun/base
+  rotate: false
+  xy: 866, 3
+  size: 53, 72
+  orig: 53, 72
+  offset: 0, 0
+  index: -1
+minigun/body
+  rotate: false
+  xy: 981, 18
+  size: 45, 57
+  orig: 45, 57
+  offset: 0, 0
+  index: -1
+minigun/box
+  rotate: true
+  xy: 200, 5
+  size: 29, 28
+  orig: 29, 28
+  offset: 0, 0
+  index: -1
+minigun/bullet
+  rotate: true
+  xy: 497, 49
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+minigun/casset
+  rotate: false
+  xy: 230, 12
+  size: 19, 22
+  orig: 19, 22
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0000
+  rotate: false
+  xy: 146, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0002
+  rotate: false
+  xy: 146, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0004
+  rotate: false
+  xy: 146, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0001
+  rotate: false
+  xy: 182, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0003
+  rotate: false
+  xy: 218, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0005
+  rotate: false
+  xy: 218, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0006
+  rotate: false
+  xy: 254, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0008
+  rotate: false
+  xy: 254, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0007
+  rotate: false
+  xy: 290, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/fire/fire_0009
+  rotate: false
+  xy: 326, 36
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+minigun/gun
+  rotate: false
+  xy: 2, 36
+  size: 142, 39
+  orig: 142, 39
+  offset: 0, 0
+  index: -1
+minigun/handR
+  rotate: true
+  xy: 511, 32
+  size: 15, 13
+  orig: 15, 13
+  offset: 0, 0
+  index: -1
+minigun/head
+  rotate: true
+  xy: 921, 10
+  size: 65, 58
+  orig: 65, 58
+  offset: 0, 0
+  index: -1
+minigun/legL
+  rotate: true
+  xy: 120, 7
+  size: 27, 42
+  orig: 27, 42
+  offset: 0, 0
+  index: -1
+minigun/legR
+  rotate: true
+  xy: 74, 7
+  size: 27, 44
+  orig: 27, 44
+  offset: 0, 0
+  index: -1
+minigun/shadow
+  rotate: false
+  xy: 2, 6
+  size: 70, 28
+  orig: 70, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0000
+  rotate: false
+  xy: 271, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0001
+  rotate: false
+  xy: 286, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0002
+  rotate: false
+  xy: 301, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0003
+  rotate: false
+  xy: 316, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0004
+  rotate: false
+  xy: 331, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0005
+  rotate: false
+  xy: 346, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0006
+  rotate: false
+  xy: 361, 6
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0007
+  rotate: false
+  xy: 362, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0008
+  rotate: false
+  xy: 376, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0009
+  rotate: true
+  xy: 376, 2
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0010
+  rotate: false
+  xy: 377, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0011
+  rotate: false
+  xy: 391, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0012
+  rotate: false
+  xy: 392, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0013
+  rotate: false
+  xy: 406, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0014
+  rotate: true
+  xy: 406, 2
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0015
+  rotate: false
+  xy: 407, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0016
+  rotate: false
+  xy: 421, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0017
+  rotate: false
+  xy: 422, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0018
+  rotate: false
+  xy: 436, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0019
+  rotate: true
+  xy: 436, 2
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0020
+  rotate: false
+  xy: 437, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0021
+  rotate: false
+  xy: 451, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0022
+  rotate: false
+  xy: 452, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0023
+  rotate: false
+  xy: 466, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0024
+  rotate: true
+  xy: 466, 2
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0025
+  rotate: false
+  xy: 467, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0026
+  rotate: false
+  xy: 481, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0027
+  rotate: false
+  xy: 482, 47
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0028
+  rotate: false
+  xy: 496, 17
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/smoke/smoke_0029
+  rotate: true
+  xy: 496, 2
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+minigun/sparks/sparks_0000
+  rotate: true
+  xy: 594, 2
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+minigun/sparks/sparks_0001
+  rotate: true
+  xy: 662, 2
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+minigun/sparks/sparks_0002
+  rotate: true
+  xy: 730, 2
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+minigun/sparks/sparks_0003
+  rotate: true
+  xy: 798, 2
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+minigun/sparks/sparks_0004
+  rotate: true
+  xy: 526, 2
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1

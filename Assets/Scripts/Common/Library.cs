@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -71,6 +72,96 @@ public static class Library
     {
         float gainPrediction = distance / Constants.distancePrediction;
         return targetPosition + targetVelocity * gainPrediction;
+    }
+
+    public static bool IsCollided(Vector2 position, Team teamForCollide, out DestroyableObject collidedObject)
+    {
+        // В зависимости от команды выбираем в каком списке будем искать
+        List<DestroyableObject> list = null;
+        if (teamForCollide == Team.Enemy) list = AllMinions.instance.enemies;
+        else if (teamForCollide == Team.Ally) list = AllMinions.instance.allies;
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (ObjectIsInsideArea(position, (Vector2)list[i].transform.position + list[i].bulletCollider.offset, list[i].bulletCollider.size))
+            {
+                collidedObject = list[i];
+                return true;
+            }
+        }
+
+        collidedObject = null;
+        return false;
+
+    }
+
+    private static bool ObjectIsInsideArea(Vector2 position, Vector2 areaCenter, Vector2 areaSize)
+    {
+        return areaCenter.x - areaSize.x < position.x && position.x < areaCenter.x + areaSize.x
+            && areaCenter.y - areaSize.y < position.y && position.y < areaCenter.y + areaSize.y;
+    }
+
+    public static bool TryFindNearestInsideArea(Vector2 center, Vector2 area, Team detectionableTeam, out DestroyableObject foundObject)
+    {
+        // В зависимости от команды выбираем в каком списке будем искать
+        List<DestroyableObject> list = null;
+        if (detectionableTeam == Team.Enemy) list = AllMinions.instance.enemies;
+        else if (detectionableTeam == Team.Ally) list = AllMinions.instance.allies;
+
+        float minDistance = 10000f;
+        DestroyableObject tempObject = null;
+
+        // Проход по всем созданным объектам и выбор того, кто находится внутри области
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (area.x > Mathf.Abs(list[i].transform.position.x - center.x) 
+                && area.y > Mathf.Abs(list[i].transform.position.x - center.x) 
+                && Vector2.Distance(center, list[i].transform.position) < minDistance)
+            {
+                tempObject = list[i];
+                minDistance = Vector2.Distance(center, list[i].transform.position);
+            }   
+        }
+
+        if (tempObject != null)
+        {
+            // Нашли
+            foundObject = tempObject;
+            return true;
+        }
+
+        else
+        {
+            // Ничего не нашли
+            foundObject = null;
+            return false;
+        }
+        
+    }
+
+    public static bool TryFindInsideAreaAll(Vector2 center, Vector2 area, Team detectionableTeam, out List<DestroyableObject> foundObjects)
+    {
+        foundObjects = new List<DestroyableObject>();
+
+        // В зависимости от команды выбираем в каком списке будем искать
+        List<DestroyableObject> list;
+        if (detectionableTeam == Team.Enemy) list = AllMinions.instance.enemies;
+        else list = AllMinions.instance.allies;
+
+        // Проход по всем созданным объектам и выбор того, кто находится внутри области
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (area.x / 2f > Mathf.Abs(list[i].transform.position.x - center.x)
+                && area.y / 2f > Mathf.Abs(list[i].transform.position.x - center.x))
+            {
+                foundObjects.Add(list[i]);
+            }
+        }
+
+        // Ничего не нашли
+        if (foundObjects.Count == 0) return false;
+        else return true;
+        
     }
 
 

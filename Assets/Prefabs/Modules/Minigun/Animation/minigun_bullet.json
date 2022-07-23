@@ -1,0 +1,73 @@
+{
+"skeleton": {
+	"hash": "ivg5e4j4YvyAz46dImZGZNCausk",
+	"spine": "3.8.99",
+	"x": -6.05,
+	"y": -3.73,
+	"width": 14.64,
+	"height": 7.32,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "sparks", "parent": "root", "rotation": 180 }
+],
+"slots": [
+	{ "name": "minigun/bullet", "bone": "bullet", "attachment": "minigun/bullet" },
+	{ "name": "minigun/sparks/sparks_0000", "bone": "sparks", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"minigun/bullet": {
+				"minigun/bullet": { "x": 1.27, "y": -0.07, "scaleX": 0.5631, "scaleY": 0.5631, "width": 26, "height": 13 }
+			},
+			"minigun/sparks/sparks_0000": {
+				"minigun/sparks/sparks_0000": { "width": 73, "height": 66 },
+				"minigun/sparks/sparks_0001": { "width": 73, "height": 66 },
+				"minigun/sparks/sparks_0002": { "width": 73, "height": 66 },
+				"minigun/sparks/sparks_0003": { "width": 73, "height": 66 },
+				"minigun/sparks/sparks_0004": { "width": 73, "height": 66 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"minigun/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"minigun/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "minigun/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "minigun/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "minigun/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": "minigun/sparks/sparks_0004" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"minigun/bullet": {
+				"attachment": [
+					{ "name": "minigun/bullet" }
+				]
+			},
+			"minigun/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}

@@ -3,16 +3,17 @@ using UnityEngine;
 
 public abstract class Bullet : MonoCache
 {
-    [HideInInspector] public Team team;
-    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public Team teamForCollide;
     [SerializeField] protected bool collideInRoadCenter = false;
 
-    protected Animator _animator;
+    protected SpineAnimation _spineAnimation;
     protected bool _isActive;
+    protected Vector2 _velocity;
+    public Vector2 velocity { get => _velocity; set { _velocity = value; transform.right = velocity.normalized; } }
 
     protected virtual void Start()
     {
-        _animator = GetComponent<Animator>();
+        _spineAnimation = GetComponent<SpineAnimation>();
     }
 
     protected override void OnEnabled()
@@ -21,25 +22,22 @@ public abstract class Bullet : MonoCache
         _isActive = true;
     }
 
-
     protected override void Run()
     {
-        // ѕул€ всегда смотрит в направлении своей скорости
-        transform.right = rb.velocity;
+        base.Run();
+        if (!_isActive) return;
+        transform.Translate(velocity * Time.deltaTime);
+        if (Library.IsCollided(transform.position, teamForCollide, out DestroyableObject collided))
+            Collide(collided);
+        
     }
 
-
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    protected virtual void Collide(DestroyableObject collidedObject)
     {
-        // ѕри попадании в преп€тствие пул€ взрываетс€ и деактивируетс€
-        if (collider.CompareTag("Obstacle") ||
-            (collider.CompareTag("RoadCenter") && collideInRoadCenter))
-        {
-            _animator.SetTrigger("Collision");
-            rb.velocity = Vector3.zero;
-            _isActive = false;
-        }
+        _isActive = false;
+        _spineAnimation.SetAnimation(AnimationType.Death, true);
     }
+
 
 
 

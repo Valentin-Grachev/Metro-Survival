@@ -4,17 +4,9 @@ public class OneTarget_Bullet : Bullet
 {
     [HideInInspector] public int damage;
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
+    protected override void Collide(DestroyableObject collidedObject)
     {
-        base.OnTriggerEnter2D(collider);
-
-        // Попали во вражеского миньона и пуля активна
-        if (collider.transform.parent.TryGetComponent(out Minion minion) && minion.team != team && _isActive)
-        {
-            minion.health -= damage;
-            _animator.SetTrigger("Collision");
-            rb.velocity = Vector3.zero;
-            _isActive = false;
-        }
+        base.Collide(collidedObject);
+        collidedObject.health -= damage;
     }
 }

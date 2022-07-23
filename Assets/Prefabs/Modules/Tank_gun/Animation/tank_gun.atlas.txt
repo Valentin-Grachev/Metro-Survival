@@ -1,0 +1,538 @@
+
+tank_gun.png
+size: 855,269
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tank_gun/armL
+  rotate: false
+  xy: 69, 2
+  size: 20, 24
+  orig: 20, 24
+  offset: 0, 0
+  index: -1
+tank_gun/armR
+  rotate: true
+  xy: 658, 2
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+tank_gun/ass
+  rotate: true
+  xy: 91, 4
+  size: 22, 18
+  orig: 22, 18
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0000
+  rotate: true
+  xy: 48, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0001
+  rotate: true
+  xy: 138, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0002
+  rotate: true
+  xy: 56, 28
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0003
+  rotate: true
+  xy: 228, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0004
+  rotate: true
+  xy: 146, 28
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0005
+  rotate: true
+  xy: 318, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0006
+  rotate: true
+  xy: 236, 28
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0007
+  rotate: true
+  xy: 408, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0008
+  rotate: true
+  xy: 326, 28
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/attack/attack_0009
+  rotate: true
+  xy: 498, 173
+  size: 94, 88
+  orig: 94, 88
+  offset: 0, 0
+  index: -1
+tank_gun/base
+  rotate: false
+  xy: 762, 3
+  size: 44, 45
+  orig: 44, 45
+  offset: 0, 0
+  index: -1
+tank_gun/body
+  rotate: true
+  xy: 776, 131
+  size: 45, 57
+  orig: 45, 57
+  offset: 0, 0
+  index: -1
+tank_gun/bullet
+  rotate: false
+  xy: 2, 2
+  size: 36, 16
+  orig: 36, 16
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0000
+  rotate: false
+  xy: 139, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0001
+  rotate: false
+  xy: 230, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0002
+  rotate: false
+  xy: 321, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0003
+  rotate: false
+  xy: 412, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0004
+  rotate: true
+  xy: 416, 33
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0005
+  rotate: true
+  xy: 465, 33
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0006
+  rotate: false
+  xy: 503, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0007
+  rotate: true
+  xy: 514, 33
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0008
+  rotate: true
+  xy: 563, 33
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0009
+  rotate: true
+  xy: 588, 178
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0010
+  rotate: false
+  xy: 594, 129
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0011
+  rotate: true
+  xy: 637, 178
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0012
+  rotate: true
+  xy: 612, 38
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0013
+  rotate: true
+  xy: 661, 38
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0014
+  rotate: false
+  xy: 685, 129
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0015
+  rotate: true
+  xy: 686, 178
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0016
+  rotate: true
+  xy: 735, 178
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0017
+  rotate: true
+  xy: 710, 38
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0018
+  rotate: false
+  xy: 759, 80
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/explosion/explosion_0019
+  rotate: false
+  xy: 48, 124
+  size: 89, 47
+  orig: 89, 47
+  offset: 0, 0
+  index: -1
+tank_gun/gun
+  rotate: true
+  xy: 2, 123
+  size: 144, 44
+  orig: 144, 44
+  offset: 0, 0
+  index: -1
+tank_gun/handL
+  rotate: true
+  xy: 55, 4
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+tank_gun/handR
+  rotate: true
+  xy: 40, 3
+  size: 15, 13
+  orig: 15, 13
+  offset: 0, 0
+  index: -1
+tank_gun/head
+  rotate: false
+  xy: 784, 207
+  size: 66, 60
+  orig: 66, 60
+  offset: 0, 0
+  index: -1
+tank_gun/legL
+  rotate: false
+  xy: 625, 2
+  size: 31, 34
+  orig: 31, 34
+  offset: 0, 0
+  index: -1
+tank_gun/legR
+  rotate: true
+  xy: 784, 178
+  size: 27, 39
+  orig: 27, 39
+  offset: 0, 0
+  index: -1
+tank_gun/legR2
+  rotate: false
+  xy: 111, 6
+  size: 17, 20
+  orig: 17, 20
+  offset: 0, 0
+  index: -1
+tank_gun/shadow
+  rotate: false
+  xy: 508, 3
+  size: 70, 28
+  orig: 70, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0000
+  rotate: true
+  xy: 160, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0001
+  rotate: true
+  xy: 190, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0002
+  rotate: true
+  xy: 220, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0003
+  rotate: true
+  xy: 250, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0004
+  rotate: true
+  xy: 280, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0005
+  rotate: true
+  xy: 310, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0006
+  rotate: true
+  xy: 340, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0007
+  rotate: true
+  xy: 370, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0008
+  rotate: true
+  xy: 400, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0009
+  rotate: false
+  xy: 580, 3
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0010
+  rotate: false
+  xy: 595, 3
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0011
+  rotate: false
+  xy: 610, 3
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0012
+  rotate: false
+  xy: 687, 8
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0013
+  rotate: false
+  xy: 702, 8
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0014
+  rotate: true
+  xy: 825, 192
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0015
+  rotate: false
+  xy: 835, 162
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0016
+  rotate: false
+  xy: 835, 132
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0017
+  rotate: false
+  xy: 717, 8
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0018
+  rotate: false
+  xy: 732, 8
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0019
+  rotate: false
+  xy: 747, 8
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0020
+  rotate: false
+  xy: 759, 50
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0021
+  rotate: false
+  xy: 774, 50
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0022
+  rotate: false
+  xy: 789, 50
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0023
+  rotate: false
+  xy: 804, 50
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0024
+  rotate: true
+  xy: 819, 65
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0025
+  rotate: true
+  xy: 819, 50
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0026
+  rotate: false
+  xy: 808, 20
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0027
+  rotate: true
+  xy: 808, 5
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0028
+  rotate: false
+  xy: 823, 20
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/smoke/smoke_0029
+  rotate: true
+  xy: 130, 13
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+tank_gun/wall1
+  rotate: true
+  xy: 430, 2
+  size: 29, 76
+  orig: 29, 76
+  offset: 0, 0
+  index: -1
+tank_gun/wall2
+  rotate: false
+  xy: 2, 20
+  size: 52, 101
+  orig: 52, 101
+  offset: 0, 0
+  index: -1

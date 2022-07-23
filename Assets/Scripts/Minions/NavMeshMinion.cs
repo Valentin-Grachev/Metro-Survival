@@ -44,10 +44,10 @@ public abstract class NavMeshMinion : Minion
 
     protected override void Start()
     {
+        base.Start();
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
-        base.Start();
     }
 
 

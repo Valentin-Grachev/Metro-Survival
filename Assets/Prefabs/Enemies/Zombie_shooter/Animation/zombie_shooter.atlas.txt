@@ -1,0 +1,279 @@
+
+zombie_shooter.png
+size: 1643,332
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+zombie_shooter/armL1
+  rotate: true
+  xy: 1447, 2
+  size: 43, 59
+  orig: 43, 59
+  offset: 0, 0
+  index: -1
+zombie_shooter/armL2
+  rotate: true
+  xy: 1157, 3
+  size: 49, 61
+  orig: 49, 61
+  offset: 0, 0
+  index: -1
+zombie_shooter/armR1
+  rotate: true
+  xy: 1447, 47
+  size: 52, 61
+  orig: 52, 61
+  offset: 0, 0
+  index: -1
+zombie_shooter/armR2
+  rotate: true
+  xy: 1510, 10
+  size: 47, 49
+  orig: 47, 49
+  offset: 0, 0
+  index: -1
+zombie_shooter/ass
+  rotate: true
+  xy: 1415, 6
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/body
+  rotate: false
+  xy: 1157, 54
+  size: 126, 113
+  orig: 126, 113
+  offset: 0, 0
+  index: -1
+zombie_shooter/bullet
+  rotate: false
+  xy: 1561, 9
+  size: 55, 20
+  orig: 55, 20
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0000
+  rotate: true
+  xy: 2, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0001
+  rotate: true
+  xy: 233, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0002
+  rotate: true
+  xy: 464, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0003
+  rotate: true
+  xy: 695, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0004
+  rotate: true
+  xy: 926, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0005
+  rotate: true
+  xy: 1157, 169
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0006
+  rotate: false
+  xy: 1388, 101
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0007
+  rotate: true
+  xy: 2, 6
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0008
+  rotate: true
+  xy: 233, 6
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0009
+  rotate: true
+  xy: 464, 6
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0010
+  rotate: true
+  xy: 695, 6
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/death/death_0011
+  rotate: true
+  xy: 926, 6
+  size: 161, 229
+  orig: 161, 229
+  offset: 0, 0
+  index: -1
+zombie_shooter/fire/fire_0000
+  rotate: true
+  xy: 1285, 13
+  size: 80, 26
+  orig: 80, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/fire/fire_0001
+  rotate: true
+  xy: 1313, 13
+  size: 80, 26
+  orig: 80, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/fire/fire_0002
+  rotate: true
+  xy: 1341, 5
+  size: 80, 26
+  orig: 80, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/fire/fire_0003
+  rotate: false
+  xy: 1561, 31
+  size: 80, 26
+  orig: 80, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/fire/fire_0004
+  rotate: true
+  xy: 1353, 87
+  size: 80, 26
+  orig: 80, 26
+  offset: 0, 0
+  index: -1
+zombie_shooter/head
+  rotate: true
+  xy: 1285, 95
+  size: 72, 66
+  orig: 72, 66
+  offset: 0, 0
+  index: -1
+zombie_shooter/legL
+  rotate: true
+  xy: 1381, 46
+  size: 53, 64
+  orig: 53, 64
+  offset: 0, 0
+  index: -1
+zombie_shooter/legR
+  rotate: true
+  xy: 1220, 13
+  size: 39, 62
+  orig: 39, 62
+  offset: 0, 0
+  index: -1
+zombie_shooter/mouth
+  rotate: false
+  xy: 1618, 12
+  size: 21, 17
+  orig: 21, 17
+  offset: 0, 0
+  index: -1
+zombie_shooter/shadow
+  rotate: false
+  xy: 1510, 59
+  size: 100, 40
+  orig: 100, 40
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0000
+  rotate: false
+  xy: 1551, 286
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0001
+  rotate: false
+  xy: 1551, 240
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0002
+  rotate: false
+  xy: 1551, 194
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0003
+  rotate: true
+  xy: 1551, 151
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0004
+  rotate: true
+  xy: 1551, 108
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0005
+  rotate: false
+  xy: 1594, 286
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0006
+  rotate: false
+  xy: 1594, 240
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0007
+  rotate: true
+  xy: 1594, 197
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0008
+  rotate: false
+  xy: 1597, 151
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
+zombie_shooter/splash/splash_0009
+  rotate: true
+  xy: 1369, 3
+  size: 41, 44
+  orig: 41, 44
+  offset: 0, 0
+  index: -1
