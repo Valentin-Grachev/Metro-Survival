@@ -98,8 +98,7 @@ public class SpineAnimation : MonoCache
         if (_move != null && trackEntry.Animation == _move.Animation) _moveExit.Invoke();
         else if (_attack != null && trackEntry.Animation == _attack.Animation) _attackExit.Invoke();
 
-        // —брос привилегий
-        if (_currentAnimation == _privilegeAnimation) _privilegeAnimation = AnimationType.None;
+        
     }
 
     private void State_Complete(Spine.TrackEntry trackEntry)
@@ -107,10 +106,11 @@ public class SpineAnimation : MonoCache
 
         // —обыти€
         if (_currentAnimation == AnimationType.Death) _deathComplete.Invoke();
-        else if (_currentAnimation == AnimationType.Ability_active) _abilityComplete.Invoke();
+        else if (trackEntry.Animation == _ability_active.Animation) _abilityComplete.Invoke();
 
-        
 
+        // —брос привилегий
+        if (_currentAnimation == _privilegeAnimation) _privilegeAnimation = AnimationType.None;
     }
 
     private void State_Event(Spine.TrackEntry trackEntry, Spine.Event e)

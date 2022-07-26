@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8e235c9b3625345a46dc9e425791ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rechargeTime: 5
+  _rechargeTime: 1
   _minDistance: 1
   _maxDistance: 19
   _aim: {fileID: 2371047861281345583, guid: 57bc2aa5b03d9134fa40cbb3f4528414, type: 3}

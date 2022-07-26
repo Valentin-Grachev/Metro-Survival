@@ -36,8 +36,9 @@ public abstract class ControlledAbility : ShooterInstallationAbility
 
     private void OnDestination_AbilityDestination(Vector2 destination)
     {
-        this.destination = destination;
         Enable();
+        this.destination = destination;
+        
     }
 
     protected virtual void OnDrawGizmosSelected()

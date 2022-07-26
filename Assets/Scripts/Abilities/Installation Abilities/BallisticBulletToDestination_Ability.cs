@@ -41,7 +41,6 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     public override void Enable()
     {
         base.Enable();
-        timeUntilRecharge = _rechargeTime;
 
         // Расчет угла запуска снаряда
         Vector2 direction = (destination - (Vector2)transform.position).normalized;
