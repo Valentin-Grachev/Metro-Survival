@@ -296,7 +296,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: 
+  _animationName: idle
   loop: 0
   timeScale: 1
 --- !u!114 &7227178412948207211
@@ -312,12 +312,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _start: {fileID: 0}
-  _idle: {fileID: 11400000, guid: 9ee16f031895420449afc8fb27d7c630, type: 2}
+  _idle: {fileID: 11400000, guid: b96b5c90a593d9445a4342fa92132d4d, type: 2}
   _move: {fileID: 0}
   _attack: {fileID: 0}
   _ability_active: {fileID: 0}
   _ability_deactive: {fileID: 0}
-  _death: {fileID: 11400000, guid: 57323da78bae3a847b430f82dfc3c7d2, type: 2}
+  _death: {fileID: 11400000, guid: 91af830043cc90446bfdce77c921a39e, type: 2}
   startSpeed: 1
   idleSpeed: 1
   _moveSpeed: 1

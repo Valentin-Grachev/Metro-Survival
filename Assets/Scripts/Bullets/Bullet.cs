@@ -13,11 +13,13 @@ public abstract class Bullet : MonoCache
     protected virtual void Start()
     {
         _spineAnimation = GetComponent<SpineAnimation>();
+        //_spineAnimation.SetAnimation(AnimationType.Idle);
     }
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
+        //if (_spineAnimation != null) _spineAnimation.SetAnimation(AnimationType.Idle);
         _isActive = true;
     }
 

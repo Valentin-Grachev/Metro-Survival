@@ -65,7 +65,7 @@ public abstract class ShooterInstallation : Installation
         if (targetIsAlive)
         {
             directionBone.direction = ((Vector2)target.pivot.position - directionBone.bonePosition).normalized;
-            spineAnimation.SetAnimation(AnimationType.Attack);
+            if (spineAnimation.currentAnimation != AnimationType.Attack) spineAnimation.SetAnimation(AnimationType.Attack);
             _lastTargetPosition = target.pivot.position;
         }
         // Ќе жива, но есть в зоне атаки еще цели - выбираем новую
@@ -74,14 +74,14 @@ public abstract class ShooterInstallation : Installation
         {
             target = found;
             directionBone.direction = ((Vector2)target.pivot.position - directionBone.bonePosition).normalized;
-            spineAnimation.SetAnimation(AnimationType.Attack);
+            if (spineAnimation.currentAnimation != AnimationType.Attack) spineAnimation.SetAnimation(AnimationType.Attack);
             _lastTargetPosition = target.pivot.position;
         }
         // Ќикого нет - прекращение атаки
         else
         {
             target = null;
-            spineAnimation.SetAnimation(AnimationType.Idle);
+            if (spineAnimation.currentAnimation != AnimationType.Idle) spineAnimation.SetAnimation(AnimationType.Idle);
         }
 
 

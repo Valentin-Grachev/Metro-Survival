@@ -73,18 +73,14 @@ public class SpineAnimation : MonoCache
 
 
     public SkeletonAnimation skeletonAnimation { get; private set; }
-    private AnimationType _currentAnimation;
-    private bool _workingPrivilege;
-    private AnimationType _nextAnimation;
-    private bool _nextAnimationIsPrivilege;
+    private AnimationType _currentAnimation; public AnimationType currentAnimation { get => _currentAnimation; }
+    private AnimationType _privilegeAnimation;
 
 
     private void Awake()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
-        _workingPrivilege = false;
-        _nextAnimation = AnimationType.None;
-        _nextAnimationIsPrivilege = false;
+        _privilegeAnimation = AnimationType.None;
 
 
     }
@@ -101,7 +97,9 @@ public class SpineAnimation : MonoCache
         
         if (_move != null && trackEntry.Animation == _move.Animation) _moveExit.Invoke();
         else if (_attack != null && trackEntry.Animation == _attack.Animation) _attackExit.Invoke();
-        //else if (_death != null && trackEntry.Animation == _death.Animation) _deathComplete.Invoke();
+
+        // Сброс привилегий
+        if (_currentAnimation == _privilegeAnimation) _privilegeAnimation = AnimationType.None;
     }
 
     private void State_Complete(Spine.TrackEntry trackEntry)
@@ -112,13 +110,7 @@ public class SpineAnimation : MonoCache
         else if (_currentAnimation == AnimationType.Ability_active) _abilityComplete.Invoke();
 
         
-        // После выполнения привилегированной анимации выполняем следующую и сбрасываем память о ней
-        _workingPrivilege = false;
-        /*
-        SetAnimation(_nextAnimation, _nextAnimationIsPrivilege);
-        _nextAnimation = AnimationType.None;
-        _nextAnimationIsPrivilege = false;
-        */
+
     }
 
     private void State_Event(Spine.TrackEntry trackEntry, Spine.Event e)
@@ -131,7 +123,7 @@ public class SpineAnimation : MonoCache
     private void SetAnimation(AnimationReferenceAsset anim, float timeScale, bool loop)
     {
         if (anim == null) return;
-
+        if (TryGetComponent(out Installation inst)) print(gameObject.name + ": " + anim.ToString());
         Spine.TrackEntry currentTrack = skeletonAnimation.state?.GetCurrent(0);
         // Установка новой анимации только в том случае, если она другая
         if (currentTrack == null || currentTrack.Animation != anim.Animation) 
@@ -153,16 +145,10 @@ public class SpineAnimation : MonoCache
 
     public void SetAnimation(AnimationType animationType, bool privilege = false)
     {
-        if (animationType == AnimationType.None) return;
+        if (animationType == AnimationType.None || _privilegeAnimation != AnimationType.None
+            || (animationType == _currentAnimation && !privilege)) return;
 
-        if (!privilege && _workingPrivilege)
-        {
-            _nextAnimation = animationType;
-            _nextAnimationIsPrivilege = privilege;
-            return;
-        }
-        
-        if (privilege) _workingPrivilege = true;
+        if (privilege) _privilegeAnimation = animationType;
 
         switch (animationType)
         {

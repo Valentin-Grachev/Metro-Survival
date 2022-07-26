@@ -27,7 +27,5 @@ public abstract class Installation : MonoCache
     }
 
 
-    protected override void Run() { }
-
 
 }

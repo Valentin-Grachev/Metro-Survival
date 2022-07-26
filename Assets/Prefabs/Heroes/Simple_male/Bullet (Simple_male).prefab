@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a606f492d2bcc3c468eb1e9e037e5149, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,12 +284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _start: {fileID: 0}
-  _idle: {fileID: 11400000, guid: b87d1ba94d9461942b7c9f58781f9375, type: 2}
+  _idle: {fileID: 11400000, guid: 98f59b24ef38ef947ab29c0dc65a190c, type: 2}
   _move: {fileID: 0}
   _attack: {fileID: 0}
   _ability_active: {fileID: 0}
   _ability_deactive: {fileID: 0}
-  _death: {fileID: 11400000, guid: 47287dd82efe42f4db5296c0357eeb27, type: 2}
+  _death: {fileID: 11400000, guid: 3217d85a4861d744db1ee93dd252d3cd, type: 2}
   startSpeed: 1
   idleSpeed: 1
   _moveSpeed: 1
