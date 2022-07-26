@@ -105,8 +105,12 @@ public class SpineAnimation : MonoCache
     {
 
         // События
-        if (_currentAnimation == AnimationType.Death) _deathComplete.Invoke();
-        else if (trackEntry.Animation == _ability_active.Animation) _abilityComplete.Invoke();
+
+        // Для не пуль нужно вызывать по enum
+        // Для пуль нужно проверять на наличие анимации смерти (Это костыль, но по-другому неработает)
+        if ((_currentAnimation == AnimationType.Death && !TryGetComponent(out Bullet bullet)) ||
+            (_death != null && trackEntry.Animation == _death.Animation && TryGetComponent(out Bullet bullet1))) _deathComplete.Invoke();
+        else if (_ability_active != null && trackEntry.Animation == _ability_active.Animation) _abilityComplete.Invoke();
 
 
         // Сброс привилегий

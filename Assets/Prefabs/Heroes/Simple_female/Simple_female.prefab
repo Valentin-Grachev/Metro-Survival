@@ -223,17 +223,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _start: {fileID: 0}
-  _idle: {fileID: 11400000, guid: c764b022b7f5ade45b4486dee1f9856c, type: 2}
+  _idle: {fileID: 11400000, guid: ccbf584bccad8014486a60dd6581f6f9, type: 2}
   _move: {fileID: 0}
-  _attack: {fileID: 11400000, guid: 181de97d82246ab4692c4f055152d70a, type: 2}
-  _ability_active: {fileID: 11400000, guid: 9c0007b9fef2102418e47d7e01c1234c, type: 2}
+  _attack: {fileID: 11400000, guid: c67abd60af7dc9242864235c632084d8, type: 2}
+  _ability_active: {fileID: 11400000, guid: fa03acc25d4ebff4bbc1f5198b31c673, type: 2}
   _ability_deactive: {fileID: 0}
   _death: {fileID: 0}
   startSpeed: 1
   idleSpeed: 1
   _moveSpeed: 1
   _attackSpeed: 1
-  ability_activeSpeed: 1
+  ability_activeSpeed: 1.2
   ability_deactiveSpeed: 1
   deathSpeed: 1
   _shootEvent:
@@ -253,12 +253,6 @@ MonoBehaviour:
         m_CallState: 2
   _abilityEvent:
     m_PersistentCalls:
-      m_Calls: []
-  _deathComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  _abilityComplete:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1470726401038687482}
         m_TargetAssemblyTypeName: BallisticBulletToNearest_Ability, Assembly-CSharp
@@ -272,6 +266,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _deathComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _abilityComplete:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 1470726401038687482}
         m_TargetAssemblyTypeName: ShooterInstallationAbility, Assembly-CSharp
         m_MethodName: Disable

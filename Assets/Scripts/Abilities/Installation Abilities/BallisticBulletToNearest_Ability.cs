@@ -5,7 +5,7 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
     protected DestroyableObject _nearestTarget;
     protected Vector2 _lastNearestPosition;
 
-    protected const float prediction = 0.3f;
+    protected const float prediction = 1f;
 
 
     public override void Active()

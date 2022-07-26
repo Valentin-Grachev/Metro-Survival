@@ -5,6 +5,9 @@ public abstract class Bullet : MonoCache
 {
     [HideInInspector] public Team teamForCollide;
 
+    [Tooltip("Размер пули во время взрыва")]
+    [SerializeField] protected Vector2 _deathSize;
+
     protected SpineAnimation _spineAnimation;
     protected bool _isActive;
     protected Vector2 _velocity;
@@ -40,6 +43,7 @@ public abstract class Bullet : MonoCache
     {
         _isActive = false;
         _spineAnimation.SetAnimation(AnimationType.Death, true);
+        transform.localScale = new Vector3(_deathSize.x, _deathSize.y, transform.localScale.z);
     }
 
 

@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 7550379105189534362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.74, y: 0.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamForCollide: 0
+  _deathSize: {x: 1.05, y: 1.05}
   rigidbody: {fileID: 0}
   damage: 0
   damageArea: {x: 0, y: 0}
@@ -312,12 +313,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _start: {fileID: 0}
-  _idle: {fileID: 11400000, guid: eba2caacc58b66f46934f20280b33603, type: 2}
+  _idle: {fileID: 11400000, guid: 27bfb4c353dfa4d4ca3b699862a9a5e5, type: 2}
   _move: {fileID: 0}
   _attack: {fileID: 0}
   _ability_active: {fileID: 0}
   _ability_deactive: {fileID: 0}
-  _death: {fileID: 11400000, guid: 8e392b38daef0334b8a3a5eef3c75335, type: 2}
+  _death: {fileID: 11400000, guid: 06922da27d3a62047b13d84099c601ba, type: 2}
   startSpeed: 1
   idleSpeed: 1
   _moveSpeed: 1
