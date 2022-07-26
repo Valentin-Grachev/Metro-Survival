@@ -1,0 +1,349 @@
+
+warrior.png
+size: 409,1030
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+warrior/armL
+  rotate: true
+  xy: 163, 260
+  size: 14, 31
+  orig: 14, 31
+  offset: 0, 0
+  index: -1
+warrior/armR
+  rotate: true
+  xy: 359, 6
+  size: 34, 48
+  orig: 34, 48
+  offset: 0, 0
+  index: -1
+warrior/ass
+  rotate: false
+  xy: 136, 256
+  size: 25, 18
+  orig: 25, 18
+  offset: 0, 0
+  index: -1
+warrior/backpack
+  rotate: false
+  xy: 345, 430
+  size: 55, 58
+  orig: 55, 58
+  offset: 0, 0
+  index: -1
+warrior/body
+  rotate: false
+  xy: 130, 2
+  size: 52, 49
+  orig: 52, 49
+  offset: 0, 0
+  index: -1
+warrior/bullet
+  rotate: false
+  xy: 174, 124
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0000
+  rotate: false
+  xy: 2, 720
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0001
+  rotate: false
+  xy: 2, 565
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0002
+  rotate: false
+  xy: 2, 410
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0003
+  rotate: false
+  xy: 2, 255
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0004
+  rotate: true
+  xy: 2, 121
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0005
+  rotate: false
+  xy: 136, 875
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0006
+  rotate: false
+  xy: 136, 720
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0007
+  rotate: false
+  xy: 136, 565
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0008
+  rotate: false
+  xy: 136, 410
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0009
+  rotate: true
+  xy: 136, 276
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0010
+  rotate: false
+  xy: 205, 121
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0011
+  rotate: false
+  xy: 270, 875
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0012
+  rotate: false
+  xy: 270, 720
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0013
+  rotate: false
+  xy: 270, 565
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/explosions/explosions_0014
+  rotate: false
+  xy: 2, 875
+  size: 132, 153
+  orig: 132, 153
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0000
+  rotate: true
+  xy: 291, 320
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0002
+  rotate: true
+  xy: 291, 320
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0004
+  rotate: true
+  xy: 291, 320
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0001
+  rotate: false
+  xy: 291, 279
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0003
+  rotate: false
+  xy: 357, 389
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0005
+  rotate: false
+  xy: 357, 389
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0006
+  rotate: false
+  xy: 339, 262
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0008
+  rotate: false
+  xy: 339, 262
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0007
+  rotate: false
+  xy: 363, 326
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/fire/fire_0009
+  rotate: false
+  xy: 339, 221
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+warrior/gun
+  rotate: true
+  xy: 157, 139
+  size: 115, 42
+  orig: 115, 42
+  offset: 0, 0
+  index: -1
+warrior/gun2
+  rotate: false
+  xy: 256, 85
+  size: 115, 34
+  orig: 115, 34
+  offset: 0, 0
+  index: -1
+warrior/handL
+  rotate: true
+  xy: 240, 105
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+warrior/handR
+  rotate: true
+  xy: 157, 123
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+warrior/head
+  rotate: false
+  xy: 291, 356
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+warrior/lamp
+  rotate: true
+  xy: 240, 78
+  size: 25, 10
+  orig: 25, 10
+  offset: 0, 0
+  index: -1
+warrior/legL
+  rotate: false
+  xy: 332, 303
+  size: 29, 51
+  orig: 29, 51
+  offset: 0, 0
+  index: -1
+warrior/legR
+  rotate: false
+  xy: 205, 65
+  size: 33, 54
+  orig: 33, 54
+  offset: 0, 0
+  index: -1
+warrior/light
+  rotate: false
+  xy: 2, 6
+  size: 126, 113
+  orig: 126, 113
+  offset: 0, 0
+  index: -1
+warrior/magazine
+  rotate: true
+  xy: 357, 367
+  size: 20, 23
+  orig: 20, 23
+  offset: 0, 0
+  index: -1
+warrior/mine
+  rotate: false
+  xy: 184, 4
+  size: 70, 47
+  orig: 70, 47
+  offset: 0, 0
+  index: -1
+warrior/shadow
+  rotate: true
+  xy: 331, 4
+  size: 79, 26
+  orig: 79, 26
+  offset: 0, 0
+  index: -1
+warrior/smoke
+  rotate: true
+  xy: 359, 42
+  size: 41, 37
+  orig: 41, 37
+  offset: 0, 0
+  index: -1
+warrior/sparks/sparks_0000
+  rotate: false
+  xy: 130, 53
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+warrior/sparks/sparks_0001
+  rotate: false
+  xy: 256, 17
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+warrior/sparks/sparks_0002
+  rotate: true
+  xy: 270, 490
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+warrior/sparks/sparks_0003
+  rotate: false
+  xy: 270, 422
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1
+warrior/sparks/sparks_0004
+  rotate: true
+  xy: 338, 490
+  size: 73, 66
+  orig: 73, 66
+  offset: 0, 0
+  index: -1

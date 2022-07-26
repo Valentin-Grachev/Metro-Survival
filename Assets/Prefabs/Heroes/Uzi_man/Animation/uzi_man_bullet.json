@@ -1,0 +1,64 @@
+{
+"skeleton": { "hash": "A1ypW31EVTmJG3VYONM0CkBVQH8", "spine": "3.8.99", "images": "", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bullet", "parent": "root" },
+	{ "name": "shoot", "parent": "root", "x": 3.31, "y": 4.3 }
+],
+"slots": [
+	{ "name": "uzi_man/bullet", "bone": "bullet" },
+	{ "name": "uzi_man/sparks/sparks_0000", "bone": "shoot", "color": "ffcd00ff", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"uzi_man/bullet": {
+				"uzi_man/bullet": { "x": -0.02, "y": -0.09, "scaleX": 0.5542, "scaleY": 0.5542, "width": 26, "height": 13 }
+			},
+			"uzi_man/sparks/sparks_0000": {
+				"uzi_man/sparks/sparks_0000": { "width": 63, "height": 51 },
+				"uzi_man/sparks/sparks_0001": { "width": 63, "height": 51 },
+				"uzi_man/sparks/sparks_0002": { "width": 63, "height": 51 },
+				"uzi_man/sparks/sparks_0003": { "width": 63, "height": 51 },
+				"uzi_man/sparks/sparks_0004": { "width": 63, "height": 51 }
+			}
+		}
+	}
+],
+"animations": {
+	"attack": {
+		"slots": {
+			"uzi_man/bullet": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"uzi_man/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": "uzi_man/sparks/sparks_0000" },
+					{ "time": 0.0333, "name": "uzi_man/sparks/sparks_0001" },
+					{ "time": 0.0667, "name": "uzi_man/sparks/sparks_0002" },
+					{ "time": 0.1, "name": "uzi_man/sparks/sparks_0003" },
+					{ "time": 0.1333, "name": "uzi_man/sparks/sparks_0004" },
+					{ "time": 0.1667, "name": null }
+				]
+			}
+		}
+	},
+	"idle": {
+		"slots": {
+			"uzi_man/bullet": {
+				"attachment": [
+					{ "name": "uzi_man/bullet" }
+				]
+			},
+			"uzi_man/sparks/sparks_0000": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	}
+}
+}

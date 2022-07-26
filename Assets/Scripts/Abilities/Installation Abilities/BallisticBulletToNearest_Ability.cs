@@ -2,26 +2,28 @@ using UnityEngine;
 
 public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Ability
 {
-    protected Transform _nearestTarget;
+    protected DestroyableObject _nearestTarget;
     protected Vector2 _lastNearestPosition;
+
+    protected const float prediction = 0.3f;
+
 
     public override void Active()
     {
         
-        if (_nearestTarget != null)
+        if (_nearestTarget != null && !_nearestTarget.isDeath)
         {
             // Берем с упреждением - переопределяем снова точку назначения
-            Vector2 velocity = _nearestTarget.GetComponent<Rigidbody2D>().velocity;
-            Vector2 nearestPosition = new Vector2(_nearestTarget.position.x, AbilityDestination.instance.aimPosition.y);
+            float velocityX = 0f;
+            if (_nearestTarget is Minion) velocityX = ((Minion)_nearestTarget).velocityX;
+            Vector2 nearestPosition = new Vector2(_nearestTarget.transform.position.x, AbilityDestination.instance.aimPosition.y);
 
             // Стреляем оптимально - за первого ближнего так, чтобы его задело и задних накрыло
-            destination = Library.GetTargetPositionWithPrediction(nearestPosition, velocity, Vector2.Distance(transform.position, nearestPosition))
-                + new Vector2(_damageArea.x * 0.7f, 0f);
+            destination = nearestPosition + new Vector2(velocityX*prediction, 0f) + new Vector2(_damageArea.x * 0.7f, 0f);
         }
         else
         {
-            destination = Library.GetTargetPositionWithPrediction(
-                _lastNearestPosition, Vector2.zero, Vector2.Distance(transform.position, _lastNearestPosition));
+            destination = _lastNearestPosition + new Vector2(_damageArea.x * 0.7f, 0f);
         }
         
         
@@ -31,10 +33,14 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
 
     public override void Enable()
     {
-        //_nearestTarget = Library.SearchNearestCircle(transform.position, _installation.detectionRadius, _installation.enemyLayer);
-        if (_nearestTarget == null) return;
+        // Если не находим цель - ничего не делаем
+        if (Library.TryFindNearestUntilLine(transform.position,
+            BulletLimiter.instance.transform.position.x + BulletLimiter.instance.detectionLine, Team.Enemy, out _nearestTarget)
+            == false)
+            return;
 
-        _lastNearestPosition = _nearestTarget.position;
+
+        _lastNearestPosition = _nearestTarget.transform.position;
 
         // Устанавливаем предварительную точку назначения, для установки угла выстрела
         destination = _nearestTarget.transform.position;

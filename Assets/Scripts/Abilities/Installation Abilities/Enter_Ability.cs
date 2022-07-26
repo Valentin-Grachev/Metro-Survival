@@ -10,7 +10,7 @@ public class Enter_Ability : ShooterInstallationAbility
         base.Disable();
         _localCanvas.SetActive(true);
         timeUntilRecharge = _rechargeTime;
-        //_installation.animator.SetTrigger("Disable");
+        _installation.spineAnimation.SetAnimation(AnimationType.Ability_deactive, true);
     }
 
 

@@ -71,7 +71,7 @@ public class PlayerProgress : MonoBehaviour
             int newView = _trolleyLevelsSO.GetViewNumber(value);
             if (currentView != newView)
             {
-                Vector3 trolleyPosition = Trolley.instance.transform.position;
+                Vector3 trolleyPosition = Trolley.instance.transform.parent.position;
 
                 // Удаляем старый префаб
                 Destroy(Trolley.instance.gameObject);

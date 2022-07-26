@@ -95,10 +95,41 @@ public static class Library
 
     }
 
-    private static bool ObjectIsInsideArea(Vector2 position, Vector2 areaCenter, Vector2 areaSize)
+    public static bool ObjectIsInsideArea(Vector2 position, Vector2 areaCenter, Vector2 areaSize)
     {
-        return areaCenter.x - areaSize.x < position.x && position.x < areaCenter.x + areaSize.x
-            && areaCenter.y - areaSize.y < position.y && position.y < areaCenter.y + areaSize.y;
+        return areaCenter.x - areaSize.x/2f < position.x && position.x < areaCenter.x + areaSize.x / 2f
+            && areaCenter.y - areaSize.y / 2f < position.y && position.y < areaCenter.y + areaSize.y / 2f;
+    }
+
+
+    public static bool TryFindNearestUntilLine(Vector2 center, float linePositionX, Team detectionableTeam, out DestroyableObject foundObject)
+    {
+        // В зависимости от команды выбираем в каком списке будем искать
+        List<DestroyableObject> list = null;
+        if (detectionableTeam == Team.Enemy) list = AllMinions.instance.enemies;
+        else if (detectionableTeam == Team.Ally) list = AllMinions.instance.allies;
+
+        float minDistance = 10000f;
+        foundObject = null;
+
+        // Проход по всем созданным объектам и выбор того, кто находится внутри области
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].transform.position.x < linePositionX
+                && Vector2.Distance(center, list[i].transform.position) < minDistance)
+            {
+                foundObject = list[i];
+                minDistance = Vector2.Distance(center, list[i].transform.position);
+            }
+        }
+
+        if (foundObject != null) return true;
+        else return false;
+
+
+
+
+
     }
 
     public static bool TryFindNearestInsideArea(Vector2 center, Vector2 area, Team detectionableTeam, out DestroyableObject foundObject)
@@ -109,33 +140,22 @@ public static class Library
         else if (detectionableTeam == Team.Ally) list = AllMinions.instance.allies;
 
         float minDistance = 10000f;
-        DestroyableObject tempObject = null;
+        foundObject = null;
 
         // Проход по всем созданным объектам и выбор того, кто находится внутри области
         for (int i = 0; i < list.Count; i++)
         {
             if (area.x > Mathf.Abs(list[i].transform.position.x - center.x) 
-                && area.y > Mathf.Abs(list[i].transform.position.x - center.x) 
+                && area.y > Mathf.Abs(list[i].transform.position.y - center.y) 
                 && Vector2.Distance(center, list[i].transform.position) < minDistance)
             {
-                tempObject = list[i];
+                foundObject = list[i];
                 minDistance = Vector2.Distance(center, list[i].transform.position);
             }   
         }
 
-        if (tempObject != null)
-        {
-            // Нашли
-            foundObject = tempObject;
-            return true;
-        }
-
-        else
-        {
-            // Ничего не нашли
-            foundObject = null;
-            return false;
-        }
+        if (foundObject != null) return true;
+        else return false;
         
     }
 
@@ -151,8 +171,8 @@ public static class Library
         // Проход по всем созданным объектам и выбор того, кто находится внутри области
         for (int i = 0; i < list.Count; i++)
         {
-            if (area.x / 2f > Mathf.Abs(list[i].transform.position.x - center.x)
-                && area.y / 2f > Mathf.Abs(list[i].transform.position.x - center.x))
+            if (area.x > Mathf.Abs(list[i].transform.position.x - center.x)
+                && area.y > Mathf.Abs(list[i].transform.position.x - center.x))
             {
                 foundObjects.Add(list[i]);
             }

@@ -61,7 +61,13 @@ public class Trolley : DestroyableObject
         _trolleyCanvas.SetActive(active);
         enanleUI = active;
     }
-    
+
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        Destroy(transform.parent.gameObject);
+    }
 
 
 

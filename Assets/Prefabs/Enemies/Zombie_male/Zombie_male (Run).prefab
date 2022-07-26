@@ -116,7 +116,7 @@ Transform:
   - {fileID: 327582064318227418}
   - {fileID: 327582063184140850}
   m_Father: {fileID: 6860579995162112266}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &327582064216527129
 MonoBehaviour:
@@ -245,66 +245,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6860579995162112266}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2349570746186802900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2349570746186802901}
-  - component: {fileID: 6493985248667277079}
-  m_Layer: 3
-  m_Name: BulletCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2349570746186802901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2349570746186802900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6860579995162112266}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6493985248667277079
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2349570746186802900}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.6457782}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 1.2915564}
-  m_EdgeRadius: 0
 --- !u!1 &4936140786994246079
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +282,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2349570746186802901}
   - {fileID: 327582064216527142}
   - {fileID: 4947019214232201011}
   m_Father: {fileID: 0}
@@ -421,16 +362,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pivot: {fileID: 4947019214232201011}
   _deathDeactiveObjects:
-  - {fileID: 2349570746186802900}
   - {fileID: 327582064216527143}
   _team: 1
   _maxHealth: 50
-  _startAnimation: 1
+  _bulletCollider:
+    size: {x: 0.64, y: 1.4}
+    offset: {x: -0.02, y: 0.7}
+  _startAnimation: 7
   _moveSpeed: 2.8
   _normalizeMoveAnimationSpeed: 0.25
   _attackSpeed: 0.9
   damage: 3
-  _attackArea: {x: 1.3, y: 0.7}
+  _attackArea: {x: 1.3, y: 1.2}
 --- !u!114 &1954926349774717802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +408,7 @@ MonoBehaviour:
   useClipping: 1
   immutableTriangles: 1
   pmaVertexColors: 1
-  clearStateOnDisable: 1
+  clearStateOnDisable: 0
   tintBlack: 0
   singleSubmesh: 1
   fixDrawOrder: 0
@@ -497,7 +440,15 @@ MonoBehaviour:
   _move: {fileID: 11400000, guid: c5c99f0ba729c2d4bacc9ce1fe548e6b, type: 2}
   _attack: {fileID: 11400000, guid: 0a613c5474c905548a4268e53c67cfd6, type: 2}
   _ability_active: {fileID: 0}
+  _ability_deactive: {fileID: 0}
   _death: {fileID: 11400000, guid: df83b3468e9af9241b35cf98a46b118b, type: 2}
+  startSpeed: 1
+  idleSpeed: 1
+  _moveSpeed: 1
+  _attackSpeed: 1
+  ability_activeSpeed: 1
+  ability_deactiveSpeed: 1
+  deathSpeed: 1
   _shootEvent:
     m_PersistentCalls:
       m_Calls:
@@ -513,6 +464,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _abilityEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _deathComplete:
     m_PersistentCalls:
       m_Calls:
@@ -528,12 +482,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  startSpeed: 1
-  idleSpeed: 1
-  _moveSpeed: 1
-  _attackSpeed: 1
-  ability_activeSpeed: 1
-  deathSpeed: 1
+  _abilityComplete:
+    m_PersistentCalls:
+      m_Calls: []
   _moveUpdate:
     m_PersistentCalls:
       m_Calls:

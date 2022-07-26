@@ -3,19 +3,10 @@ using UnityEngine.AI;
 
 public abstract class NavMeshMinion : Minion
 {
+    [SerializeField] protected Vector2 _detectionArea;
     protected NavMeshAgent _agent; public NavMeshAgent agent { get => _agent; }
-    protected DestroyableObject _destinationObject;
+    
 
-
-    public override Transform destination
-    { 
-        get => base.destination;
-        set
-        {
-            base.destination = value;
-            if (value != null) _destinationObject = value.GetComponent<DestroyableObject>();
-        }
-    }
 
     public override float moveSpeed
     { 
@@ -23,23 +14,38 @@ public abstract class NavMeshMinion : Minion
         set
         {
             base.moveSpeed = value;
+            if (_agent == null)
+            {
+                _agent = GetComponent<NavMeshAgent>();
+                _agent.updateRotation = false;
+                _agent.updateUpAxis = false;
+            }
+            
             _agent.speed = value;
         }
     }
 
-    protected override void OnEnabled()
-    {
-        if (_agent == null) _agent = GetComponent<NavMeshAgent>();
-
-        base.OnEnabled();
-    }
 
     protected override void Run()
     {
         base.Run();
+        if (isDeath) return;
 
-        // Если точка назначения уничтожена - обнуляем ее
-        if (destination != null && _destinationObject.isDeath) destination = null;
+        // Если точка назначения погибла - ищем новую цель
+        if (!destinationIsAlive)
+        {
+            Team detectionTeam;
+            if (team == Team.Ally) detectionTeam = Team.Enemy;
+            else detectionTeam = Team.Ally;
+
+            if (Library.TryFindNearestInsideArea(transform.position, _detectionArea, detectionTeam, out DestroyableObject found))
+                destination = found;
+
+        }
+
+        if (!destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Idle);
+
+
     }
 
     protected override void Start()
@@ -55,6 +61,9 @@ public abstract class NavMeshMinion : Minion
 
     public void MoveNavMesh_UpdateState()
     {
+        agent.isStopped = false;
+        agent.speed = moveSpeed;
+
         // Поворот в сторону атаки
         Vector2 moveDirection = agent.velocity;
 
@@ -71,11 +80,24 @@ public abstract class NavMeshMinion : Minion
         }
 
         // Обновление места назначения
-        if (destination != null) agent.SetDestination(destination.position);
+        if (destinationIsAlive) agent.SetDestination(destination.transform.position);
+    }
+
+    public void StopNavMesh_ExitState()
+    {
+        agent.speed = 0f;
+        agent.isStopped = true;
+        agent.velocity = Vector2.zero;
     }
 
 
 
+    protected override void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(transform.position, _detectionArea);
+    }
 
 
 

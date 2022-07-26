@@ -5,7 +5,6 @@ using UnityEngine;
 
 public abstract class Minion : DestroyableObject
 {
-    #region Fields and Properties 
 
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected float _normalizeMoveAnimationSpeed;
@@ -38,32 +37,20 @@ public abstract class Minion : DestroyableObject
     public virtual DestroyableObject attackedTarget
     {
         get => _attackedTarget;
-        protected set
-        {
-            _attackedTarget = value;
-
-            // Если цель существует - устанавливаем анимацию атаки
-            if (_attackedTarget != null) spineAnimation.SetAnimation(AnimationType.Attack);
-        }
+        protected set => _attackedTarget = value;
     }
 
-    protected Transform _destination;
-    public virtual Transform destination 
+    protected DestroyableObject _destination;
+    protected bool destinationIsAlive { get => destination != null && destination.isDeath == false; }
+    public virtual DestroyableObject destination 
     { 
         get => _destination;
-        set
-        {
-            _destination = value;
-            // Если существует точка назначения и цели для атаки нет, то устанавливаем анимацию движения
-            if (_destination != null && !attackedTargetIsAlive) spineAnimation.SetAnimation(AnimationType.Move);
-        }
-        
+        set => _destination = value;
     }
 
     private float _oldPositionX = 0f;
     public float velocityX { get; private set; }
 
-    #endregion
 
 
     private float CalculateVelocityX(float oldPositionX, float newPositionX, float time)
@@ -84,7 +71,7 @@ public abstract class Minion : DestroyableObject
         moveSpeed = moveSpeed;
         attackSpeed = attackSpeed;
         attackedTarget = null;
-        if (team == Team.Enemy) destination = Trolley.instance.transform;
+        if (team == Team.Enemy) destination = Trolley.instance;
         else destination = null;
         
     }
@@ -96,21 +83,29 @@ public abstract class Minion : DestroyableObject
         base.Run();
 
         // Обновление скорости
-        CalculateVelocityX(_oldPositionX, transform.position.x, Time.deltaTime);
+        velocityX = CalculateVelocityX(_oldPositionX, transform.position.x, Time.deltaTime);
         _oldPositionX = transform.position.x;
 
+        if (isDeath) return;
+
+        // Запуск анимаций
+        if (attackedTargetIsAlive) spineAnimation.SetAnimation(AnimationType.Attack);
+        else if (destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Move);
+        else spineAnimation.SetAnimation(AnimationType.Idle);
+
+
+        // Если атакуемая цель вышла из зоны атаки - обнуляем ее
+        if (attackedTargetIsAlive && !Library.ObjectIsInsideArea(attackedTarget.transform.position, transform.position, _attackArea)) 
+            attackedTarget = null;
 
         // Если нет цели для атаки - обнуляем ее и ищем новую
         if (!attackedTargetIsAlive)
         {
-            attackedTarget = null;  // Необходимо для запуска анимации
-
             if (Library.TryFindNearestInsideArea(transform.position, _attackArea, enemyTeam, out DestroyableObject found))
                 attackedTarget = found;
-
         }
 
-        // Если атакуемый объект - цель, на которую не нужно отвлекаться, если она находится сзади - обнуляем цель
+        // Если атакуемый объект - цель, на которую не нужно отвлекаться и если она находится сзади - обнуляем цель
         else if (attackedTarget.CompareTag("NoBackDistract") && transform.position.x < attackedTarget.transform.position.x)
             attackedTarget = null;
 

@@ -934,8 +934,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3839905625017885377}
   - component: {fileID: 3839905625017885376}
-  - component: {fileID: 3839905625017885379}
-  - component: {fileID: 3839905625017885378}
   m_Layer: 6
   m_Name: Trolley3
   m_TagString: Allies
@@ -961,6 +959,7 @@ Transform:
   - {fileID: 7332698867340864529}
   - {fileID: 3839905625329716557}
   - {fileID: 3148986275230682197}
+  - {fileID: 4027403857546804808}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1016,58 +1015,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3839905625017885379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839905625017885502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localCanvas: {fileID: 0}
-  _bulletCollider: {fileID: 0}
-  _team: 0
-  _maxHealth: 100
-  _trolleyCanvas: {fileID: 3148986275230682196}
-  _spawnPosition: {fileID: 3839905625329716557}
-  _bottomModulePosition: {fileID: 0}
-  _middleModulePosition: {fileID: 0}
-  _topModulePosition: {fileID: 0}
-  _heroPositions:
-  - {fileID: 3839905624147952722}
-  - {fileID: 3839905624886057166}
-  - {fileID: 3839905624935763734}
-  - {fileID: 7332698867340864529}
---- !u!61 &3839905625017885378
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839905625017885502}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.23, y: 0.54084647}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.32904303, y: 0.094420604}
-    oldSize: {x: 7.63, y: 4.66}
-    newSize: {x: 6.26, y: 3.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83527565, y: 3.047962}
-  m_EdgeRadius: 0
 --- !u!1 &3839905625329716556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,3 +1046,65 @@ Transform:
   m_Father: {fileID: 3839905625017885377}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7951644378079589092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4027403857546804808}
+  - component: {fileID: 5760737722608129497}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4027403857546804808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951644378079589092}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.54, y: 0.432, z: 0.024190731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3839905625017885377}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5760737722608129497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951644378079589092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pivot: {fileID: 0}
+  _deathDeactiveObjects: []
+  _team: 0
+  _maxHealth: 100
+  _bulletCollider:
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+  _startAnimation: 0
+  _trolleyCanvas: {fileID: 3148986275230682196}
+  _spawnPosition: {fileID: 3839905625329716557}
+  _bottomModulePosition: {fileID: 0}
+  _middleModulePosition: {fileID: 0}
+  _topModulePosition: {fileID: 0}
+  _heroPositions:
+  - {fileID: 3839905624147952722}
+  - {fileID: 3839905624886057166}
+  - {fileID: 3839905624935763734}
+  - {fileID: 7332698867340864529}

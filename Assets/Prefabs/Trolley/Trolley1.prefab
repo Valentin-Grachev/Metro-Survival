@@ -385,8 +385,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4475844729830189002}
   - component: {fileID: 4475844729830189003}
-  - component: {fileID: 4475844729830189000}
-  - component: {fileID: 4475844729830189001}
   m_Layer: 6
   m_Name: Trolley1
   m_TagString: Allies
@@ -410,6 +408,7 @@ Transform:
   - {fileID: 4475844729962601925}
   - {fileID: 4475844729332779078}
   - {fileID: 738632914787401521}
+  - {fileID: 4178024739958897131}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,56 +464,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4475844729830189000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4475844729830188597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localCanvas: {fileID: 0}
-  _bulletCollider: {fileID: 0}
-  _team: 0
-  _maxHealth: 100
-  _trolleyCanvas: {fileID: 738632914787401520}
-  _spawnPosition: {fileID: 4475844729332779078}
-  _bottomModulePosition: {fileID: 0}
-  _middleModulePosition: {fileID: 0}
-  _topModulePosition: {fileID: 0}
-  _heroPositions:
-  - {fileID: 4475844730030063961}
-  - {fileID: 4475844729962601925}
---- !u!61 &4475844729830189001
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4475844729830188597}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.25, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4, y: 0.12790698}
-    oldSize: {x: 6.26, y: 3.44}
-    newSize: {x: 6.26, y: 3.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83527565, y: 3.047962}
-  m_EdgeRadius: 0
 --- !u!1 &4475844729962601926
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,3 +632,63 @@ SortingGroup:
   m_SortingLayerID: -447000969
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!1 &5845005352183031773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4178024739958897131}
+  - component: {fileID: 8895155872909777863}
+  m_Layer: 6
+  m_Name: Body
+  m_TagString: Allies
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4178024739958897131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845005352183031773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.483, y: 0.463, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4475844729830189002}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8895155872909777863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845005352183031773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pivot: {fileID: 0}
+  _deathDeactiveObjects: []
+  _team: 0
+  _maxHealth: 100
+  _bulletCollider:
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+  _startAnimation: 0
+  _trolleyCanvas: {fileID: 738632914787401520}
+  _spawnPosition: {fileID: 4475844729332779078}
+  _bottomModulePosition: {fileID: 0}
+  _middleModulePosition: {fileID: 0}
+  _topModulePosition: {fileID: 0}
+  _heroPositions:
+  - {fileID: 4475844730030063961}
+  - {fileID: 4475844729962601925}

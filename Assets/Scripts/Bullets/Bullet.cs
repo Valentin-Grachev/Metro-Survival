@@ -4,7 +4,6 @@ using UnityEngine;
 public abstract class Bullet : MonoCache
 {
     [HideInInspector] public Team teamForCollide;
-    [SerializeField] protected bool collideInRoadCenter = false;
 
     protected SpineAnimation _spineAnimation;
     protected bool _isActive;
@@ -26,10 +25,13 @@ public abstract class Bullet : MonoCache
     {
         base.Run();
         if (!_isActive) return;
-        transform.Translate(velocity * Time.deltaTime);
-        if (Library.IsCollided(transform.position, teamForCollide, out DestroyableObject collided))
+
+        transform.Translate(velocity * Time.deltaTime, Space.World);
+        if (Library.IsCollided(transform.position, teamForCollide, out DestroyableObject collided) && this is not PhysicalBullet)
             Collide(collided);
-        
+
+        if (BulletLimiter.instance.ObjectIsInsideArea(transform.position) == false) Collide(null);
+
     }
 
     protected virtual void Collide(DestroyableObject collidedObject)
@@ -39,7 +41,7 @@ public abstract class Bullet : MonoCache
     }
 
 
-
+    public void Destroy() => Destroy(gameObject);
 
 
 }

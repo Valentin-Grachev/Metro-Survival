@@ -11,15 +11,12 @@ GameObject:
   - component: {fileID: 3101594090410338735}
   - component: {fileID: 8136805668843427622}
   - component: {fileID: 7503790832863367895}
-  - component: {fileID: 7674604470061103527}
-  - component: {fileID: 4745918274699672172}
   - component: {fileID: 8469529632261752168}
   - component: {fileID: 3274154620434265651}
-  - component: {fileID: 9001266809695764466}
-  - component: {fileID: 8589798430211765203}
-  - component: {fileID: 7210143066806334347}
   - component: {fileID: 1417200958101319769}
   - component: {fileID: 335365081207175196}
+  - component: {fileID: 6690392995716844230}
+  - component: {fileID: -957401615435525682}
   m_Layer: 8
   m_Name: Bullet (Raider)
   m_TagString: Untagged
@@ -36,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5700468480172961468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,13 +55,13 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5700468480172961468}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -92,65 +89,6 @@ MeshRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &7674604470061103527
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700468480172961468}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 50a6aaea275044643855330766affc35, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4745918274699672172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700468480172961468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c3b9b19f32f6d794bb2ee32e03e1ed68, type: 2}
-  initialSkinName: 
-  initialFlipX: 0
-  initialFlipY: 0
-  updateWhenInvisible: 3
-  separatorSlotNames: []
-  zSpacing: 0
-  useClipping: 1
-  immutableTriangles: 1
-  pmaVertexColors: 1
-  clearStateOnDisable: 1
-  tintBlack: 0
-  singleSubmesh: 1
-  fixDrawOrder: 0
-  addNormals: 0
-  calculateTangents: 0
-  maskInteraction: 0
-  maskMaterials:
-    materialsMaskDisabled: []
-    materialsInsideMask: []
-    materialsOutsideMask: []
-  disableRenderingOnOverride: 1
-  translator:
-    autoReset: 1
-    useCustomMixMode: 1
-    layerMixModes: 01000000
-    layerBlendModes: 01000000
 --- !u!210 &8469529632261752168
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -174,59 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd735601d2226584ba4badf9d7102bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
-  rb: {fileID: 0}
-  collideInRoadCenter: 0
+  teamForCollide: 0
   damage: 1
---- !u!50 &9001266809695764466
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700468480172961468}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!114 &8589798430211765203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700468480172961468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4530c9cb0a0ad594c9a0491eaf319138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!70 &7210143066806334347
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700468480172961468}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0075602257, y: 0.0100802705}
-  m_Size: {x: 0.16311465, y: 0.08951902}
-  m_Direction: 1
 --- !u!96 &1417200958101319769
 TrailRenderer:
   serializedVersion: 2
@@ -237,7 +124,7 @@ TrailRenderer:
   m_GameObject: {fileID: 5700468480172961468}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
@@ -347,3 +234,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688c3a966739f664297d38e3a843bc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6690392995716844230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700468480172961468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: c3b9b19f32f6d794bb2ee32e03e1ed68, type: 2}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 1
+  pmaVertexColors: 1
+  clearStateOnDisable: 1
+  tintBlack: 0
+  singleSubmesh: 1
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: 
+  loop: 0
+  timeScale: 1
+--- !u!114 &-957401615435525682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700468480172961468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _start: {fileID: 0}
+  _idle: {fileID: 11400000, guid: 4593281994e48f8428d68de1501155d1, type: 2}
+  _move: {fileID: 0}
+  _attack: {fileID: 0}
+  _ability_active: {fileID: 0}
+  _ability_deactive: {fileID: 0}
+  _death: {fileID: 11400000, guid: 781e771777eafd449996bf093d728f2d, type: 2}
+  startSpeed: 1
+  idleSpeed: 1
+  _moveSpeed: 1
+  _attackSpeed: 1
+  ability_activeSpeed: 1
+  ability_deactiveSpeed: 1
+  deathSpeed: 1
+  _shootEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _abilityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _deathComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 335365081207175196}
+        m_TargetAssemblyTypeName: PoolObject, Assembly-CSharp
+        m_MethodName: ReturnToPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _abilityComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _moveUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  _moveExit:
+    m_PersistentCalls:
+      m_Calls: []
+  _attackUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  _attackExit:
+    m_PersistentCalls:
+      m_Calls: []

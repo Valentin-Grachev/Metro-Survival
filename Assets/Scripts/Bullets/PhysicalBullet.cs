@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PhysicalBullet : Bullet
 {
-    public Rigidbody2D rigidbody;
+    [HideInInspector] public Rigidbody2D rigidbody;
 
 
     protected override void FixedRun() { } // Пуля использует физику а не поиск - фиксированное сканирование не нужно
@@ -18,6 +18,7 @@ public class PhysicalBullet : Bullet
     {
         base.Collide(collidedObject);
         rigidbody.velocity = Vector2.zero;
+        rigidbody.isKinematic = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

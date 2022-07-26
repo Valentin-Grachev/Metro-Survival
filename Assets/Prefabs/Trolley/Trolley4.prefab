@@ -794,6 +794,68 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4251132303879403673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5648081778410512449}
+  - component: {fileID: 5139683069272232177}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5648081778410512449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251132303879403673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.515, y: 0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7050574809498906937}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5139683069272232177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251132303879403673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pivot: {fileID: 0}
+  _deathDeactiveObjects: []
+  _team: 0
+  _maxHealth: 100
+  _bulletCollider:
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+  _startAnimation: 0
+  _trolleyCanvas: {fileID: 2416544614204721410}
+  _spawnPosition: {fileID: 7050574811143446197}
+  _bottomModulePosition: {fileID: 0}
+  _middleModulePosition: {fileID: 1792632868862386990}
+  _topModulePosition: {fileID: 0}
+  _heroPositions:
+  - {fileID: 7050574810230151082}
+  - {fileID: 7050574809626004278}
+  - {fileID: 7050574809545228214}
+  - {fileID: 7050574809581301180}
 --- !u!1 &7050574809498906822
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,8 +866,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7050574809498906937}
   - component: {fileID: 7050574809498906936}
-  - component: {fileID: 7050574809498906939}
-  - component: {fileID: 7050574809498906938}
   m_Layer: 6
   m_Name: Trolley4
   m_TagString: Allies
@@ -832,6 +892,7 @@ Transform:
   - {fileID: 1792632868862386990}
   - {fileID: 7050574811143446197}
   - {fileID: 2416544614204721411}
+  - {fileID: 5648081778410512449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -887,58 +948,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7050574809498906939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7050574809498906822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localCanvas: {fileID: 0}
-  _bulletCollider: {fileID: 0}
-  _team: 0
-  _maxHealth: 100
-  _trolleyCanvas: {fileID: 2416544614204721410}
-  _spawnPosition: {fileID: 7050574811143446197}
-  _bottomModulePosition: {fileID: 0}
-  _middleModulePosition: {fileID: 1792632868862386990}
-  _topModulePosition: {fileID: 0}
-  _heroPositions:
-  - {fileID: 7050574810230151082}
-  - {fileID: 7050574809626004278}
-  - {fileID: 7050574809545228214}
-  - {fileID: 7050574809581301180}
---- !u!61 &7050574809498906938
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7050574809498906822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.23, y: 0.54084647}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.3896449, y: 0.093023255}
-    oldSize: {x: 8.38, y: 4.73}
-    newSize: {x: 6.26, y: 3.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83527565, y: 3.047962}
-  m_EdgeRadius: 0
 --- !u!1 &7050574809545228213
 GameObject:
   m_ObjectHideFlags: 0

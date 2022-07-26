@@ -293,8 +293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2852349883500621444}
   - component: {fileID: 2852349883500621445}
-  - component: {fileID: 2852349883500621446}
-  - component: {fileID: 2852349883500621447}
   m_Layer: 6
   m_Name: Trolley6
   m_TagString: Allies
@@ -323,6 +321,7 @@ Transform:
   - {fileID: 6822266708756724883}
   - {fileID: 2852349882806829320}
   - {fileID: 7477228763401410238}
+  - {fileID: 5857685088302127118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -378,60 +377,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2852349883500621446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852349883500621691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localCanvas: {fileID: 0}
-  _bulletCollider: {fileID: 0}
-  _team: 0
-  _maxHealth: 100
-  _trolleyCanvas: {fileID: 7477228763401410239}
-  _spawnPosition: {fileID: 2852349882806829320}
-  _bottomModulePosition: {fileID: 0}
-  _middleModulePosition: {fileID: 6822266708756724883}
-  _topModulePosition: {fileID: 0}
-  _heroPositions:
-  - {fileID: 2852349884240250903}
-  - {fileID: 2852349883367740555}
-  - {fileID: 2852349883314282507}
-  - {fileID: 2852349883283190273}
-  - {fileID: 6822266707626524910}
-  - {fileID: 6822266707349344084}
---- !u!61 &2852349883500621447
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852349883500621691}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.23, y: 0.54084647}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.3896449, y: 0.093023255}
-    oldSize: {x: 8.38, y: 4.73}
-    newSize: {x: 6.26, y: 3.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83527565, y: 3.047962}
-  m_EdgeRadius: 0
 --- !u!1 &2852349884240250900
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +461,70 @@ SortingGroup:
   m_SortingLayerID: -447000969
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!1 &4753674282601196214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5857685088302127118}
+  - component: {fileID: 4430692232489304463}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5857685088302127118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753674282601196214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.52, y: 0.429, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2852349883500621444}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4430692232489304463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753674282601196214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pivot: {fileID: 0}
+  _deathDeactiveObjects: []
+  _team: 0
+  _maxHealth: 100
+  _bulletCollider:
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+  _startAnimation: 0
+  _trolleyCanvas: {fileID: 7477228763401410239}
+  _spawnPosition: {fileID: 2852349882806829320}
+  _bottomModulePosition: {fileID: 0}
+  _middleModulePosition: {fileID: 6822266708756724883}
+  _topModulePosition: {fileID: 0}
+  _heroPositions:
+  - {fileID: 2852349884240250903}
+  - {fileID: 2852349883367740555}
+  - {fileID: 2852349883314282507}
+  - {fileID: 2852349883283190273}
+  - {fileID: 6822266707626524910}
+  - {fileID: 6822266707349344084}
 --- !u!1 &5024485994505655078
 GameObject:
   m_ObjectHideFlags: 0

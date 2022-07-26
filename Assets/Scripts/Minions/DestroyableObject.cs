@@ -22,7 +22,10 @@ public class DestroyableObject : PoolBehaviour
     public OnDeath onDeath;
 
     [Header("Attachement Components:")]
-    [SerializeField] protected Transform _pivot; public Transform pivot { get => _pivot; }
+
+    [Tooltip("¬ эту точку будут целитьс€ все стрелки.")]
+    [SerializeField] protected Transform _pivot;
+    public Transform pivot { get => _pivot; }
     [SerializeField] protected GameObject[] _deathDeactiveObjects;
 
     [Header("Characteristics:")]
@@ -64,7 +67,7 @@ public class DestroyableObject : PoolBehaviour
 
 
 
-
+    
 
 
     protected virtual void Awake()
@@ -103,10 +106,16 @@ public class DestroyableObject : PoolBehaviour
     }
 
 
+    public void Destroy() => Destroy(gameObject);
+
+
     protected virtual void OnDrawGizmosSelected() 
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube((Vector2)transform.position + _bulletCollider.offset, _bulletCollider.size);
     }
+
+
+
 
 }

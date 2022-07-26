@@ -7,6 +7,6 @@ public class OneTarget_Bullet : Bullet
     protected override void Collide(DestroyableObject collidedObject)
     {
         base.Collide(collidedObject);
-        collidedObject.health -= damage;
+        if (collidedObject != null) collidedObject.health -= damage;
     }
 }

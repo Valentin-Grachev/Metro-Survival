@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 826238789787307130}
   - component: {fileID: 826238789787307129}
   m_Layer: 6
-  m_Name: Position6 (Frame) (1)
+  m_Name: Position6 (Frame)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,6 +205,71 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1351072625974405768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7578389901590208817}
+  - component: {fileID: 1383222387872117381}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7578389901590208817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351072625974405768}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.679, y: 0.368, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3234418882661217055}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383222387872117381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351072625974405768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pivot: {fileID: 0}
+  _deathDeactiveObjects: []
+  _team: 0
+  _maxHealth: 100
+  _bulletCollider:
+    size: {x: 0, y: 0}
+    offset: {x: 0, y: 0}
+  _startAnimation: 0
+  _trolleyCanvas: {fileID: 7832622029968231204}
+  _spawnPosition: {fileID: 3234418882012519571}
+  _bottomModulePosition: {fileID: 0}
+  _middleModulePosition: {fileID: 6186517218618171656}
+  _topModulePosition: {fileID: 0}
+  _heroPositions:
+  - {fileID: 3234418883531920780}
+  - {fileID: 3234418882525186320}
+  - {fileID: 3234418882545139088}
+  - {fileID: 3234418882575904666}
+  - {fileID: 6186517217366351221}
+  - {fileID: 6186517217072386767}
+  - {fileID: 826238788933047912}
 --- !u!1 &3234418882012519570
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,8 +563,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3234418882661217055}
   - component: {fileID: 3234418882661217054}
-  - component: {fileID: 3234418882661217053}
-  - component: {fileID: 3234418882661217052}
   m_Layer: 6
   m_Name: Trolley8
   m_TagString: Allies
@@ -529,6 +592,7 @@ Transform:
   - {fileID: 6186517218618171656}
   - {fileID: 3234418882012519571}
   - {fileID: 7832622029968231205}
+  - {fileID: 7578389901590208817}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -584,61 +648,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3234418882661217053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3234418882661216992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6d04ac22911ea4ab006ff12b575db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localCanvas: {fileID: 0}
-  _bulletCollider: {fileID: 0}
-  _team: 0
-  _maxHealth: 100
-  _trolleyCanvas: {fileID: 7832622029968231204}
-  _spawnPosition: {fileID: 3234418882012519571}
-  _bottomModulePosition: {fileID: 0}
-  _middleModulePosition: {fileID: 6186517218618171656}
-  _topModulePosition: {fileID: 0}
-  _heroPositions:
-  - {fileID: 3234418883531920780}
-  - {fileID: 3234418882525186320}
-  - {fileID: 3234418882545139088}
-  - {fileID: 3234418882575904666}
-  - {fileID: 6186517217366351221}
-  - {fileID: 6186517217072386767}
-  - {fileID: 826238788933047912}
---- !u!61 &3234418882661217052
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3234418882661216992}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.43, y: 0.54084647}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.39730403, y: 0.06748466}
-    oldSize: {x: 8.75, y: 6.52}
-    newSize: {x: 6.26, y: 3.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83527565, y: 3.047962}
-  m_EdgeRadius: 0
 --- !u!1 &3234418883531920783
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,370 @@
+
+uzi_man.png
+size: 1762,284
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+uzi_man/armL
+  rotate: false
+  xy: 1711, 83
+  size: 43, 28
+  orig: 43, 28
+  offset: 0, 0
+  index: -1
+uzi_man/armR
+  rotate: true
+  xy: 1712, 146
+  size: 21, 48
+  orig: 21, 48
+  offset: 0, 0
+  index: -1
+uzi_man/ass
+  rotate: false
+  xy: 1596, 2
+  size: 21, 18
+  orig: 21, 18
+  offset: 0, 0
+  index: -1
+uzi_man/backpack
+  rotate: true
+  xy: 1652, 124
+  size: 53, 58
+  orig: 53, 58
+  offset: 0, 0
+  index: -1
+uzi_man/body
+  rotate: false
+  xy: 1587, 63
+  size: 50, 62
+  orig: 50, 62
+  offset: 0, 0
+  index: -1
+uzi_man/bullet
+  rotate: false
+  xy: 1632, 32
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0000
+  rotate: false
+  xy: 1639, 83
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0002
+  rotate: false
+  xy: 1639, 83
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0004
+  rotate: false
+  xy: 1639, 83
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0001
+  rotate: false
+  xy: 1675, 83
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0003
+  rotate: true
+  xy: 1639, 47
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0005
+  rotate: true
+  xy: 1639, 47
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0006
+  rotate: true
+  xy: 1680, 47
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0008
+  rotate: true
+  xy: 1680, 47
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0007
+  rotate: true
+  xy: 1721, 47
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/fire/fire_0009
+  rotate: false
+  xy: 1596, 22
+  size: 34, 39
+  orig: 34, 39
+  offset: 0, 0
+  index: -1
+uzi_man/gun2
+  rotate: true
+  xy: 1717, 169
+  size: 60, 43
+  orig: 60, 43
+  offset: 0, 0
+  index: -1
+uzi_man/gunL
+  rotate: false
+  xy: 1655, 179
+  size: 60, 50
+  orig: 60, 50
+  offset: 0, 0
+  index: -1
+uzi_man/gunR
+  rotate: false
+  xy: 1590, 233
+  size: 65, 49
+  orig: 65, 49
+  offset: 0, 0
+  index: -1
+uzi_man/handL
+  rotate: true
+  xy: 1688, 33
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
+uzi_man/handR
+  rotate: false
+  xy: 1619, 5
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+uzi_man/head
+  rotate: false
+  xy: 1522, 215
+  size: 66, 67
+  orig: 66, 67
+  offset: 0, 0
+  index: -1
+uzi_man/hood
+  rotate: false
+  xy: 1522, 145
+  size: 63, 68
+  orig: 63, 68
+  offset: 0, 0
+  index: -1
+uzi_man/legL
+  rotate: false
+  xy: 1722, 235
+  size: 33, 47
+  orig: 33, 47
+  offset: 0, 0
+  index: -1
+uzi_man/legR
+  rotate: true
+  xy: 1712, 113
+  size: 31, 47
+  orig: 31, 47
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0000
+  rotate: false
+  xy: 2, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0001
+  rotate: false
+  xy: 154, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0002
+  rotate: false
+  xy: 154, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0003
+  rotate: false
+  xy: 306, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0004
+  rotate: false
+  xy: 306, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0005
+  rotate: false
+  xy: 458, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0006
+  rotate: false
+  xy: 458, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0007
+  rotate: false
+  xy: 610, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0008
+  rotate: false
+  xy: 610, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0009
+  rotate: false
+  xy: 762, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0010
+  rotate: false
+  xy: 762, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0011
+  rotate: false
+  xy: 914, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0012
+  rotate: false
+  xy: 914, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0013
+  rotate: false
+  xy: 1066, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0014
+  rotate: false
+  xy: 1066, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0015
+  rotate: false
+  xy: 1218, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0016
+  rotate: false
+  xy: 1218, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0017
+  rotate: false
+  xy: 1370, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0018
+  rotate: false
+  xy: 1370, 2
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/light_fx2/light_fx2_0019
+  rotate: false
+  xy: 2, 143
+  size: 150, 139
+  orig: 150, 139
+  offset: 0, 0
+  index: -1
+uzi_man/magazine
+  rotate: true
+  xy: 1660, 34
+  size: 11, 26
+  orig: 11, 26
+  offset: 0, 0
+  index: -1
+uzi_man/shadow
+  rotate: false
+  xy: 1522, 8
+  size: 72, 29
+  orig: 72, 29
+  offset: 0, 0
+  index: -1
+uzi_man/sparks/sparks_0000
+  rotate: false
+  xy: 1522, 39
+  size: 63, 51
+  orig: 63, 51
+  offset: 0, 0
+  index: -1
+uzi_man/sparks/sparks_0001
+  rotate: false
+  xy: 1657, 231
+  size: 63, 51
+  orig: 63, 51
+  offset: 0, 0
+  index: -1
+uzi_man/sparks/sparks_0002
+  rotate: false
+  xy: 1590, 180
+  size: 63, 51
+  orig: 63, 51
+  offset: 0, 0
+  index: -1
+uzi_man/sparks/sparks_0003
+  rotate: false
+  xy: 1587, 127
+  size: 63, 51
+  orig: 63, 51
+  offset: 0, 0
+  index: -1
+uzi_man/sparks/sparks_0004
+  rotate: false
+  xy: 1522, 92
+  size: 63, 51
+  orig: 63, 51
+  offset: 0, 0
+  index: -1

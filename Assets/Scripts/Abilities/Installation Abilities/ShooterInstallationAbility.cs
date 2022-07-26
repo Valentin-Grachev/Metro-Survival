@@ -33,6 +33,7 @@ public abstract class ShooterInstallationAbility : MonoBehaviour
     {
         _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
         _installation.enabled = false;
+        timeUntilRecharge = _rechargeTime;
     }
 
     // Переход в обычный режим атаки (обычно в конце анимации)

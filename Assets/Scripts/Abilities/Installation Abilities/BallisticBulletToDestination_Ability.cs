@@ -6,6 +6,8 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     [SerializeField] protected GameObject _bullet;
     [SerializeField] protected float _elevationAngle;
     [SerializeField] protected Transform _shotPoint;
+
+    [Tooltip("Будет ли изменяться направление оружия во время работы анимации способности")]
     [SerializeField] protected bool _rotateDirection;
     
 
@@ -24,6 +26,7 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
         bullet.rigidbody = bullet.gameObject.GetComponent<Rigidbody2D>();
         bullet.damage = _damage;
         bullet.damageArea = _damageArea;
+        bullet.teamForCollide = Team.Enemy;
 
         
 

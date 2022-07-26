@@ -6,7 +6,6 @@ public abstract class ShooterInstallation : Installation
     [SerializeField] protected Transform _shotPoint; public Transform shotPoint { get => _shotPoint;}
     protected Pool _bulletPool;
     public PoolObject bullet { get => _bulletPool.prefab; set => _bulletPool.prefab = value; }
-    [SerializeField] protected Vector2 _detectionArea; public Vector2 detectionArea { get => _detectionArea; }
 
     [SerializeField] protected float _attackSpeed;
     public float attackSpeed
@@ -20,7 +19,7 @@ public abstract class ShooterInstallation : Installation
     }
     [Min(0f)][SerializeField] protected float _shootingDeviation;
 
-    public DestroyableObject target;
+    [HideInInspector] public DestroyableObject target;
     protected bool targetIsAlive { get { return target != null && !target.isDeath; } } 
     protected Vector2 arrivalPoint
     { 
@@ -32,7 +31,7 @@ public abstract class ShooterInstallation : Installation
             if (targetIsAlive)
             {
                 predictionPosition = target.pivot.position;
-                if (target is Minion) predictionPosition.x += ((Minion)target).velocityX * Constants.prediction;
+                //if (target is Minion) predictionPosition.x += ((Minion)target).velocityX * Constants.prediction;
 
             }
 
@@ -67,15 +66,16 @@ public abstract class ShooterInstallation : Installation
         {
             directionBone.direction = ((Vector2)target.pivot.position - directionBone.bonePosition).normalized;
             spineAnimation.SetAnimation(AnimationType.Attack);
-            _lastTargetPosition = target.transform.position;
+            _lastTargetPosition = target.pivot.position;
         }
         // Не жива, но есть в зоне атаки еще цели - выбираем новую
-        else if (Library.TryFindNearestInsideArea(transform.position, _detectionArea, Team.Enemy, out DestroyableObject found))
+        else if (Library.TryFindNearestUntilLine(transform.position,
+            BulletLimiter.instance.transform.position.x + BulletLimiter.instance.detectionLine, Team.Enemy, out DestroyableObject found))
         {
             target = found;
             directionBone.direction = ((Vector2)target.pivot.position - directionBone.bonePosition).normalized;
             spineAnimation.SetAnimation(AnimationType.Attack);
-            _lastTargetPosition = target.transform.position;
+            _lastTargetPosition = target.pivot.position;
         }
         // Никого нет - прекращение атаки
         else
@@ -95,10 +95,6 @@ public abstract class ShooterInstallation : Installation
 
     protected void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, _detectionArea);
-
-
         // Отрисовка отклонения пуль
         Gizmos.color = Color.magenta;
         Vector2 deviationUp = Quaternion.Euler(0f, 0f, _shootingDeviation * 0.5f) * Vector2.right;
