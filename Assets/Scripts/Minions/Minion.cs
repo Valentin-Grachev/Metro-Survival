@@ -90,7 +90,7 @@ public abstract class Minion : DestroyableObject
 
         // Запуск анимаций
         if (attackedTargetIsAlive) spineAnimation.SetAnimation(AnimationType.Attack);
-        else if (destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Move);
+        else if (destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Move); 
         else spineAnimation.SetAnimation(AnimationType.Idle);
 
 

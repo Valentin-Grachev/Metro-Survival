@@ -11,19 +11,20 @@ public abstract class Bullet : MonoCache
     protected SpineAnimation _spineAnimation;
     protected bool _isActive;
     protected Vector2 _velocity;
+    protected Vector2 _startSize;
     public Vector2 velocity { get => _velocity; set { _velocity = value; transform.right = velocity.normalized; } }
 
     protected virtual void Start()
     {
         _spineAnimation = GetComponent<SpineAnimation>();
-        //_spineAnimation.SetAnimation(AnimationType.Idle);
+        _startSize = transform.localScale;
     }
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
-        //if (_spineAnimation != null) _spineAnimation.SetAnimation(AnimationType.Idle);
         _isActive = true;
+        if (_startSize != Vector2.zero) transform.localScale = _startSize;
     }
 
     protected override void Run()
@@ -42,7 +43,7 @@ public abstract class Bullet : MonoCache
     protected virtual void Collide(DestroyableObject collidedObject)
     {
         _isActive = false;
-        _spineAnimation.SetAnimation(AnimationType.Death, true);
+        _spineAnimation.SetAnimation(AnimationType.Death);
         transform.localScale = new Vector3(_deathSize.x, _deathSize.y, transform.localScale.z);
     }
 

@@ -20,4 +20,8 @@ public static class Constants
     public const string savePassword = "NuclearUnderground";
 
 
+    // Случайное отклонение спавна союзников по оси Y
+    public const float randomizationPosition = 1f;
+
+
 }

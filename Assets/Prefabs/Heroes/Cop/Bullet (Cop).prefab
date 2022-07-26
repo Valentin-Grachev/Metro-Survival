@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamForCollide: 0
+  _deathSize: {x: 2, y: 2}
   damage: 1
 --- !u!96 &4704602732884864671
 TrailRenderer:

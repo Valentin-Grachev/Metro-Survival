@@ -207,8 +207,8 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: 
-  loop: 0
+  _animationName: idle
+  loop: 1
   timeScale: 1
 --- !u!114 &4116948133969906163
 MonoBehaviour:
@@ -685,9 +685,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4396900927600597256}
-  m_LocalRotation: {x: 0, y: 0, z: 0.006632185, w: 0.999978}
-  m_LocalPosition: {x: 0.20239998, y: -1.6532209e-10, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.006632203, w: 0.999978}
+  m_LocalPosition: {x: 0.2024, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2947903771659431534}
@@ -739,9 +739,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5907285568825697736}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70196664, w: 0.7122099}
-  m_LocalPosition: {x: 0.014700007, y: 0.1151, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8074754, w: 0.5899013}
+  m_LocalPosition: {x: 0.0147, y: 0.1705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6498415986415411376}
@@ -846,9 +846,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9169615225975868356}
-  m_LocalRotation: {x: 0, y: 0, z: 0.69722766, w: 0.7168498}
+  m_LocalRotation: {x: 0, y: 0, z: 0.69722766, w: 0.71684974}
   m_LocalPosition: {x: -0.040799998, y: 0.081499994, z: 0}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7251342675946140166}

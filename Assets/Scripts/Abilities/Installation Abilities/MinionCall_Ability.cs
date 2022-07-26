@@ -4,6 +4,8 @@ public class MinionCall_Ability : ShooterInstallationAbility
 {
     [SerializeField] protected GameObject _minion;
 
+    
+
 
     public override void Enable()
     {
@@ -17,7 +19,9 @@ public class MinionCall_Ability : ShooterInstallationAbility
 
     public override void Active()
     {
-        Instantiate(_minion, Trolley.instance.transform.position, Quaternion.identity);
+        Vector3 instPosition = Trolley.instance.spawnPosition.position;
+        instPosition += new Vector3(0f, Random.Range(-Constants.randomizationPosition, Constants.randomizationPosition), 0f);
+        Instantiate(_minion, instPosition, Quaternion.identity);
     }
 
 

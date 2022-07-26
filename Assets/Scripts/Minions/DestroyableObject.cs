@@ -82,7 +82,7 @@ public class DestroyableObject : PoolBehaviour
         isDeath = false;
         health = maxHealth;
         for (int i = 0; i < _deathDeactiveObjects.Length; i++) _deathDeactiveObjects[i].SetActive(true);
-        spineAnimation?.SetAnimation(_startAnimation, true);
+        spineAnimation?.SetAnimation(_startAnimation);
 
         if (team == Team.Enemy) AllMinions.instance.enemies.Add(this);
         else if (team == Team.Ally) AllMinions.instance.allies.Add(this);
@@ -93,7 +93,7 @@ public class DestroyableObject : PoolBehaviour
     {
         isDeath = true;
         onDeath?.Invoke();
-        spineAnimation.SetAnimation(AnimationType.Death, true);
+        spineAnimation.SetAnimation(AnimationType.Death);
         if (team == Team.Enemy) AllMinions.instance.enemies.Remove(this);
         else if (team == Team.Ally) AllMinions.instance.allies.Remove(this);
         for (int i = 0; i < _deathDeactiveObjects.Length; i++) _deathDeactiveObjects[i].SetActive(false);

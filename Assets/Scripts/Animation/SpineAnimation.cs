@@ -29,7 +29,9 @@ public class SpineAnimation : MonoCache
             _moveSpeed = value;
 
             // Меняем скорость анимации только если текущая - движение
-            if (_currentAnimation == AnimationType.Move) skeletonAnimation.state.GetCurrent(0).TimeScale = value;
+            if (skeletonAnimation.state != null &&
+                skeletonAnimation.state.GetCurrent(0).Animation == _move.Animation)
+                skeletonAnimation.state.GetCurrent(0).TimeScale = value;
         }
     }
     [SerializeField] private float _attackSpeed = 1f;
@@ -41,7 +43,9 @@ public class SpineAnimation : MonoCache
             _attackSpeed = value;
 
             // Меняем скорость анимации только если текущая - атака
-            if (_currentAnimation == AnimationType.Attack) skeletonAnimation.state.GetCurrent(0).TimeScale = value;
+            if (skeletonAnimation.state.GetCurrent(0) != null &&
+                skeletonAnimation.state.GetCurrent(0).Animation == _attack.Animation)
+                skeletonAnimation.state.GetCurrent(0).TimeScale = value;
         }
     }
 
@@ -68,21 +72,15 @@ public class SpineAnimation : MonoCache
     [SerializeField] private UnityEvent _attackUpdate;
     [SerializeField] private UnityEvent _attackExit;
 
-
-
-
-
     public SkeletonAnimation skeletonAnimation { get; private set; }
-    private AnimationType _currentAnimation; public AnimationType currentAnimation { get => _currentAnimation; }
-    private AnimationType _privilegeAnimation;
+
+    private bool _canSetLoopAnimation;
 
 
     private void Awake()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
-        _privilegeAnimation = AnimationType.None;
-
-
+        _canSetLoopAnimation = true;
     }
 
     private void Start()
@@ -94,27 +92,19 @@ public class SpineAnimation : MonoCache
 
     private void State_End(Spine.TrackEntry trackEntry)
     {
-        
         if (_move != null && trackEntry.Animation == _move.Animation) _moveExit.Invoke();
         else if (_attack != null && trackEntry.Animation == _attack.Animation) _attackExit.Invoke();
-
-        
     }
 
     private void State_Complete(Spine.TrackEntry trackEntry)
     {
+        // Нециклическая анимация закончилась - можно ставить циклические
+        if (!trackEntry.Loop) _canSetLoopAnimation = true;
 
-        // События
-
-        // Для не пуль нужно вызывать по enum
-        // Для пуль нужно проверять на наличие анимации смерти (Это костыль, но по-другому неработает)
-        if ((_currentAnimation == AnimationType.Death && !TryGetComponent(out Bullet bullet)) ||
-            (_death != null && trackEntry.Animation == _death.Animation && TryGetComponent(out Bullet bullet1))) _deathComplete.Invoke();
+        
+        if (_death != null && trackEntry.Animation == _death.Animation) _deathComplete.Invoke();
         else if (_ability_active != null && trackEntry.Animation == _ability_active.Animation) _abilityComplete.Invoke();
 
-
-        // Сброс привилегий
-        if (_currentAnimation == _privilegeAnimation) _privilegeAnimation = AnimationType.None;
     }
 
     private void State_Event(Spine.TrackEntry trackEntry, Spine.Event e)
@@ -123,37 +113,43 @@ public class SpineAnimation : MonoCache
         else if (e.Data.Name == "ability") _abilityEvent.Invoke();
     }
 
-    // Установка анимации, привилегированные анимации могут быть прерваны только другими привилегированными
     private void SetAnimation(AnimationReferenceAsset anim, float timeScale, bool loop)
     {
-        if (anim == null) return;
-        if (TryGetComponent(out Installation inst)) print(gameObject.name + ": " + anim.ToString());
-        Spine.TrackEntry currentTrack = skeletonAnimation.state?.GetCurrent(0);
-        // Установка новой анимации только в том случае, если она другая
-        if (currentTrack == null || currentTrack.Animation != anim.Animation) 
-            skeletonAnimation.state.SetAnimation(0, anim, loop).TimeScale = timeScale;
+        Spine.TrackEntry currentTrack = skeletonAnimation.state.GetCurrent(0);
 
-        // Но если разная скорость у одних и тех же анимаций - обновляем скорость
-        else if (currentTrack.TimeScale != timeScale) currentTrack.TimeScale = timeScale;
+        // Это нециклическая анимация - устанавливаем прерывая любую другую
+        if (!loop)
+        {
+            skeletonAnimation.state.SetAnimation(0, anim, loop).TimeScale = timeScale;
+            _canSetLoopAnimation = false;
+
+        }
+
+        // Установка новой анимации только в том случае, если она другая
+        // Циклические анимации не могут прервать нециклические
+        else if (currentTrack.Animation != anim.Animation && _canSetLoopAnimation)
+        {
+            skeletonAnimation.state.SetAnimation(0, anim, loop).TimeScale = timeScale;
+        }
+            
+
     }
 
     protected override void Run()
     {
+        Spine.TrackEntry currentTrack = skeletonAnimation.state.GetCurrent(0);
+        if (currentTrack == null) return;
+
         base.Run();
-        if (_currentAnimation == AnimationType.Move) _moveUpdate.Invoke();
-        else if (_currentAnimation == AnimationType.Attack) _attackUpdate.Invoke();
+        if (_move != null && currentTrack.Animation == _move.Animation) _moveUpdate.Invoke();
+        else if (_attack != null && currentTrack.Animation == _attack.Animation) _attackUpdate.Invoke();
     }
 
 
 
 
-    public void SetAnimation(AnimationType animationType, bool privilege = false)
+    public void SetAnimation(AnimationType animationType)
     {
-        if (animationType == AnimationType.None || _privilegeAnimation != AnimationType.None
-            || (animationType == _currentAnimation && !privilege)) return;
-
-        if (privilege) _privilegeAnimation = animationType;
-
         switch (animationType)
         {
             case AnimationType.Start: SetAnimation(_start, startSpeed, false); break;
@@ -165,7 +161,6 @@ public class SpineAnimation : MonoCache
             case AnimationType.Ability_deactive: SetAnimation(_ability_deactive, ability_deactiveSpeed, false); break;
             case AnimationType.None: break;
         }
-        if (animationType != AnimationType.None) _currentAnimation = animationType;
 
 
     }
