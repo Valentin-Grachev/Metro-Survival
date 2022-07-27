@@ -22,7 +22,7 @@ public class Shotgun_ShooterInstallation : ShooterInstallation
             bulletDirection = Quaternion.Euler(0f, 0f, Random.Range(-_shootingDeviation * 0.5f, _shootingDeviation * 0.5f)) * bulletDirection;
             instBullet.velocity = bulletDirection * _linearSpeed;
 
-            instBullet.teamForCollide = Team.Ally;
+            instBullet.teamForCollide = Team.Enemy;
             instBullet.damage = damage;
         }
         

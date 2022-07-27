@@ -13,7 +13,15 @@ public class TempDestroybleObject : DestroyableObject
         base.Run();
         timeUntilDestroy -= Time.deltaTime;
         onUpdateTimeUntilDestroy.Invoke(timeUntilDestroy, maxTimeUntilDestroy);
-        if (timeUntilDestroy < 0) Death();
+        if (timeUntilDestroy < 0 && !isDeath) Death();
+    }
+
+
+    protected override void Death()
+    {
+        base.Death();
+        GetComponent<Collider2D>().enabled = false;
+        NavMeshRebaker.instance.Rebake();
     }
 
 

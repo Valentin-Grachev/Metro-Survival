@@ -208,13 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _start: {fileID: 11400000, guid: ce488c1dee5b1d04f8d46218e1fec30e, type: 2}
-  _idle: {fileID: 11400000, guid: 63c890b830588a84a8068413daf197e4, type: 2}
-  _move: {fileID: 11400000, guid: 57dbe184ac3534e4496e3247ed4ce174, type: 2}
-  _attack: {fileID: 11400000, guid: 2806026b058c3884db4ca47ac7d6c76c, type: 2}
+  _start: {fileID: 11400000, guid: 625a97aadb8b277419060e1f6e5e0b64, type: 2}
+  _idle: {fileID: 11400000, guid: ba036936b45f172438ed78d9d5b0546a, type: 2}
+  _move: {fileID: 11400000, guid: ac2245b23917c85459f6944653adbfd5, type: 2}
+  _attack: {fileID: 11400000, guid: abcf50bee3b6481499287277df58cc88, type: 2}
   _ability_active: {fileID: 0}
   _ability_deactive: {fileID: 0}
-  _death: {fileID: 11400000, guid: 06883a69e6547a547b7d8b103977ba66, type: 2}
+  _death: {fileID: 11400000, guid: 9d4d948e5f222ae4cab3144880e05f6e, type: 2}
   startSpeed: 1
   idleSpeed: 1
   _moveSpeed: 1

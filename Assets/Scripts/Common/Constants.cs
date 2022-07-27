@@ -23,5 +23,7 @@ public static class Constants
     // Случайное отклонение спавна союзников по оси Y
     public const float randomizationPosition = 1f;
 
+    // Коэффициент индивидуализации - граница максимального отклонения при рандомизации скорости бега и атаки
+    public const float individualization = 0.1f;
 
 }

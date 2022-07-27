@@ -1,5 +1,3 @@
-using Spine.Unity;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -68,8 +66,8 @@ public abstract class Minion : DestroyableObject
     protected override void FromPool()
     {
         base.FromPool();
-        moveSpeed = moveSpeed;
-        attackSpeed = attackSpeed;
+        moveSpeed = Random.Range(moveSpeed - moveSpeed*Constants.individualization, moveSpeed + moveSpeed * Constants.individualization);
+        attackSpeed = Random.Range(attackSpeed - attackSpeed * Constants.individualization, attackSpeed + attackSpeed * Constants.individualization);
         attackedTarget = null;
         if (team == Team.Enemy) destination = Trolley.instance;
         else destination = null;
@@ -106,7 +104,7 @@ public abstract class Minion : DestroyableObject
         }
 
         // Если атакуемый объект - цель, на которую не нужно отвлекаться и если она находится сзади - обнуляем цель
-        else if (attackedTarget.CompareTag("NoBackDistract") && transform.position.x < attackedTarget.transform.position.x)
+        if (attackedTargetIsAlive && attackedTarget.CompareTag("NoBackDistract") && transform.position.x < attackedTarget.transform.position.x)
             attackedTarget = null;
 
     }

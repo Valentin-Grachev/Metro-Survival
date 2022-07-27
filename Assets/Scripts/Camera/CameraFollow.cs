@@ -19,12 +19,12 @@ public class CameraFollow : MonoCache
 
     private bool _lerping;
     private Vector2 _lerpPosition;
+    private Vector2 _currentVelocity;
     
     private bool _scaling;
     private float _cameraScale;
 
     private Camera _camera;
-    private float _normalCameraSize;
     private float _distanceBetweenLeftBorderAndCameraPivot;
 
     
@@ -32,7 +32,7 @@ public class CameraFollow : MonoCache
 
 
     private const float scalingSpeed = 4f;
-    private const float lerpingSpeed = 3f;
+    private const float lerpingSpeed = 0.3f;
 
     
     
@@ -45,7 +45,6 @@ public class CameraFollow : MonoCache
         _lerping = false;
         _scaling = false;
         _camera = Camera.main;
-        _normalCameraSize = _camera.orthographicSize;
         _distanceBetweenLeftBorderAndCameraPivot = 
             Mathf.Abs
             (
@@ -97,11 +96,9 @@ public class CameraFollow : MonoCache
 
         if (_lerping)
         {
-            Vector3 resultVector = _camera.transform.position;
-            resultVector.x = Mathf.Lerp(resultVector.x, _lerpPosition.x, lerpingSpeed * Time.deltaTime);
-            resultVector.y = Mathf.Lerp(resultVector.y, _lerpPosition.y, lerpingSpeed * Time.deltaTime);
-            resultVector.z = _camera.transform.position.z;
-            _camera.transform.position = resultVector;
+            Vector2 resultVector = _camera.transform.position;
+            resultVector = Vector2.SmoothDamp(resultVector, _lerpPosition, ref _currentVelocity, lerpingSpeed);
+            _camera.transform.position = new Vector3(resultVector.x, resultVector.y, _camera.transform.position.z);
         }
 
 

@@ -27,14 +27,19 @@ public abstract class Bullet : MonoCache
         if (_startSize != Vector2.zero) transform.localScale = _startSize;
     }
 
+
+
+
     protected override void Run()
     {
         base.Run();
         if (!_isActive) return;
 
+
         transform.Translate(velocity * Time.deltaTime, Space.World);
         if (Library.IsCollided(transform.position, teamForCollide, out DestroyableObject collided) && this is not PhysicalBullet)
             Collide(collided);
+
 
         if (BulletLimiter.instance.ObjectIsInsideArea(transform.position) == false) Collide(null);
 

@@ -217,7 +217,7 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 2
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testing: 0
   _start: {fileID: 0}
   _idle: {fileID: 11400000, guid: 4593281994e48f8428d68de1501155d1, type: 2}
   _move: {fileID: 0}
@@ -320,6 +321,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _abilityComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _startAbility:
     m_PersistentCalls:
       m_Calls: []
   _moveUpdate:

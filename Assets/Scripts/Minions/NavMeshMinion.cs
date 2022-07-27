@@ -31,17 +31,16 @@ public abstract class NavMeshMinion : Minion
         base.Run();
         if (isDeath) return;
 
-        // Если точка назначения погибла - ищем новую цель
-        if (!destinationIsAlive)
-        {
-            Team detectionTeam;
-            if (team == Team.Ally) detectionTeam = Team.Enemy;
-            else detectionTeam = Team.Ally;
+        // Всегда ищем ближайшую цель
+        
+        Team detectionTeam;
+        if (team == Team.Ally) detectionTeam = Team.Enemy;
+        else detectionTeam = Team.Ally;
 
-            if (Library.TryFindNearestInsideArea(transform.position, _detectionArea, detectionTeam, out DestroyableObject found))
-                destination = found;
+        if (Library.TryFindNearestInsideArea(transform.position, _detectionArea, detectionTeam, out DestroyableObject found))
+            destination = found;
 
-        }
+        
 
         if (!destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Idle);
 

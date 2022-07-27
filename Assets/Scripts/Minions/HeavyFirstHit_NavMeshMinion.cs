@@ -37,7 +37,7 @@ public class HeavyFirstHit_NavMeshMinion : OneMeleeTarget_NavMeshMinion
 
     public void HeavyFirstHit()
     {
-        if (Library.TryFindInsideAreaAll(_damageAreaOffset, _damageAreaSize, enemyTeam, out List<DestroyableObject> founded))
+        if (Library.TryFindInsideAreaAll((Vector2)transform.position + _damageAreaOffset, _damageAreaSize, enemyTeam, out List<DestroyableObject> founded))
             for (int i = 0; i < founded.Count; i++)
                 founded[i].health -= _damageFirstHit;
 

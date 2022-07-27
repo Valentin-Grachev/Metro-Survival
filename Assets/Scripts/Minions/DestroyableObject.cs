@@ -97,6 +97,7 @@ public class DestroyableObject : PoolBehaviour
         if (team == Team.Enemy) AllMinions.instance.enemies.Remove(this);
         else if (team == Team.Ally) AllMinions.instance.allies.Remove(this);
         for (int i = 0; i < _deathDeactiveObjects.Length; i++) _deathDeactiveObjects[i].SetActive(false);
+        if (team == Team.Ally) Destroy(gameObject, 0.7f);
     }
 
     protected virtual void OnDestroy()

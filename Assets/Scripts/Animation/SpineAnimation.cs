@@ -8,6 +8,8 @@ public enum AnimationType { Start, Idle, Move, Attack, Ability_active, Death, Ab
 
 public class SpineAnimation : MonoCache
 {
+    [Header("Develop:")] [SerializeField] bool testing = false;
+
     [Header("Animations:")]
     [SerializeField] private AnimationReferenceAsset _start;
     [SerializeField] private AnimationReferenceAsset _idle;
@@ -62,6 +64,7 @@ public class SpineAnimation : MonoCache
     [SerializeField] private UnityEvent _abilityEvent;
     [SerializeField] private UnityEvent _deathComplete;
     [SerializeField] private UnityEvent _abilityComplete;
+    [SerializeField] private UnityEvent _startAbility;
 
     
 
@@ -75,12 +78,14 @@ public class SpineAnimation : MonoCache
     public SkeletonAnimation skeletonAnimation { get; private set; }
 
     private bool _canSetLoopAnimation;
+    private bool _interruptedStartAbility;
 
 
     private void Awake()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         _canSetLoopAnimation = true;
+        _interruptedStartAbility = false;
     }
 
     private void Start()
@@ -88,7 +93,25 @@ public class SpineAnimation : MonoCache
         skeletonAnimation.state.Event += State_Event;
         skeletonAnimation.state.Complete += State_Complete;
         skeletonAnimation.state.End += State_End;
+        skeletonAnimation.state.Interrupt += State_Interrupt;
     }
+
+    private void State_Interrupt(Spine.TrackEntry trackEntry)
+    {
+        if (_ability_active != null && trackEntry.Animation == _ability_active.Animation)
+        {
+            if (!_interruptedStartAbility) _startAbility.Invoke();
+            _interruptedStartAbility = !_interruptedStartAbility;
+
+        }
+    }
+
+
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+    }
+
 
     private void State_End(Spine.TrackEntry trackEntry)
     {
@@ -116,7 +139,6 @@ public class SpineAnimation : MonoCache
     private void SetAnimation(AnimationReferenceAsset anim, float timeScale, bool loop)
     {
         Spine.TrackEntry currentTrack = skeletonAnimation.state.GetCurrent(0);
-
         // Это нециклическая анимация - устанавливаем прерывая любую другую
         if (!loop)
         {
