@@ -13,7 +13,7 @@ public class Shotgun_ShooterInstallation : ShooterInstallation
         // Создание нескольких пуль
         for (int i = 0; i < _bulletQuantity; i++)
         {
-            OneTarget_Bullet instBullet = _bulletPool.GetElement
+            OneTarget_Bullet instBullet = bulletPool.GetElement
             (_shotPoint.position, Quaternion.identity).gameObject.GetComponent<OneTarget_Bullet>();
 
 

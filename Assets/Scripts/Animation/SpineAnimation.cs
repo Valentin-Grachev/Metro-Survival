@@ -132,7 +132,12 @@ public class SpineAnimation : MonoCache
 
     private void State_Event(Spine.TrackEntry trackEntry, Spine.Event e)
     {
-        if (e.Data.Name == "shoot") _shootEvent.Invoke();
+        if (e.Data.Name == "shoot")
+        {
+            if (testing) print("shoot Event");
+            _shootEvent.Invoke();
+        }
+        
         else if (e.Data.Name == "ability") _abilityEvent.Invoke();
     }
 

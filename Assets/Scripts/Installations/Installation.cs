@@ -18,7 +18,11 @@ public abstract class Installation : MonoCache
         MenuFunctions.instance.onStartBattle += OnStartBattle;
     }
 
-    private void OnStartBattle() => _localCanvas.SetActive(true);
+    private void OnStartBattle()
+    {
+        if (_localCanvas != null) _localCanvas.SetActive(true);
+    }
+    
 
 
     protected virtual void OnDestroy()

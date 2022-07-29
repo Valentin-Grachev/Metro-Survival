@@ -4,10 +4,12 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
 {
     [Header("Common Parameters:")]
     [SerializeField] protected GameObject _bullet;
+
+    [Tooltip("На сколько градусов поднять угол выстрела относительно прямой, соединяющей стрелка и цель.")]
     [SerializeField] protected float _elevationAngle;
     [SerializeField] protected Transform _shotPoint;
 
-    [Tooltip("Будет ли изменяться направление оружия во время работы анимации способности")]
+    [Tooltip("Будет ли изменяться направление оружия во время работы анимации способности.")]
     [SerializeField] protected bool _rotateDirection;
     
 
@@ -23,7 +25,6 @@ public class BallisticBulletToDestination_Ability : ControlledAbility
     public override void Active()
     {
         Explosive_PhysicalBullet bullet = Instantiate(_bullet, _shotPoint.position, Quaternion.identity).GetComponent<Explosive_PhysicalBullet>();
-        bullet.rigidbody = bullet.gameObject.GetComponent<Rigidbody2D>();
         bullet.damage = _damage;
         bullet.damageArea = _damageArea;
         bullet.teamForCollide = Team.Enemy;

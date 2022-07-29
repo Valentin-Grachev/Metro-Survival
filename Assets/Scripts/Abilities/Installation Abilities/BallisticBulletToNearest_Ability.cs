@@ -5,7 +5,7 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
     protected DestroyableObject _nearestTarget;
     protected Vector2 _lastNearestPosition;
 
-    protected const float prediction = 1f;
+    
 
 
     public override void Active()
@@ -19,11 +19,11 @@ public class BallisticBulletToNearest_Ability : BallisticBulletToDestination_Abi
             Vector2 nearestPosition = new Vector2(_nearestTarget.transform.position.x, AbilityDestination.instance.aimPosition.y);
 
             // —трел€ем оптимально - за первого ближнего так, чтобы его задело и задних накрыло
-            destination = nearestPosition + new Vector2(velocityX*prediction, 0f) + new Vector2(_damageArea.x * 0.7f, 0f);
+            destination = nearestPosition + new Vector2(velocityX*Constants.prediction, 0f) + new Vector2(_damageArea.x * Constants.backOffset, 0f);
         }
         else
         {
-            destination = _lastNearestPosition + new Vector2(_damageArea.x * 0.7f, 0f);
+            destination = _lastNearestPosition + new Vector2(_damageArea.x * Constants.backOffset, 0f);
         }
         
         

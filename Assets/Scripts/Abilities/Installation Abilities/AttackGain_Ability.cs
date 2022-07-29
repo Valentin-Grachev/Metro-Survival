@@ -3,21 +3,20 @@ using UnityEngine;
 
 public class AttackGain_Ability : ShooterInstallationAbility
 {
-    [SerializeField] protected PoolObject _bullet;
+    [SerializeField] protected Pool _bulletPool;
     [SerializeField] protected float _duration;
     [SerializeField] protected float _damageGainPercentage;
     [SerializeField] protected float _speedAttackGainPercentage;
 
     protected float _speedBonus;
     protected int _damageBonus;
-    protected PoolObject _usualBullet;
+    protected Pool _usualBulletPool;
 
     public override void Enable()
     {
-        _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
-        timeUntilRecharge = _rechargeTime;
-        Active();
-        StartCoroutine(DisableWithDelay());
+        base.Enable();
+        _installation.enabled = true;
+        
     }
 
 
@@ -31,17 +30,19 @@ public class AttackGain_Ability : ShooterInstallationAbility
         _speedBonus = _installation.attackSpeed * gainCoeff;
         _installation.attackSpeed += _speedBonus;
 
-        _usualBullet = _installation.bullet;
-        _installation.bullet = _bullet;
+        _usualBulletPool = _installation.bulletPool;
+        _installation.bulletPool = _bulletPool;
+
+        StartCoroutine(DisableWithDelay());
 
     }
 
     public override void Disable()
     {
+        base.Disable();
         _installation.attackSpeed -= _speedBonus;
         _installation.damage -= _damageBonus;
-        //_installation.animator.SetTrigger("DisableAbility");
-        _installation.bullet = _usualBullet;
+        _installation.bulletPool = _usualBulletPool;
 
     }
 

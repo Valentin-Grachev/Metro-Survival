@@ -3,11 +3,14 @@ using UnityEngine;
 public abstract class ShooterInstallationAbility : MonoBehaviour
 {
     public delegate void OnUpdateRechargeTime(float time, float maxTime);
+    public delegate void OnEnabling();
     public event OnUpdateRechargeTime onUpdateRechargeTime;
+    public event OnEnabling onEnable;
+    public event OnEnabling onDisable;
 
     [SerializeField] protected float _rechargeTime;
-    
 
+    protected bool recharging;
 
 
     protected ShooterInstallation _installation;
@@ -19,11 +22,12 @@ public abstract class ShooterInstallationAbility : MonoBehaviour
     {
         _installation = GetComponent<ShooterInstallation>();
         timeUntilRecharge = 0f;
+        recharging = true;
     }
 
     protected virtual void Update()
     {
-        timeUntilRecharge -= Time.deltaTime;
+        if (recharging) timeUntilRecharge -= Time.deltaTime;
     }
 
 
@@ -34,12 +38,16 @@ public abstract class ShooterInstallationAbility : MonoBehaviour
         _installation.spineAnimation.SetAnimation(AnimationType.Ability_active);
         _installation.enabled = false;
         timeUntilRecharge = _rechargeTime;
+        recharging = false;
+        onEnable?.Invoke();
     }
 
     // Переход в обычный режим атаки (обычно в конце анимации)
     public virtual void Disable()
     {
         _installation.enabled = true;
+        recharging = true;
+        onDisable?.Invoke();
     }
 
     // Функция, активируемая событием в анимации (или через нажатие кнопки)

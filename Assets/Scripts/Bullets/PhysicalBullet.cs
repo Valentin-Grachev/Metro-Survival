@@ -5,8 +5,12 @@ public class PhysicalBullet : Bullet
     [HideInInspector] public Rigidbody2D rigidbody;
 
 
-    protected override void FixedRun() { } // Пуля использует физику а не поиск - фиксированное сканирование не нужно
-
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+        if (rigidbody == null) rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody.isKinematic = false;
+    }
 
     protected override void Run()
     {

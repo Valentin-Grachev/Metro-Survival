@@ -118,10 +118,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localCanvas: {fileID: 4217501465635440184}
   _shotPoint: {fileID: 6498415986415411376}
+  bulletPool: {fileID: 0}
   _attackSpeed: 1
   _shootingDeviation: 6
   target: {fileID: 0}
-  damage: 5
+  damage: 7
   _linearSpeed: 40
 --- !u!114 &4033507007682455512
 MonoBehaviour:
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62be08ae20ab984ea77f81eca041a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3341268982619562907, guid: 7a077bf4b3fe7ea4a8687e66213f6a57, type: 3}
+  _prefab: {fileID: 3341268982619562907, guid: 7a077bf4b3fe7ea4a8687e66213f6a57, type: 3}
   _startCapacity: 7
 --- !u!114 &7213722245259153201
 MonoBehaviour:
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testing: 0
   _start: {fileID: 0}
   _idle: {fileID: 11400000, guid: ccbf584bccad8014486a60dd6581f6f9, type: 2}
   _move: {fileID: 0}
@@ -284,6 +286,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _startAbility:
+    m_PersistentCalls:
+      m_Calls: []
   _moveUpdate:
     m_PersistentCalls:
       m_Calls: []

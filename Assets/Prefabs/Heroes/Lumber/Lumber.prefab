@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62be08ae20ab984ea77f81eca041a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7694920430521485653, guid: ad2c35785b458d847ab07bfe3ec2f1eb, type: 3}
-  _startCapacity: 7
+  _prefab: {fileID: 7694920430521485653, guid: ad2c35785b458d847ab07bfe3ec2f1eb, type: 3}
+  _startCapacity: 4
 --- !u!114 &892181593408648641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localCanvas: {fileID: 2490253704663625669}
   _shotPoint: {fileID: 8189123872175877377}
+  bulletPool: {fileID: 0}
   _attackSpeed: 1
   _shootingDeviation: 5.5
   target: {fileID: 0}

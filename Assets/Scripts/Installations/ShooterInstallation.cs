@@ -4,8 +4,7 @@ public abstract class ShooterInstallation : Installation
 {
     public DirectionBone directionBone { get; protected set; }
     [SerializeField] protected Transform _shotPoint; public Transform shotPoint { get => _shotPoint;}
-    protected Pool _bulletPool;
-    public PoolObject bullet { get => _bulletPool.prefab; set => _bulletPool.prefab = value; }
+    [HideInInspector] public Pool bulletPool;
 
     [SerializeField] protected float _attackSpeed;
     public float attackSpeed
@@ -54,7 +53,7 @@ public abstract class ShooterInstallation : Installation
         base.Start();
         attackSpeed = attackSpeed;
         directionBone = GetComponent<DirectionBone>();
-        _bulletPool = GetComponent<Pool>();
+        bulletPool = GetComponent<Pool>();
     }
 
     protected override void Run()
@@ -93,7 +92,7 @@ public abstract class ShooterInstallation : Installation
 
 
 
-    protected void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         // Отрисовка отклонения пуль
         Gizmos.color = Color.magenta;

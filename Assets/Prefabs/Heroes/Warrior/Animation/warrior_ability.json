@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "A5gTj+ZzW4pUe7y4P30dLOeNSK8",
+	"hash": "RoWRNNZCFVl78SsUd/s2WxmD+Sk",
 	"spine": "3.8.99",
 	"x": -61.54,
 	"y": -26.69,
@@ -53,6 +53,9 @@
 		}
 	}
 ],
+"events": {
+	"shoot": {}
+},
 "animations": {
 	"attack": {
 		"slots": {
@@ -111,7 +114,10 @@
 					{ "time": 0.5, "name": null }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 0.5333, "name": "shoot" }
+		]
 	},
 	"idle": {
 		"slots": {

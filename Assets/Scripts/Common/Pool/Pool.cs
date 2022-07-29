@@ -5,7 +5,7 @@ using UnityEngine;
 // Авторасширяемый пул объектов
 public class Pool : MonoBehaviour
 {
-    public PoolObject prefab;
+    [SerializeField] private PoolObject _prefab;
     [SerializeField] private int _startCapacity;
 
     private List<PoolObject> _pool;
@@ -25,7 +25,7 @@ public class Pool : MonoBehaviour
 
     private PoolObject CreateElement(bool isActive = false)
     {
-        PoolObject createdObject = Instantiate(prefab, PoolContainer.container.transform);
+        PoolObject createdObject = Instantiate(_prefab, PoolContainer.container.transform);
         createdObject.gameObject.SetActive(isActive);
         _pool.Add(createdObject);
         return createdObject;

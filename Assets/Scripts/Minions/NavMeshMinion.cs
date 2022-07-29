@@ -42,7 +42,7 @@ public abstract class NavMeshMinion : Minion
 
         
 
-        if (!destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Idle);
+        //if (!destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Idle);
 
 
     }
@@ -66,16 +66,14 @@ public abstract class NavMeshMinion : Minion
         // Поворот в сторону атаки
         Vector2 moveDirection = agent.velocity;
 
-        if (moveDirection.x < -Constants.reversEpsilon && spineAnimation.skeletonAnimation.initialFlipX)
+        if (moveDirection.x < 0 && transform.localScale.x > 0f)
         {
-            spineAnimation.skeletonAnimation.initialFlipX = true;
-            spineAnimation.skeletonAnimation.Initialize(true);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
-        if (moveDirection.x >= Constants.reversEpsilon && spineAnimation.skeletonAnimation.initialFlipX)
+        else if (moveDirection.x > 0 && transform.localScale.x < 0f)
         {
-            spineAnimation.skeletonAnimation.initialFlipX = false;
-            spineAnimation.skeletonAnimation.Initialize(true);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
         // Обновление места назначения

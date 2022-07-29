@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "bjYTAfKOMgoaeWwDAxFIJbptlK8",
+	"hash": "rHE2sf1GDz+68j4VQfliz3jEBX0",
 	"spine": "3.8.99",
 	"x": -47.11,
 	"y": -14.5,
@@ -336,6 +336,7 @@
 	}
 ],
 "events": {
+	"ability": {},
 	"shoot": {}
 },
 "animations": {
@@ -541,7 +542,10 @@
 				{ "rotateMix": 0, "translateMix": 0, "scaleMix": 0, "shearMix": 0, "curve": "stepped" },
 				{ "time": 1.3333, "rotateMix": 0, "translateMix": 0, "scaleMix": 0, "shearMix": 0 }
 			]
-		}
+		},
+		"events": [
+			{ "time": 0.6667, "name": "ability" }
+		]
 	},
 	"attack": {
 		"slots": {

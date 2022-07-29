@@ -123,16 +123,14 @@ public abstract class Minion : DestroyableObject
         if (!attackedTargetIsAlive) return;
 
         Vector2 moveDirection = (attackedTarget.transform.position - transform.position).normalized;
-        if (moveDirection.x < 0 && !spineAnimation.skeletonAnimation.initialFlipX)
+        if (moveDirection.x < 0 && transform.localScale.x > 0f)
         {
-            spineAnimation.skeletonAnimation.initialFlipX = true;
-            spineAnimation.skeletonAnimation.Initialize(true);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
-        else if (moveDirection.x >= 0 && spineAnimation.skeletonAnimation.initialFlipX)
+        else if (moveDirection.x > 0 && transform.localScale.x < 0f)
         {
-            spineAnimation.skeletonAnimation.initialFlipX = false;
-            spineAnimation.skeletonAnimation.Initialize(true);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
     }

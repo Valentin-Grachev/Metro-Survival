@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "z3iA1VE4jHirsg3Mp+pvhuVak0c",
+	"hash": "T81BnMFi1B2ar6+gqFCRkOOxMl8",
 	"spine": "3.8.99",
 	"x": -47.88,
 	"y": -13,
@@ -387,6 +387,7 @@
 	}
 ],
 "events": {
+	"ability": {},
 	"shoot": {}
 },
 "animations": {
@@ -649,7 +650,7 @@
 			{ "time": 0.9333 }
 		],
 		"events": [
-			{ "time": 0.5667, "name": "shoot" }
+			{ "time": 0.5667, "name": "ability" }
 		]
 	},
 	"attack": {

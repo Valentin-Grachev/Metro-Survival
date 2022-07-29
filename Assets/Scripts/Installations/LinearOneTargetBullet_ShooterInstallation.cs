@@ -12,7 +12,7 @@ public class LinearOneTargetBullet_ShooterInstallation : ShooterInstallation
     public override void Shoot()
     {
 
-        OneTarget_Bullet instBullet = _bulletPool.GetElement
+        OneTarget_Bullet instBullet = bulletPool.GetElement
            (_shotPoint.position, Quaternion.identity).gameObject.GetComponent<OneTarget_Bullet>();
 
         // Задаем направление пули с учетом возможных отклонений от прямой траектории

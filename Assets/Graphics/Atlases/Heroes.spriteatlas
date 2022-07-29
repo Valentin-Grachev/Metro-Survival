@@ -25,7 +25,7 @@ SpriteAtlas:
       m_BuildTarget: Android
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 50
+      m_TextureFormat: 49
       m_TextureCompression: 1
       m_CompressionQuality: 50
       m_CrunchedCompression: 0
@@ -52,13 +52,19 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 80c6ee59ae3dc964f8d6d01ccffb1fef, type: 3}
     - {fileID: 2800000, guid: e31ee1ab65440ee4bb1be77c4cb3c1bb, type: 3}
     - {fileID: 2800000, guid: 66f935f87ec1e3d43b80144d2e49bc35, type: 3}
+    - {fileID: 2800000, guid: 33d23ba3c338e794eb01cc35ba2cfb31, type: 3}
+    - {fileID: 2800000, guid: 81af1b3874772404db6543a45f5cb009, type: 3}
+    - {fileID: 2800000, guid: bfd1e384dd5433646b2db0342226f3bd, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 33d23ba3c338e794eb01cc35ba2cfb31, type: 3}
   - {fileID: 21300000, guid: a20684d3d11409249a70bdeddd137311, type: 3}
+  - {fileID: 21300000, guid: bfd1e384dd5433646b2db0342226f3bd, type: 3}
   - {fileID: 21300000, guid: dd60a6968d5cedb4eae843cc07b3ae88, type: 3}
+  - {fileID: 21300000, guid: 81af1b3874772404db6543a45f5cb009, type: 3}
   - {fileID: 21300000, guid: 9eec9f48469680849a69c2ebc7780794, type: 3}
   - {fileID: 21300000, guid: 66f935f87ec1e3d43b80144d2e49bc35, type: 3}
   - {fileID: 21300000, guid: 80c6ee59ae3dc964f8d6d01ccffb1fef, type: 3}
@@ -66,8 +72,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e31ee1ab65440ee4bb1be77c4cb3c1bb, type: 3}
   - {fileID: 21300000, guid: bae2c18d644f97144a4175c9efa3c8a8, type: 3}
   m_PackedSpriteNamesToIndex:
+  - uzi_man
   - builder
+  - war_male
   - lumber
+  - warrior
   - cop_melee
   - simple_male
   - raider

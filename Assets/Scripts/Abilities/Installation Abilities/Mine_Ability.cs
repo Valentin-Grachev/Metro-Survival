@@ -5,9 +5,8 @@ public class Mine_Ability : ControlledAbility
     [Header("Common Parameters:")]
     [SerializeField] protected GameObject _mine;
     [SerializeField] protected int _damage;
-    [SerializeField] protected float _activationRadius;
-    [SerializeField] protected float _damageRadius;
-    [SerializeField] protected LayerMask _damageLayer;
+    [SerializeField] protected Vector2 _activationAreaSize;
+    [SerializeField] protected Vector2 _damageAreaSize;
 
 
     public override void Active()
@@ -16,24 +15,21 @@ public class Mine_Ability : ControlledAbility
         Mine mine = Instantiate(_mine, destination + (Vector2)_mine.transform.position, Quaternion.identity).GetComponent<Mine>();
 
         mine.damage = _damage;
-        mine.activationRadius = _activationRadius;
-        mine.damageRadius = _damageRadius;
-        mine.damageLayer = _damageLayer;
+        mine.activationAreaSize = _activationAreaSize;
+        mine.damageAreaSize = _damageAreaSize;
+        mine.damagableTeam = Team.Enemy;
 
 
-
-        NavMeshRebaker.instance.Rebake();
     }
 
-    public override void Enable() => Active();
 
     protected override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(-2f, 2f, 0f), _damageRadius);
+        Gizmos.DrawWireCube(transform.position, _damageAreaSize);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(-2f, 2f, 0f), _activationRadius);
+        Gizmos.DrawWireCube(transform.position, _activationAreaSize);
     }
 
 
