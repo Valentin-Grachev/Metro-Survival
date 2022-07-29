@@ -18,20 +18,15 @@ public class Trolley : DestroyableObject
     [Header("Trolley:")]
     [SerializeField] protected GameObject _trolleyCanvas;
     [SerializeField] protected Transform _spawnPosition; public Transform spawnPosition { get => _spawnPosition; }
-    [SerializeField] protected Transform _bottomModulePosition; public Transform bottomModulePosition { get => _bottomModulePosition; }
-    [SerializeField] protected Transform _middleModulePosition; public Transform middleModulePosition { get => _middleModulePosition; }
-    [SerializeField] protected Transform _topModulePosition; public Transform topModulePosition { get => _topModulePosition; }
+    [SerializeField] protected int _moduleSlotQuantity; public int moduleslotQuantity { get => _moduleSlotQuantity; }
     [SerializeField] protected List<Transform> _heroPositions;
     public List<Transform> heroPositions { get => _heroPositions; }
 
-
-    protected Collider2D _collider;
 
 
     protected override void Start()
     {
         base.Start();
-        _collider = GetComponent<Collider2D>();
         _trolleyCanvas.SetActive(enanleUI);
     }
 

@@ -58,6 +58,8 @@ public class Mine : MonoBehaviour
                 list[i].health -= damage;
             }
         }
+
+        CameraControl.instance.ShakeDown();
     }
 
 

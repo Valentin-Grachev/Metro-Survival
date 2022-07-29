@@ -55,6 +55,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 33d23ba3c338e794eb01cc35ba2cfb31, type: 3}
     - {fileID: 2800000, guid: 81af1b3874772404db6543a45f5cb009, type: 3}
     - {fileID: 2800000, guid: bfd1e384dd5433646b2db0342226f3bd, type: 3}
+    - {fileID: 2800000, guid: 4e1dc3cb81c6bdf47ac3a79198f9563f, type: 3}
+    - {fileID: 2800000, guid: 06bd219938ebc6041abb166164777768, type: 3}
+    - {fileID: 2800000, guid: 5703a03cc0498e04eb179182149fc0b6, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -68,8 +71,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9eec9f48469680849a69c2ebc7780794, type: 3}
   - {fileID: 21300000, guid: 66f935f87ec1e3d43b80144d2e49bc35, type: 3}
   - {fileID: 21300000, guid: 80c6ee59ae3dc964f8d6d01ccffb1fef, type: 3}
+  - {fileID: 21300000, guid: 06bd219938ebc6041abb166164777768, type: 3}
   - {fileID: 21300000, guid: 2171aa4a7484f5144adb59a4b4507b0a, type: 3}
   - {fileID: 21300000, guid: e31ee1ab65440ee4bb1be77c4cb3c1bb, type: 3}
+  - {fileID: 21300000, guid: 4e1dc3cb81c6bdf47ac3a79198f9563f, type: 3}
+  - {fileID: 21300000, guid: 5703a03cc0498e04eb179182149fc0b6, type: 3}
   - {fileID: 21300000, guid: bae2c18d644f97144a4175c9efa3c8a8, type: 3}
   m_PackedSpriteNamesToIndex:
   - uzi_man
@@ -80,8 +86,11 @@ SpriteAtlas:
   - cop_melee
   - simple_male
   - raider
+  - tank_gun
   - cop
   - simple_female
+  - armor
+  - minigun
   - lumber_melee
   m_RenderDataMap: {}
   m_Tag: Heroes

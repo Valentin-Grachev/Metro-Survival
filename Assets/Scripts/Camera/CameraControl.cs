@@ -1,4 +1,5 @@
 using NTC.Global.Cache;
+using System.Collections;
 using UnityEngine;
 
 public class CameraControl : MonoCache
@@ -16,11 +17,13 @@ public class CameraControl : MonoCache
     [SerializeField] private Transform _menuPosition;
     [SerializeField] private Transform _trolleyPosition;
     [SerializeField] private Transform _campPosition;
+    private Vector2 _battlePosition;
 
-    private bool _lerping;
+    private bool _moving;
     private Vector2 _lerpPosition;
-    private Vector2 _currentVelocity;
+    private Vector2 _currentMovingVelocity;
     
+
     private bool _scaling;
     private float _cameraScale;
 
@@ -28,21 +31,21 @@ public class CameraControl : MonoCache
     private float _distanceBetweenLeftBorderAndCameraPivot;
 
     
-    
 
 
-    private const float scalingSpeed = 4f;
-    private const float lerpingSpeed = 0.3f;
+    private const float scalingSpeed = 3f;
+    private const float movingSlow = 0.3f;
+    private const float shakingSlow = 0.08f;
 
-    
-    
+    private float _movingSlowCoeff;
+
 
 
     private void Awake() => instance = this;
 
     private void Start()
     {
-        _lerping = false;
+        _moving = false;
         _scaling = false;
         _camera = Camera.main;
         _distanceBetweenLeftBorderAndCameraPivot = 
@@ -54,31 +57,48 @@ public class CameraControl : MonoCache
     }
 
 
+    public void ShakeDown() => StartCoroutine(Shake());
 
-    public void ToMenu() => SmoothMove(_menuPosition.position, _scaleMenu);
 
-    public void ToTrolley() => SmoothMove(_trolleyPosition.position, _scaleTrolley);
+    private IEnumerator Shake()
+    {
+        SmoothMove(_battlePosition - new Vector2(0f, 0.15f), _camera.orthographicSize, shakingSlow);
+        yield return new WaitForSeconds(0.15f);
+        SmoothMove(_battlePosition + new Vector2(0f, 0.1f), _camera.orthographicSize, shakingSlow);
+        yield return new WaitForSeconds(0.2f);
+        SmoothMove(_battlePosition, _camera.orthographicSize, shakingSlow);
+    }
 
-    public void ToCamp() => SmoothMove(_campPosition.position, _scaleCamp);
+
+
+
+    public void ToMenu() => SmoothMove(_menuPosition.position, _scaleMenu, movingSlow);
+
+    public void ToTrolley() => SmoothMove(_trolleyPosition.position, _scaleTrolley, movingSlow);
+
+    public void ToCamp() => SmoothMove(_campPosition.position, _scaleCamp, movingSlow);
 
     public void ToBattle()
     {
         Vector2 resultPosition = _leftCameraBorderPositionInBattle.position;
         resultPosition.x += _distanceBetweenLeftBorderAndCameraPivot;
-        SmoothMove(resultPosition, _scaleBattle);
+        SmoothMove(resultPosition, _scaleBattle, movingSlow);
+        _battlePosition = resultPosition;
 
     }
 
 
 
 
-    private void SmoothMove(Vector2 newPosition, float newScale)
+    private void SmoothMove(Vector2 newPosition, float newScale, float movingSlowCoeff)
     {
         _cameraScale = newScale;
         _scaling = true;
 
         _lerpPosition = newPosition;
-        _lerping = true;
+        _moving = true;
+
+        _movingSlowCoeff = movingSlowCoeff;
     }
 
 
@@ -89,17 +109,19 @@ public class CameraControl : MonoCache
 
         if (_scaling)
         {
-            _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, _cameraScale, scalingSpeed * Time.deltaTime);
+
+            _camera.orthographicSize = Mathf.MoveTowards(_camera.orthographicSize, _cameraScale, scalingSpeed * Time.deltaTime);
             if (_camera.orthographicSize == _cameraScale) _scaling = false;
         }
 
 
-        if (_lerping)
+        if (_moving)
         {
             Vector2 resultVector = _camera.transform.position;
-            resultVector = Vector2.SmoothDamp(resultVector, _lerpPosition, ref _currentVelocity, lerpingSpeed);
+            resultVector = Vector2.SmoothDamp(resultVector, _lerpPosition, ref _currentMovingVelocity, _movingSlowCoeff);
             _camera.transform.position = new Vector3(resultVector.x, resultVector.y, _camera.transform.position.z);
         }
+
 
 
 

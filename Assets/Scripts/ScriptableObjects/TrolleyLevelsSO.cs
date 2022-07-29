@@ -28,17 +28,16 @@ public class TrolleyLevelsSO : ScriptableObject
 
     public int GetModuleQuantity(int level)
     {
-        int result = 0;
         int viewNumber = GetViewNumber(level);
         Trolley trolley = _viewChanges[viewNumber].prefab.GetComponentInChildren<Trolley>();
-        if (trolley.middleModulePosition != null) result++;
-        if (trolley.topModulePosition != null) result++;
-        if (trolley.bottomModulePosition != null) result++;
-        return result;
+        return trolley.moduleslotQuantity;
     }
 
-    public int GetHeroQuantity(int level) =>
-        _viewChanges[GetViewNumber(level)].prefab.GetComponentInChildren<Trolley>().heroPositions.Count;
+    public int GetHeroQuantity(int level)
+    {
+        Trolley trolley = _viewChanges[GetViewNumber(level)].prefab.GetComponentInChildren<Trolley>();
+        return trolley.heroPositions.Count;
+    }
 
     
 

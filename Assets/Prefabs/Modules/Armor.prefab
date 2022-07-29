@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3994382668211527800}
   - component: {fileID: 3994382668211527803}
+  - component: {fileID: 1315063518663008723}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1315063518663008723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994382668211527802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ff441f3cd0b7e4481b8b1d6b4e69c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusHealthPercentage: 20

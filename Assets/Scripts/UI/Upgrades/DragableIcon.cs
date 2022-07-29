@@ -42,15 +42,18 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         for (int i = 0; i < _offRaycastImages.Count; i++) _offRaycastImages[i].raycastTarget = true;
 
 
-        // Создаем новый префаб на заданном месте, если в него попали
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         
-
+        // Попали в рамку
         Collider2D collider = Physics2D.OverlapCircle(mousePosition, 0.01f, 1 << LayerMask.NameToLayer("UI"));
         if (collider != null)
         {
+            
+            TrolleySlot trolleySlot = collider.transform.GetComponent<TrolleySlot>();
+
+            
             // Расширяем лист до нужного размера и сохраняем id
-            int number = collider.transform.GetComponent<TrolleySlot>().number;
+            int number = trolleySlot.number;
             while (PlayerProgress.instance.heroesId.Count <= number) PlayerProgress.instance.heroesId.Add("Empty");
             PlayerProgress.instance.heroesId[number] = _id;
 
@@ -60,6 +63,11 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
             // Создаем новый префаб
             Instantiate(IdSystem.instance.id[_id], collider.transform);
+            
+            
+
+
+
 
         }
     }
