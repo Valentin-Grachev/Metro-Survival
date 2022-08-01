@@ -145,8 +145,8 @@ public static class Library
         // Проход по всем созданным объектам и выбор того, кто находится внутри области
         for (int i = 0; i < list.Count; i++)
         {
-            if (area.x > Mathf.Abs(list[i].transform.position.x - center.x) 
-                && area.y > Mathf.Abs(list[i].transform.position.y - center.y) 
+            if (area.x/2 > Mathf.Abs(list[i].transform.position.x - center.x) 
+                && area.y / 2 > Mathf.Abs(list[i].transform.position.y - center.y) 
                 && Vector2.Distance(center, list[i].transform.position) < minDistance)
             {
                 foundObject = list[i];

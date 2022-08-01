@@ -122,11 +122,12 @@ MonoBehaviour:
     size: {x: 0.9, y: 1.6}
     offset: {x: 0, y: 0.7}
   _startAnimation: 0
+  _isRightSide: 1
   _moveSpeed: 2
   _normalizeMoveAnimationSpeed: 0.4
   _attackSpeed: 1.3
   damage: 45
-  _attackArea: {x: 0.8, y: 1.2}
+  _attackArea: {x: 2.2, y: 1.2}
   _detectionArea: {x: 40, y: 6}
 --- !u!114 &4842546263706850376
 MonoBehaviour:
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testing: 1
+  testing: 0
   _start: {fileID: 11400000, guid: c3090c034ddfdfd4da2c759fa038fdd7, type: 2}
   _idle: {fileID: 11400000, guid: 4b5e2fb0bf74f56469c4dfe34e421470, type: 2}
   _move: {fileID: 11400000, guid: 6bb4f40a33ef9394b919da7ee057bb5d, type: 2}
@@ -288,7 +289,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2248439607828636645}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 1000
   avoidancePriority: 50
@@ -297,10 +298,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 0.3
-  m_BaseOffset: 0.1
+  m_Height: 0.2
+  m_BaseOffset: 0.05
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 1
 --- !u!1 &8417563525719670559
 GameObject:
   m_ObjectHideFlags: 0

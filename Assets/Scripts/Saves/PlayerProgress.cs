@@ -1,7 +1,6 @@
 using CI.QuickSave;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class PlayerProgress : MonoBehaviour
 {

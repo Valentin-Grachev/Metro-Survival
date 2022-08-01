@@ -57,15 +57,18 @@ public class CameraControl : MonoCache
     }
 
 
-    public void ShakeDown() => StartCoroutine(Shake());
+    public void ShakeDown()
+    {
+        if (GameSettings.instance.cameraShakeEnabled) StartCoroutine(Shake());
+    }
 
 
     private IEnumerator Shake()
     {
-        SmoothMove(_battlePosition - new Vector2(0f, 0.15f), _camera.orthographicSize, shakingSlow);
+        SmoothMove(_battlePosition - new Vector2(0f, 0.1f), _camera.orthographicSize, shakingSlow);
         yield return new WaitForSeconds(0.15f);
-        SmoothMove(_battlePosition + new Vector2(0f, 0.1f), _camera.orthographicSize, shakingSlow);
-        yield return new WaitForSeconds(0.2f);
+        SmoothMove(_battlePosition + new Vector2(0f, 0.07f), _camera.orthographicSize, shakingSlow);
+        yield return new WaitForSeconds(0.15f);
         SmoothMove(_battlePosition, _camera.orthographicSize, shakingSlow);
     }
 
@@ -110,7 +113,7 @@ public class CameraControl : MonoCache
         if (_scaling)
         {
 
-            _camera.orthographicSize = Mathf.MoveTowards(_camera.orthographicSize, _cameraScale, scalingSpeed * Time.deltaTime);
+            _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, _cameraScale, scalingSpeed * Time.deltaTime);
             if (_camera.orthographicSize == _cameraScale) _scaling = false;
         }
 

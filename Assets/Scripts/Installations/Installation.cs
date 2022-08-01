@@ -15,7 +15,7 @@ public abstract class Installation : MonoCache
 
     protected virtual void Start()
     {
-        MenuFunctions.instance.onStartBattle += OnStartBattle;
+        GlobalFunctions.instance.onStartBattle += OnStartBattle;
     }
 
     private void OnStartBattle()
@@ -27,7 +27,7 @@ public abstract class Installation : MonoCache
 
     protected virtual void OnDestroy()
     {
-        MenuFunctions.instance.onStartBattle -= OnStartBattle;
+        GlobalFunctions.instance.onStartBattle -= OnStartBattle;
     }
 
 

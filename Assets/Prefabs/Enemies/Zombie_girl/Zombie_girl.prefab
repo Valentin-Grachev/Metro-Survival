@@ -369,11 +369,12 @@ MonoBehaviour:
     size: {x: 1, y: 1.6}
     offset: {x: -0.02, y: 0.7}
   _startAnimation: 7
+  _isRightSide: 0
   _moveSpeed: 1.1
   _normalizeMoveAnimationSpeed: 0.75
   _attackSpeed: 0.8
   damage: 3
-  _attackArea: {x: 0.8, y: 1.2}
+  _attackArea: {x: 2.2, y: 1.2}
 --- !u!114 &7817189625270087592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513535067d0e64a488f61f382e998d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testing: 0
   _start: {fileID: 0}
   _idle: {fileID: 11400000, guid: c6841dabf1c081d45916479ad3cd5618, type: 2}
   _move: {fileID: 11400000, guid: bab1845d7be84e542b769919c5b27742, type: 2}
@@ -485,6 +487,9 @@ MonoBehaviour:
   _abilityComplete:
     m_PersistentCalls:
       m_Calls: []
+  _startAbility:
+    m_PersistentCalls:
+      m_Calls: []
   _moveUpdate:
     m_PersistentCalls:
       m_Calls:
@@ -505,7 +510,19 @@ MonoBehaviour:
       m_Calls: []
   _attackUpdate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6756876281391744027}
+        m_TargetAssemblyTypeName: Minion, Assembly-CSharp
+        m_MethodName: LookAtAttackedTarget_UpdateState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _attackExit:
     m_PersistentCalls:
       m_Calls: []

@@ -10,21 +10,17 @@ public class Spawner : MonoBehaviour
 
     [Space(30)]
     [SerializeField] private Vector2 _randomPosition;
-    [HideInInspector] public float interval;
-    [HideInInspector] public int maxHealth;
+    public float interval;
+    public int maxHealth;
 
-    [SerializeField] protected SliderNotifier _healthSliderNotifier;
-    [SerializeField] protected SliderNotifier _intervalSliderNotifier;
 
     protected Pool[] _pools;
 
     private void Start()
     {
-        interval = _intervalSliderNotifier.slider.value;
-        maxHealth = (int)_healthSliderNotifier.slider.value;
+        //interval = 0.5f;
+        //maxHealth = 100;
         _pools = GetComponents<Pool>();
-        _healthSliderNotifier.onValueChanged += OnValueChanged_HealthSliderNotifier;
-        _intervalSliderNotifier.onValueChanged += OnValueChanged_IntervalSliderNotifier;
         StartCoroutine(Spawning());
 
     }
@@ -43,17 +39,15 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            if (EnemyLimit.instance.Value > enemyCounter.quantity)
-            {
-                Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
-                transform.position.y + Random.Range(-_randomPosition.y, _randomPosition.y), 0f);
+            
+            Vector3 position = new Vector3(transform.position.x + Random.Range(-_randomPosition.x, _randomPosition.x),
+            transform.position.y + Random.Range(-_randomPosition.y, _randomPosition.y), 0f);
 
-                int randomNumber = Random.Range(0, _pools.Length);
-                Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
-                minion.maxHealth = maxHealth;
-                minion.health = maxHealth;
-                enemyCounterCommon.OnCreate_Minion();
-            }
+            int randomNumber = Random.Range(0, _pools.Length);
+            Minion minion = _pools[randomNumber].GetElement(position, Quaternion.identity).gameObject.GetComponent<Minion>();
+            minion.maxHealth = maxHealth;
+            minion.health = maxHealth;
+            enemyCounterCommon.OnCreate_Minion();
 
             
 

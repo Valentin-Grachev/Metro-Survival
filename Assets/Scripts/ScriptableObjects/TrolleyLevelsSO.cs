@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(fileName = "TrolleyLevels", menuName = "Gameplay/TrolleyLevels")]
+[CreateAssetMenu(fileName = "TrolleyLevels", menuName = "ScriptableObjects/Upgrades/TrolleyLevels")]
 public class TrolleyLevelsSO : ScriptableObject
 {
 

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public abstract class Minion : DestroyableObject
 {
-
+    [Tooltip("В состоянии префаба данный персонаж смотрит в правую сторону?")]
+    [SerializeField] protected bool _isRightSide;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected float _normalizeMoveAnimationSpeed;
     public virtual float moveSpeed
@@ -39,6 +40,7 @@ public abstract class Minion : DestroyableObject
     }
 
     protected DestroyableObject _destination;
+    protected bool _currentIsRightSide;
     protected bool destinationIsAlive { get => destination != null && destination.isDeath == false; }
     public virtual DestroyableObject destination 
     { 
@@ -51,13 +53,13 @@ public abstract class Minion : DestroyableObject
 
 
 
+
     private float CalculateVelocityX(float oldPositionX, float newPositionX, float time)
     {
         if (oldPositionX == 0f) return 0f;
         else return (newPositionX - oldPositionX) / time;
 
     }
-    
 
 
 
@@ -66,6 +68,8 @@ public abstract class Minion : DestroyableObject
     protected override void FromPool()
     {
         base.FromPool();
+        _currentIsRightSide = _isRightSide;
+        transform.localScale = Vector3.one;
         moveSpeed = Random.Range(moveSpeed - moveSpeed*Constants.individualization, moveSpeed + moveSpeed * Constants.individualization);
         attackSpeed = Random.Range(attackSpeed - attackSpeed * Constants.individualization, attackSpeed + attackSpeed * Constants.individualization);
         attackedTarget = null;
@@ -122,15 +126,17 @@ public abstract class Minion : DestroyableObject
     {
         if (!attackedTargetIsAlive) return;
 
-        Vector2 moveDirection = (attackedTarget.transform.position - transform.position).normalized;
-        if (moveDirection.x < 0 && transform.localScale.x > 0f)
+        Vector2 lookDirection = (attackedTarget.transform.position - transform.position).normalized;
+        if (lookDirection.x < 0 && _currentIsRightSide)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _currentIsRightSide = false;
         }
 
-        else if (moveDirection.x > 0 && transform.localScale.x < 0f)
+        else if (lookDirection.x > 0 && !_currentIsRightSide)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _currentIsRightSide = true;
         }
 
     }

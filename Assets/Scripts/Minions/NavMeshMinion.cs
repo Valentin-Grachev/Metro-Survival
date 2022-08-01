@@ -40,10 +40,6 @@ public abstract class NavMeshMinion : Minion
         if (Library.TryFindNearestInsideArea(transform.position, _detectionArea, detectionTeam, out DestroyableObject found))
             destination = found;
 
-        
-
-        //if (!destinationIsAlive) spineAnimation.SetAnimation(AnimationType.Idle);
-
 
     }
 
@@ -66,14 +62,16 @@ public abstract class NavMeshMinion : Minion
         // Поворот в сторону атаки
         Vector2 moveDirection = agent.velocity;
 
-        if (moveDirection.x < 0 && transform.localScale.x > 0f)
+        if (moveDirection.x < 0 && _currentIsRightSide)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _currentIsRightSide = false;
         }
 
-        else if (moveDirection.x > 0 && transform.localScale.x < 0f)
+        else if (moveDirection.x > 0 && !_currentIsRightSide)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _currentIsRightSide = true;
         }
 
         // Обновление места назначения

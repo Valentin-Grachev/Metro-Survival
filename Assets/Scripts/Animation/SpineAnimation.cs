@@ -134,7 +134,6 @@ public class SpineAnimation : MonoCache
     {
         if (e.Data.Name == "shoot")
         {
-            if (testing) print("shoot Event");
             _shootEvent.Invoke();
         }
         
